@@ -3,207 +3,2386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James & Claudia - 21st November 2026</title>
-    
+
+    <title>James & Claudia | 20 November 2026</title>
+
+    <meta name="description"
+          content="Join James & Claudia as they celebrate their marriage on 20 November 2026 in Accra, Ghana.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
     <style>
-        /* ===== CSS VARIABLES ===== */
+
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+
         :root {
-            --ivory: #FAF7F2;
-            --ivory-deep: #F3EEE5;
-            --ink: #282440;
-            --ink-soft: #564C72;
-            --teal: #0E4F4F;
-            --teal-light: #3E7C7A;
-            --gold: #C9A227;
-            --gold-light: #E4C464;
-            --lavender: #A48FC7;
-            --lavender-pale: #EFE8F8;
+
+            --ivory: #fbf8f2;
+            --cream: #f4eee3;
+
+            --teal: #0d4d4b;
+            --teal-dark: #083936;
+            --teal-light: #3e7773;
+
+            --turquoise: #42a9a3;
+
+            --lavender: #aa96c9;
+            --lavender-light: #eee7f6;
+
+            --gold: #c8a64b;
+            --gold-light: #e5cd86;
+            --gold-dark: #9d7b28;
+
+            --ink: #292535;
+            --muted: #706879;
+
+            --white: #ffffff;
+
+            --shadow:
+                0 20px 60px rgba(32, 39, 48, 0.10);
+
+            --transition:
+                all 0.35s ease;
         }
 
-        /* ===== RESET & BASE ===== */
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--ivory);
             color: var(--ink);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* ===== MAIN CONTAINER ===== */
-        .invitation {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(40, 36, 64, 0.10);
-            text-align: center;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* ===== TYPOGRAPHY ===== */
-        .subtitle {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            letter-spacing: 4px;
-            color: var(--teal);
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-label {
+            color: var(--gold-dark);
             text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
             margin-bottom: 12px;
         }
 
-        .names {
-            font-family: 'Alex Brush', cursive;
-            font-size: 4.2rem;
-            color: var(--ink);
-            line-height: 1.1;
-            margin: 10px 0 8px 0;
-        }
-
-        .ampersand {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: var(--gold);
-            display: inline-block;
-            margin: 0 8px;
-        }
-
-        .date {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.7rem, 5vw, 4.5rem);
             font-weight: 500;
-            color: var(--ink-soft);
-            margin-top: 16px;
-            letter-spacing: 2px;
+            line-height: 1;
+            color: var(--teal-dark);
         }
 
-        .details {
-            font-family: 'Montserrat', sans-serif;
+        .section-description {
+            max-width: 680px;
+            margin: 20px auto 0;
+            color: var(--muted);
             font-weight: 300;
-            font-size: 1rem;
-            color: var(--ink-soft);
-            line-height: 1.8;
-            margin-top: 24px;
-            letter-spacing: 0.5px;
         }
 
-        .details strong {
-            font-weight: 600;
+        .center {
+            text-align: center;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            padding: 18px 0;
+
+            background: rgba(251, 248, 242, 0.92);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(200, 166, 75, 0.18);
+
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            width: min(1200px, 92%);
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2rem;
+            color: var(--teal-dark);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ink);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-dark);
+        }
+
+        .nav-rsvp {
+            padding: 10px 20px;
+            background: var(--teal);
+            color: white !important;
+            border-radius: 30px;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 1.8rem;
+            color: var(--teal);
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(170,150,201,0.20),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(66,169,163,0.18),
+                    transparent 35%
+                ),
+                var(--ivory);
+
+            padding-top: 100px;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+
+            border: 1px solid rgba(200,166,75,0.35);
+            border-radius: 50%;
+
+            opacity: 0.6;
+        }
+
+        .hero-decoration.one {
+            top: -120px;
+            left: -120px;
+        }
+
+        .hero-decoration.two {
+            bottom: -130px;
+            right: -130px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-small {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 0.75rem;
             color: var(--teal);
         }
 
-        /* ===== DIVIDER ===== */
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: var(--gold-light);
-            margin: 28px auto;
+        .hero-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(4.5rem, 12vw, 9rem);
+            line-height: 0.9;
+            color: var(--teal-dark);
+            margin: 20px 0;
         }
 
-        /* ===== RSVP BUTTON ===== */
-        .btn-rsvp {
-            display: inline-block;
+        .hero-title .amp {
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.5em;
+            vertical-align: middle;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--muted);
+        }
+
+        .hero-date {
+            margin-top: 30px;
+
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            letter-spacing: 5px;
+            color: var(--gold-dark);
+        }
+
+        .hero-location {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 14px 28px;
+
+            border-radius: 40px;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.72rem;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary {
             background: var(--teal);
             color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--teal-dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+
+        /* =========================================================
+           COUNTDOWN
+        ========================================================= */
+
+        .countdown-section {
+            background: var(--teal-dark);
+            color: white;
+            padding: 65px 0;
+        }
+
+        .countdown-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            min-width: 100px;
+        }
+
+        .time-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold-light);
+            line-height: 1;
+        }
+
+        .time-label {
             text-transform: uppercase;
-            padding: 14px 48px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: background 0.3s ease, transform 0.2s ease;
-            margin-top: 12px;
+            letter-spacing: 2px;
+            font-size: 0.65rem;
+            opacity: 0.75;
         }
 
-        .btn-rsvp:hover {
-            background: var(--teal-light);
-            transform: scale(1.02);
+
+        /* =========================================================
+           STORY
+        ========================================================= */
+
+        .story {
+            background: var(--white);
         }
 
-        /* ===== FOOTER ===== */
-        .footer-note {
-            font-family: 'Montserrat', sans-serif;
+        .story-grid {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .story-image {
+            min-height: 540px;
+
+            border-radius: 180px 180px 20px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(13,77,75,0.15),
+                    rgba(13,77,75,0.15)
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--lavender-light),
+                    var(--cream)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-image::after {
+            content: "James & Claudia";
+
+            font-family: 'Alex Brush', cursive;
+            font-size: 3rem;
+            color: rgba(13,77,75,0.35);
+        }
+
+        .story-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.7rem;
+            color: var(--teal-dark);
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            color: var(--muted);
+            margin-bottom: 18px;
             font-weight: 300;
-            font-size: 0.8rem;
-            color: var(--ink-soft);
-            margin-top: 40px;
-            letter-spacing: 1px;
-            opacity: 0.7;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 600px) {
-            .invitation {
-                padding: 40px 24px;
+        .story-highlight {
+            border-left: 2px solid var(--gold);
+            padding-left: 22px;
+            margin-top: 30px;
+
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--teal);
+        }
+
+
+        /* =========================================================
+           EVENT
+        ========================================================= */
+
+        .events {
+            background: var(--cream);
+        }
+
+        .event-grid {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .event-card {
+            background: white;
+            padding: 50px 35px;
+            text-align: center;
+
+            border: 1px solid rgba(200,166,75,0.25);
+
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .event-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-light);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.7rem;
+        }
+
+        .event-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--teal-dark);
+        }
+
+        .event-time {
+            color: var(--gold-dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .event-location {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .map-link {
+            display: inline-block;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           MENU
+        ========================================================= */
+
+        .menu-section {
+            background: var(--white);
+        }
+
+        .menu-grid {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            padding: 35px 28px;
+
+            background: var(--ivory);
+
+            border-top: 3px solid var(--gold);
+        }
+
+        .menu-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--teal-dark);
+            margin-bottom: 18px;
+        }
+
+        .menu-card ul {
+            list-style: none;
+        }
+
+        .menu-card li {
+            padding: 7px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-bottom: 1px dashed rgba(13,77,75,0.12);
+        }
+
+
+        /* =========================================================
+           RSVP
+        ========================================================= */
+
+        .rsvp-section {
+            background:
+                linear-gradient(
+                    rgba(13,77,75,0.97),
+                    rgba(8,57,54,0.97)
+                );
+            color: white;
+        }
+
+        .rsvp-section .section-label {
+            color: var(--gold-light);
+        }
+
+        .rsvp-section .section-title {
+            color: white;
+        }
+
+        .rsvp-box {
+            max-width: 850px;
+            margin: 50px auto 0;
+
+            background: white;
+            color: var(--ink);
+
+            padding: 45px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--teal-dark);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 1px solid #ddd;
+            background: var(--ivory);
+
+            outline: none;
+
+            transition: var(--transition);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .notice {
+            background: var(--lavender-light);
+            border-left: 3px solid var(--lavender);
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            font-size: 0.82rem;
+            color: var(--muted);
+
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+
+        /* =========================================================
+           GIFT
+        ========================================================= */
+
+        .gift-section {
+            background: var(--lavender-light);
+        }
+
+        .gift-box {
+            max-width: 700px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .gift-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .gift-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            color: var(--teal-dark);
+        }
+
+        .gift-box p {
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+
+        /* =========================================================
+           MUSIC
+        ========================================================= */
+
+        .music-section {
+            background: var(--cream);
+        }
+
+        .music-box {
+            max-width: 700px;
+            margin: 40px auto 0;
+
+            background: white;
+            padding: 40px;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 320px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--lavender-light),
+                    var(--cream)
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .gallery-item.large {
+            grid-row: span 2;
+            height: 655px;
+        }
+
+        .gallery-placeholder {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2rem;
+            color: rgba(13,77,75,0.35);
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq {
+            background: var(--cream);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            cursor: pointer;
+
+            font-weight: 600;
+            color: var(--teal-dark);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: var(--teal-dark);
+            color: white;
+
+            text-align: center;
+
+            padding: 70px 20px;
+        }
+
+        .footer-names {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4rem;
+            color: var(--gold-light);
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .footer-heart {
+            margin: 20px 0;
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                background: var(--ivory);
+
+                display: none;
+                flex-direction: column;
+
+                padding: 25px;
+
+                box-shadow: var(--shadow);
             }
-            .names {
-                font-size: 2.8rem;
+
+            .nav-links.active {
+                display: flex;
             }
-            .ampersand {
-                font-size: 2rem;
+
+            .menu-toggle {
+                display: block;
             }
-            .date {
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image {
+                min-height: 400px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .hero-date {
                 font-size: 1.2rem;
-            }
-            .subtitle {
-                font-size: 0.8rem;
                 letter-spacing: 3px;
             }
-            .btn-rsvp {
-                padding: 12px 32px;
-                font-size: 0.8rem;
+
+            .event-grid,
+            .menu-grid,
+            .form-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.large {
+                grid-row: auto;
+                height: 320px;
+            }
+
+            .rsvp-box,
+            .music-box {
+                padding: 25px 20px;
+            }
+
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                gap: 20px;
+            }
+
+            .time-box {
+                min-width: 65px;
+            }
+
+            .time-number {
+                font-size: 2.2rem;
+            }
+
+            .footer-names {
+                font-size: 3rem;
             }
         }
+
     </style>
 </head>
+
+
 <body>
 
-    <div class="invitation">
-        <!-- SUBTITLE -->
-        <p class="subtitle">We invite you to celebrate</p>
 
-        <!-- NAMES -->
-        <h1 class="names">
-            James
-            <span class="ampersand">&amp;</span>
-            Claudia
-        </h1>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-        <!-- DIVIDER -->
-        <div class="divider"></div>
+<nav class="navbar">
 
-        <!-- DATE -->
-        <p class="date">21st November 2026</p>
+    <div class="nav-container">
 
-        <!-- DETAILS -->
-        <p class="details">
-            <strong>Ceremony</strong> · 4:00 PM<br>
-            St. Margaret's Chapel · Edinburgh, Scotland<br><br>
-            <strong>Reception</strong> · 6:00 PM<br>
-            The Signet Library · Edinburgh
+        <a href="#home" class="logo">
+            J<span>&</span>C
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#events">The Day</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#faq">FAQ</a></li>
+
+            <li>
+                <a href="#rsvp" class="nav-rsvp">
+                    RSVP
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="home">
+
+    <div class="hero-decoration one"></div>
+    <div class="hero-decoration two"></div>
+
+    <div class="hero-content reveal">
+
+        <p class="hero-small">
+            Together with their families
         </p>
 
-        <!-- RSVP BUTTON -->
-        <a href="#" class="btn-rsvp">RSVP</a>
+        <h1 class="hero-title">
 
-        <!-- FOOTER -->
-        <p class="footer-note">Dress code · Black Tie</p>
+            James
+            <span class="amp">&amp;</span>
+            Claudia
+
+        </h1>
+
+        <p class="hero-subtitle">
+            invite you to celebrate their marriage
+        </p>
+
+        <div class="gold-line"></div>
+
+        <p class="hero-date">
+            20 · NOVEMBER · 2026
+        </p>
+
+        <p class="hero-location">
+            Accra, Ghana
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#rsvp" class="btn btn-primary">
+                RSVP
+            </a>
+
+            <a href="#events" class="btn btn-outline">
+                The Day
+            </a>
+
+        </div>
+
     </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     COUNTDOWN
+========================================================= -->
+
+<section class="countdown-section">
+
+    <div class="container center">
+
+        <h2 class="countdown-title">
+            Until we say "I do"...
+        </h2>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <div class="time-number" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+
+            <div class="time-box">
+                <div class="time-number" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+
+            <div class="time-box">
+                <div class="time-number" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+
+            <div class="time-box">
+                <div class="time-number" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section class="story" id="story">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Our Story
+            </p>
+
+            <h2 class="section-title">
+                From friendship to forever
+            </h2>
+
+            <p class="section-description">
+                Some love stories begin with a first date.
+                Ours began much earlier.
+            </p>
+
+        </div>
+
+
+        <div class="story-grid">
+
+            <div class="story-image reveal">
+
+                <!--
+                    Replace this section with a real
+                    photograph of James & Claudia later.
+                -->
+
+            </div>
+
+
+            <div class="story-content reveal">
+
+                <h3>
+                    A story written long before we knew it.
+                </h3>
+
+                <p>
+                    James and Claudia's story began during
+                    their childhood days as childhood friends.
+                </p>
+
+                <p>
+                    Life eventually took them on different
+                    journeys, travelling apart on their
+                    individual paths of self-discovery,
+                    growth and becoming the people they were
+                    meant to be.
+                </p>
+
+                <p>
+                    Yet sometimes, the paths that appear to
+                    separate us are simply preparing us for
+                    the moment when they cross again.
+                </p>
+
+                <p>
+                    Years later, they reconnected.
+                </p>
+
+                <p>
+                    Two childhood friends. Two first-born
+                    children. Two families who already knew
+                    each other.
+                </p>
+
+                <p>
+                    And somehow, the friendship that began
+                    in childhood found its way into something
+                    deeper.
+                </p>
+
+                <div class="story-highlight">
+
+                    From childhood friends,
+                    to reunited hearts,
+                    to forever.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EVENTS
+========================================================= -->
+
+<section class="events" id="events">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                The Celebration
+            </p>
+
+            <h2 class="section-title">
+                Two moments, one beautiful day
+            </h2>
+
+        </div>
+
+
+        <div class="event-grid">
+
+
+            <!-- CEREMONY -->
+
+            <div class="event-card reveal">
+
+                <div class="event-icon">
+                    💍
+                </div>
+
+                <h3>
+                    Marriage Discourse
+                </h3>
+
+                <div class="event-time">
+                    2:00 PM
+                </div>
+
+                <p class="event-location">
+
+                    Gbawe CP Kingdom Hall
+                    of Jehovah's Witnesses
+
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Gbawe+CP+Kingdom+Hall+of+Jehovah%27s+Witnesses"
+                    target="_blank"
+                    class="map-link">
+
+                    Get Directions →
+
+                </a>
+
+            </div>
+
+
+            <!-- RECEPTION -->
+
+            <div class="event-card reveal">
+
+                <div class="event-icon">
+                    🥂
+                </div>
+
+                <h3>
+                    Reception
+                </h3>
+
+                <div class="event-time">
+                    4:30 PM
+                </div>
+
+                <p class="event-location">
+
+                    McCarthy Hills,
+                    Accra, Ghana
+
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=McCarthy+Hills+Accra+Ghana"
+                    target="_blank"
+                    class="map-link">
+
+                    Get Directions →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MENU
+========================================================= -->
+
+<section class="menu-section" id="menu">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Taste & Celebration
+            </p>
+
+            <h2 class="section-title">
+                The Menu
+            </h2>
+
+            <p class="section-description">
+                Choose your preferred selections when
+                completing your RSVP.
+            </p>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Local Drinks
+                </h3>
+
+                <ul>
+                    <li>Palm Wine</li>
+                    <li>Sobolo</li>
+                    <li>Asana</li>
+                </ul>
+
+            </div>
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Juices & Punch
+                </h3>
+
+                <ul>
+                    <li>Pineapple Juice</li>
+                    <li>Mojito Punch</li>
+                </ul>
+
+            </div>
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Snacks
+                </h3>
+
+                <ul>
+                    <li>Spring Rolls</li>
+                    <li>Achomo</li>
+                    <li>Nkati Cake</li>
+                    <li>Savory Chips</li>
+                    <li>Cookies</li>
+                    <li>Nkosua ne Meko</li>
+                    <li>Plantain Chips</li>
+                    <li>Atadwe Milk</li>
+                    <li>Rock Buns</li>
+                    <li>Bofrot</li>
+                </ul>
+
+            </div>
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Main Meal
+                </h3>
+
+                <ul>
+                    <li>Fried Rice</li>
+                    <li>Jollof Rice</li>
+                    <li>Waakye</li>
+                    <li>Banku</li>
+                    <li>Kenkey</li>
+                </ul>
+
+            </div>
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Protein
+                </h3>
+
+                <ul>
+                    <li>Chicken</li>
+                    <li>Fish</li>
+                    <li>Tilapia</li>
+                </ul>
+
+            </div>
+
+
+            <div class="menu-card reveal">
+
+                <h3>
+                    Drinks
+                </h3>
+
+                <ul>
+                    <li>Malt</li>
+                    <li>Guinness</li>
+                    <li>Beer</li>
+                    <li>Fanta</li>
+                    <li>Coke</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RSVP
+========================================================= -->
+
+<section class="rsvp-section" id="rsvp">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Kindly Respond
+            </p>
+
+            <h2 class="section-title">
+                Will you celebrate with us?
+            </h2>
+
+            <p class="section-description">
+                Please RSVP by 9 October 2026.
+            </p>
+
+        </div>
+
+
+        <div class="rsvp-box reveal">
+
+            <div class="notice">
+
+                <strong>A little note about our reception:</strong>
+
+                <br>
+
+                Due to limited seating capacity,
+                children below 12 years are not permitted
+                at the reception.
+
+                Thank you for your understanding.
+
+            </div>
+
+
+            <form id="rsvpForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            placeholder="Your full name">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Your phone number">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Attendance
+                        </label>
+
+                        <select
+                            name="attendance"
+                            required>
+
+                            <option value="">
+                                Please select
+                            </option>
+
+                            <option>
+                                Yes, I'll be there
+                            </option>
+
+                            <option>
+                                Sorry, I can't make it
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Number of Guests
+                        </label>
+
+                        <select name="guests">
+
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Preferred Main Meal
+                        </label>
+
+                        <div class="checkbox-grid">
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="meal" value="Fried Rice">
+                                Fried Rice
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="meal" value="Jollof Rice">
+                                Jollof Rice
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="meal" value="Waakye">
+                                Waakye
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="meal" value="Banku">
+                                Banku
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="meal" value="Kenkey">
+                                Kenkey
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Protein
+                        </label>
+
+                        <div class="checkbox-grid">
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="protein" value="Chicken">
+                                Chicken
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="protein" value="Fish">
+                                Fish
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="protein" value="Tilapia">
+                                Tilapia
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Preferred Drink
+                        </label>
+
+                        <select name="drink">
+
+                            <option value="">
+                                Select a drink
+                            </option>
+
+                            <option>Malt</option>
+                            <option>Guinness</option>
+                            <option>Beer</option>
+                            <option>Fanta</option>
+                            <option>Coke</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Special Note
+                        </label>
+
+                        <input
+                            type="text"
+                            name="note"
+                            placeholder="Optional">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Submit RSVP
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GIFT
+========================================================= -->
+
+<section class="gift-section">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                With Love
+            </p>
+
+            <h2 class="section-title">
+                Your presence is our gift
+            </h2>
+
+        </div>
+
+
+        <div class="gift-box reveal">
+
+            <div class="gift-icon">
+                🎁
+            </div>
+
+            <h3>
+                Cash gifts are preferred
+            </h3>
+
+            <p>
+
+                Having you celebrate this special day
+                with us means more than we can say.
+
+                <br><br>
+
+                Should you wish to bless us with a gift,
+                a cash gift would be sincerely appreciated
+                as we begin this new chapter together.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<section class="music-section">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Set the Mood
+            </p>
+
+            <h2 class="section-title">
+                Choose a song for us
+            </h2>
+
+            <p class="section-description">
+
+                Help us create the soundtrack to our
+                celebration.
+
+            </p>
+
+        </div>
+
+
+        <div class="music-box reveal">
+
+            <form id="musicForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Song Title
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Song title"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Artist
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Artist">
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Submit Song
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Our Memories
+            </p>
+
+            <h2 class="section-title">
+                A journey worth remembering
+            </h2>
+
+            <p class="section-description">
+
+                Our gallery will grow as we create
+                new memories together.
+
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item large reveal">
+                <span class="gallery-placeholder">
+                    Our Story
+                </span>
+            </div>
+
+            <div class="gallery-item reveal">
+                <span class="gallery-placeholder">
+                    James & Claudia
+                </span>
+            </div>
+
+            <div class="gallery-item reveal">
+                <span class="gallery-placeholder">
+                    Memories
+                </span>
+            </div>
+
+            <div class="gallery-item reveal">
+                <span class="gallery-placeholder">
+                    Together
+                </span>
+            </div>
+
+            <div class="gallery-item reveal">
+                <span class="gallery-placeholder">
+                    Forever
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="faq" id="faq">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Good to Know
+            </p>
+
+            <h2 class="section-title">
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    When is the wedding?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    The wedding celebration will take place
+                    on 20 November 2026.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    What time is the marriage discourse?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    The marriage discourse begins at
+                    2:00 PM at Gbawe CP Kingdom Hall
+                    of Jehovah's Witnesses.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    What time is the reception?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    The reception begins at 4:30 PM
+                    at McCarthy Hills, Accra.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    Are children allowed?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    Due to limited seating capacity,
+                    children below 12 years are not
+                    permitted at the reception.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    When should I RSVP?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    Kindly submit your RSVP by
+                    9 October 2026.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    What gift would you prefer?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    A cash gift is preferred and
+                    sincerely appreciated.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
+                    Can I request a song?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    Absolutely. Use the song request
+                    section on this website to submit
+                    your choice in advance.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-names">
+        James & Claudia
+    </div>
+
+    <div class="footer-heart">
+        ✦
+    </div>
+
+    <p>
+        20 November 2026 · Accra, Ghana
+    </p>
+
+    <p>
+        With love, James & Claudia
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const weddingDate =
+    new Date("November 20, 2026 14:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        weddingDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+                (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days")
+        .textContent =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-question")
+.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const item =
+            question.parentElement;
+
+        item.classList.toggle("active");
+
+        const icon =
+            question.querySelector("span");
+
+        icon.textContent =
+            item.classList.contains("active")
+            ? "−"
+            : "+";
+
+    });
+
+});
+
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+document
+    .getElementById("rsvpForm")
+    .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        alert(
+            "Thank you! Your RSVP has been received. " +
+            "James & Claudia are grateful to celebrate with you!"
+        );
+
+        this.reset();
+
+    });
+
+
+
+/* =========================================================
+   MUSIC REQUEST
+========================================================= */
+
+document
+    .getElementById("musicForm")
+    .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        alert(
+            "Thank you for your song request! " +
+            "We can't wait to hear it at the celebration."
+        );
+
+        this.reset();
+
+    });
+
+
+</script>
 
 </body>
 </html>
