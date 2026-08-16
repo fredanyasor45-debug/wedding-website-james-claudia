@@ -3,89 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James & Claudia — 21st November 2026</title>
+    <title>James & Claudia - 21st November 2026</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@500;700&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --ivory: #FAF7F2;
+            --ivory-deep: #F3EEE5;
+            --ink: #282440;
+            --ink-soft: #564C72;
+            --teal: #0E4F4F;
+            --teal-light: #3E7C7A;
+            --gold: #C9A227;
+            --gold-light: #E4C464;
+            --lavender: #A48FC7;
+            --lavender-pale: #EFE8F8;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Jost', sans-serif;
-            background: #FAF7F2;
-            color: #2B2440;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--ivory);
+            color: var(--ink);
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .invitation {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(40, 36, 64, 0.10);
             text-align: center;
-            padding: 2rem;
         }
-        .container {
-            max-width: 700px;
-        }
-        .ribbon {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #C9A227, #A48FC7, #0E4F4F, #2FA8A6);
-            margin: 0 auto 30px;
-            border-radius: 4px;
-        }
-        .eyebrow {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: #0E4F4F;
-            font-weight: 500;
-        }
-        h1 {
-            font-family: 'Alex Brush', cursive;
-            font-size: 4rem;
+
+        /* ===== TYPOGRAPHY ===== */
+        .subtitle {
+            font-family: 'Playfair Display', serif;
             font-weight: 400;
-            color: #2B2440;
-            margin: 10px 0 5px;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            color: var(--teal);
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
+
+        .names {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4.2rem;
+            color: var(--ink);
+            line-height: 1.1;
+            margin: 10px 0 8px 0;
+        }
+
+        .ampersand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            display: inline-block;
+            margin: 0 8px;
+        }
+
         .date {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 500;
-            color: #564C72;
-            margin: 10px 0 20px;
+            color: var(--ink-soft);
+            margin-top: 16px;
+            letter-spacing: 2px;
         }
-        .sub {
+
+        .details {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
             font-size: 1rem;
-            color: #564C72;
+            color: var(--ink-soft);
             line-height: 1.8;
-            max-width: 400px;
-            margin: 0 auto;
+            margin-top: 24px;
+            letter-spacing: 0.5px;
         }
-        .btn {
+
+        .details strong {
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold-light);
+            margin: 28px auto;
+        }
+
+        /* ===== RSVP BUTTON ===== */
+        .btn-rsvp {
             display: inline-block;
-            margin-top: 30px;
-            padding: 14px 44px;
-            background: #0E4F4F;
-            color: #fff;
+            background: var(--teal);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 14px 48px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 40px;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            transition: background 0.3s;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 12px;
         }
-        .btn:hover {
-            background: #3E7C7A;
+
+        .btn-rsvp:hover {
+            background: var(--teal-light);
+            transform: scale(1.02);
         }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            margin-top: 40px;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
-            h1 { font-size: 2.8rem; }
+            .invitation {
+                padding: 40px 24px;
+            }
+            .names {
+                font-size: 2.8rem;
+            }
+            .ampersand {
+                font-size: 2rem;
+            }
+            .date {
+                font-size: 1.2rem;
+            }
+            .subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+            }
+            .btn-rsvp {
+                padding: 12px 32px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="ribbon"></div>
-        <p class="eyebrow">Save the Date</p>
-        <h1>James &amp; Claudia</h1>
+
+    <div class="invitation">
+        <!-- SUBTITLE -->
+        <p class="subtitle">We invite you to celebrate</p>
+
+        <!-- NAMES -->
+        <h1 class="names">
+            James
+            <span class="ampersand">&amp;</span>
+            Claudia
+        </h1>
+
+        <!-- DIVIDER -->
+        <div class="divider"></div>
+
+        <!-- DATE -->
         <p class="date">21st November 2026</p>
-        <p class="sub">We can't wait to celebrate our special day with you.</p>
-        <a href="#" class="btn">RSVP</a>
+
+        <!-- DETAILS -->
+        <p class="details">
+            <strong>Ceremony</strong> · 4:00 PM<br>
+            St. Margaret's Chapel · Edinburgh, Scotland<br><br>
+            <strong>Reception</strong> · 6:00 PM<br>
+            The Signet Library · Edinburgh
+        </p>
+
+        <!-- RSVP BUTTON -->
+        <a href="#" class="btn-rsvp">RSVP</a>
+
+        <!-- FOOTER -->
+        <p class="footer-note">Dress code · Black Tie</p>
     </div>
+
 </body>
 </html>
