@@ -1,146 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <base target="_top">
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>James & Claudia | 21 November 2026</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Join James & Claudia as they celebrate their marriage on 21 November 2026 in Accra, Ghana.">
+    <meta
+        name="description"
+        content="James & Claudia Wedding — Saturday, 21 November 2026">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>
+        James & Claudia | 21 November 2026
+    </title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
 
     <style>
-
-        /* =========================================================
-           ROOT VARIABLES
-        ========================================================= */
-
-        :root {
-            --ivory: #fbf8f2;
-            --cream: #f4eee3;
-
-            --teal: #0d4d4b;
-            --teal-dark: #083936;
-            --teal-light: #3e7773;
-
-            --turquoise: #42a9a3;
-
-            --lavender: #aa96c9;
-            --lavender-light: #eee7f6;
-
-            --gold: #c8a64b;
-            --gold-light: #e5cd86;
-            --gold-dark: #9d7b28;
-
-            --ink: #292535;
-            --muted: #706879;
-
-            --white: #ffffff;
-
-            --danger: #b33a3a;
-            --success: #287a50;
-
-            --shadow:
-                0 20px 60px rgba(32, 39, 48, 0.10);
-
-            --transition:
-                all 0.35s ease;
-        }
-
 
         /* =========================================================
            RESET
         ========================================================= */
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
 
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--ivory);
-            color: var(--ink);
-            line-height: 1.7;
-            overflow-x: hidden;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            color: #3b3030;
+
+            background:
+                #fffaf7;
+
+            line-height: 1.6;
+
         }
 
-        img {
-            max-width: 100%;
-            display: block;
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
         }
+
+
+        button {
+            cursor: pointer;
+        }
+
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
-        button,
-        input,
-        textarea,
-        select {
-            font-family: inherit;
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
 
         /* =========================================================
-           GLOBAL
+           VARIABLES
+        ========================================================= */
+
+        :root {
+
+            --primary: #8d5f5f;
+
+            --primary-dark: #694545;
+
+            --secondary: #d8b8a8;
+
+            --cream: #fffaf7;
+
+            --cream-dark: #f7eee8;
+
+            --text: #3b3030;
+
+            --muted: #756666;
+
+            --white: #ffffff;
+
+            --border: #eadbd3;
+
+            --shadow:
+                0 15px 40px rgba(82, 53, 43, 0.10);
+
+        }
+
+
+        /* =========================================================
+           CONTAINER
         ========================================================= */
 
         .container {
-            width: min(1180px, 92%);
-            margin: auto;
+
+            width: min(
+                1120px,
+                calc(100% - 40px)
+            );
+
+            margin: 0 auto;
+
         }
 
-        section {
-            padding: 110px 0;
-        }
-
-        .section-label {
-            color: var(--gold-dark);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.7rem, 5vw, 4.5rem);
-            font-weight: 500;
-            line-height: 1;
-            color: var(--teal-dark);
-        }
-
-        .section-description {
-            max-width: 680px;
-            margin: 20px auto 0;
-            color: var(--muted);
-            font-weight: 300;
-        }
 
         .center {
             text-align: center;
-        }
-
-        .gold-line {
-            width: 70px;
-            height: 2px;
-            background: var(--gold);
-            margin: 25px auto;
         }
 
 
@@ -148,75 +135,101 @@
            NAVIGATION
         ========================================================= */
 
-        .navbar {
-            position: fixed;
+        header {
+
+            position: sticky;
+
             top: 0;
-            left: 0;
-            width: 100%;
+
             z-index: 1000;
 
-            padding: 18px 0;
+            background:
+                rgba(255, 250, 247, 0.96);
 
-            background: rgba(251, 248, 242, 0.92);
-            backdrop-filter: blur(15px);
+            backdrop-filter:
+                blur(12px);
 
-            border-bottom: 1px solid rgba(200, 166, 75, 0.18);
+            border-bottom:
+                1px solid var(--border);
 
-            transition: var(--transition);
         }
 
-        .nav-container {
-            width: min(1200px, 92%);
-            margin: auto;
+
+        .navbar {
+
+            min-height: 76px;
 
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
         }
+
 
         .logo {
-            font-family: 'Alex Brush', cursive;
-            font-size: 2rem;
-            color: var(--teal-dark);
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            color:
+                var(--primary-dark);
+
+            white-space: nowrap;
+
         }
 
-        .logo span {
-            color: var(--gold);
-        }
 
         .nav-links {
+
             display: flex;
+
             align-items: center;
-            gap: 28px;
+
+            gap: 26px;
+
             list-style: none;
+
         }
+
 
         .nav-links a {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--ink);
-            transition: var(--transition);
+
+            color: var(--text);
+
+            font-size: 0.95rem;
+
+            transition:
+                color .25s ease;
+
         }
+
 
         .nav-links a:hover {
-            color: var(--gold-dark);
+
+            color:
+                var(--primary);
+
         }
 
-        .nav-rsvp {
-            padding: 10px 20px;
-            background: var(--teal);
-            color: white !important;
-            border-radius: 30px;
-        }
 
         .menu-toggle {
+
             display: none;
-            border: 0;
-            background: none;
-            font-size: 1.8rem;
-            color: var(--teal);
-            cursor: pointer;
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 1.7rem;
+
+            color:
+                var(--primary-dark);
+
         }
 
 
@@ -225,157 +238,381 @@
         ========================================================= */
 
         .hero {
-            min-height: 100vh;
+
+            min-height:
+                calc(100vh - 76px);
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
 
             position: relative;
 
-            background:
-                radial-gradient(
-                    circle at top left,
-                    rgba(170,150,201,0.20),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at bottom right,
-                    rgba(66,169,163,0.18),
-                    transparent 35%
-                ),
-                var(--ivory);
+            overflow: hidden;
 
-            padding-top: 100px;
+            padding:
+                90px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf7 0%,
+                    #f8eee8 50%,
+                    #fffaf7 100%
+                );
+
         }
 
-        .hero-decoration {
-            position: absolute;
-            width: 280px;
-            height: 280px;
 
-            border: 1px solid rgba(200,166,75,0.35);
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
             border-radius: 50%;
 
-            opacity: 0.6;
+            background:
+                rgba(216, 184, 168, .18);
+
+            top: -160px;
+
+            left: -140px;
+
         }
 
-        .hero-decoration.one {
-            top: -120px;
-            left: -120px;
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 360px;
+
+            height: 360px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(141, 95, 95, .08);
+
+            bottom: -160px;
+
+            right: -120px;
+
         }
 
-        .hero-decoration.two {
-            bottom: -130px;
-            right: -130px;
-        }
 
         .hero-content {
+
             position: relative;
+
             z-index: 2;
-            max-width: 900px;
+
+            max-width: 850px;
+
         }
 
-        .hero-small {
+
+        .hero-label {
+
             text-transform: uppercase;
-            letter-spacing: 6px;
-            font-size: 0.75rem;
-            color: var(--teal);
+
+            letter-spacing: 4px;
+
+            color:
+                var(--primary);
+
+            font-size: .78rem;
+
+            margin-bottom: 18px;
+
         }
+
 
         .hero-title {
-            font-family: 'Alex Brush', cursive;
-            font-size: clamp(4.5rem, 12vw, 9rem);
-            line-height: 0.9;
-            color: var(--teal-dark);
-            margin: 20px 0;
+
+            font-size:
+                clamp(3rem, 9vw, 7rem);
+
+            line-height: 1;
+
+            color:
+                var(--primary-dark);
+
+            margin-bottom: 20px;
+
         }
 
-        .hero-title .amp {
-            color: var(--gold);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.5em;
-            vertical-align: middle;
+
+        .hero-title span {
+
+            display: inline-block;
+
+            color:
+                var(--secondary);
+
+            margin: 0 10px;
+
         }
+
 
         .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            color: var(--muted);
+
+            font-size:
+                clamp(1rem, 2vw, 1.25rem);
+
+            color:
+                var(--muted);
+
+            margin-bottom: 30px;
+
         }
+
 
         .hero-date {
-            margin-top: 30px;
 
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            letter-spacing: 5px;
-            color: var(--gold-dark);
+            font-size:
+                clamp(1.3rem, 3vw, 2rem);
+
+            color:
+                var(--primary-dark);
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
         }
+
 
         .hero-location {
-            margin-top: 12px;
-            color: var(--muted);
-            font-size: 0.9rem;
+
+            color:
+                var(--muted);
+
+            margin-bottom: 30px;
+
         }
 
-        .hero-buttons {
-            margin-top: 35px;
 
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+        /* =========================================================
+           BUTTON
+        ========================================================= */
 
         .btn {
+
             display: inline-flex;
-            justify-content: center;
+
             align-items: center;
 
-            padding: 14px 28px;
+            justify-content: center;
 
-            border-radius: 40px;
+            min-height: 48px;
 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.72rem;
-            font-weight: 600;
+            padding:
+                12px 24px;
 
-            cursor: pointer;
+            border-radius: 999px;
 
-            transition: var(--transition);
+            border: 1px solid transparent;
 
-            border: none;
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                color .2s ease;
+
         }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
 
         .btn-primary {
-            background: var(--teal);
-            color: white;
+
+            background:
+                var(--primary);
+
+            color:
+                var(--white);
+
         }
+
 
         .btn-primary:hover {
-            background: var(--teal-dark);
-            transform: translateY(-3px);
+
+            background:
+                var(--primary-dark);
+
         }
 
-        .btn-outline {
-            border: 1px solid var(--gold);
-            color: var(--teal-dark);
-            background: transparent;
+
+        .btn-secondary {
+
+            background:
+                transparent;
+
+            color:
+                var(--primary-dark);
+
+            border-color:
+                var(--primary);
+
         }
 
-        .btn-outline:hover {
-            background: var(--gold);
-            color: white;
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+
+            padding:
+                90px 0;
+
         }
 
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
+
+        .section-label {
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                3px;
+
+            font-size:
+                .75rem;
+
+            color:
+                var(--primary);
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .section-title {
+
+            font-size:
+                clamp(2rem, 5vw, 3.3rem);
+
+            color:
+                var(--primary-dark);
+
+            margin-bottom:
+                16px;
+
+        }
+
+
+        .section-description {
+
+            color:
+                var(--muted);
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto 35px;
+
+        }
+
+
+        /* =========================================================
+           DETAILS
+        ========================================================= */
+
+        .details-section {
+
+            background:
+                var(--white);
+
+        }
+
+
+        .details-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+            margin-top:
+                45px;
+
+        }
+
+
+        .detail-card {
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid var(--border);
+
+            padding:
+                35px 25px;
+
+            text-align:
+                center;
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .detail-icon {
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .detail-card h3 {
+
+            color:
+                var(--primary-dark);
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .detail-card p {
+
+            color:
+                var(--muted);
+
         }
 
 
@@ -384,41 +621,90 @@
         ========================================================= */
 
         .countdown-section {
-            background: var(--teal-dark);
-            color: white;
-            padding: 65px 0;
+
+            background:
+                var(--cream-dark);
+
         }
 
-        .countdown-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
 
         .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            flex-wrap: wrap;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+            max-width:
+                760px;
+
+            margin:
+                40px auto 0;
+
         }
 
-        .time-box {
-            min-width: 100px;
+
+        .countdown-box {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                18px;
+
+            padding:
+                25px 10px;
+
+            text-align:
+                center;
+
         }
 
-        .time-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            color: var(--gold-light);
-            line-height: 1;
+
+        .countdown-number {
+
+            display:
+                block;
+
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+
+            font-weight:
+                700;
+
+            color:
+                var(--primary-dark);
+
+            line-height:
+                1;
+
+            margin-bottom:
+                8px;
+
         }
 
-        .time-label {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.65rem;
-            opacity: 0.75;
+
+        .countdown-label {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .8rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
         }
 
 
@@ -426,201 +712,23 @@
            STORY
         ========================================================= */
 
-        .story {
-            background: var(--white);
-        }
+        .story-box {
 
-        .story-grid {
-            margin-top: 60px;
+            max-width:
+                820px;
 
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 70px;
-            align-items: center;
-        }
+            margin:
+                40px auto 0;
 
-        .story-image {
-            min-height: 540px;
+            text-align:
+                center;
 
-            border-radius: 180px 180px 20px 20px;
+            color:
+                var(--muted);
 
-            background:
-                linear-gradient(
-                    rgba(13,77,75,0.15),
-                    rgba(13,77,75,0.15)
-                ),
-                linear-gradient(
-                    135deg,
-                    var(--lavender-light),
-                    var(--cream)
-                );
+            font-size:
+                1.05rem;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-image.has-photo {
-            background-size: cover;
-            background-position: center;
-        }
-
-        .story-image::after {
-            content: "James & Claudia";
-
-            font-family: 'Alex Brush', cursive;
-            font-size: 3rem;
-            color: rgba(13,77,75,0.35);
-        }
-
-        .story-image.has-photo::after {
-            display: none;
-        }
-
-        .story-content h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.7rem;
-            color: var(--teal-dark);
-            margin-bottom: 20px;
-        }
-
-        .story-content p {
-            color: var(--muted);
-            margin-bottom: 18px;
-            font-weight: 300;
-        }
-
-        .story-highlight {
-            border-left: 2px solid var(--gold);
-            padding-left: 22px;
-            margin-top: 30px;
-
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--teal);
-        }
-
-
-        /* =========================================================
-           EVENT
-        ========================================================= */
-
-        .events {
-            background: var(--cream);
-        }
-
-        .event-grid {
-            margin-top: 60px;
-
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .event-card {
-            background: white;
-            padding: 50px 35px;
-            text-align: center;
-
-            border: 1px solid rgba(200,166,75,0.25);
-
-            transition: var(--transition);
-        }
-
-        .event-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-        }
-
-        .event-icon {
-            width: 70px;
-            height: 70px;
-
-            margin: 0 auto 25px;
-
-            border-radius: 50%;
-
-            background: var(--lavender-light);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 1.7rem;
-        }
-
-        .event-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            color: var(--teal-dark);
-        }
-
-        .event-time {
-            color: var(--gold-dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 10px 0;
-        }
-
-        .event-location {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .map-link {
-            display: inline-block;
-            color: var(--teal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           MENU
-        ========================================================= */
-
-        .menu-section {
-            background: var(--white);
-        }
-
-        .menu-grid {
-            margin-top: 60px;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .menu-card {
-            padding: 35px 28px;
-
-            background: var(--ivory);
-
-            border-top: 3px solid var(--gold);
-        }
-
-        .menu-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--teal-dark);
-            margin-bottom: 18px;
-        }
-
-        .menu-card ul {
-            list-style: none;
-        }
-
-        .menu-card li {
-            padding: 7px 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-            border-bottom: 1px dashed rgba(13,77,75,0.12);
         }
 
 
@@ -629,204 +737,421 @@
         ========================================================= */
 
         .rsvp-section {
+
             background:
-                linear-gradient(
-                    rgba(13,77,75,0.97),
-                    rgba(8,57,54,0.97)
-                );
-            color: white;
+                var(--white);
+
         }
 
-        .rsvp-section .section-label {
-            color: var(--gold-light);
-        }
-
-        .rsvp-section .section-title {
-            color: white;
-        }
 
         .rsvp-box {
-            max-width: 900px;
-            margin: 50px auto 0;
 
-            background: white;
-            color: var(--ink);
+            max-width:
+                900px;
 
-            padding: 45px;
+            margin:
+                40px auto 0;
 
-            box-shadow: var(--shadow);
+            padding:
+                clamp(25px, 5vw, 50px);
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                24px;
+
+            box-shadow:
+                var(--shadow);
+
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            color: var(--teal-dark);
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-
-            padding: 13px 15px;
-
-            border: 1px solid #ddd;
-            background: var(--ivory);
-
-            outline: none;
-
-            transition: var(--transition);
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--gold);
-        }
-
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
 
         .notice {
-            background: var(--lavender-light);
-            border-left: 3px solid var(--lavender);
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 0.82rem;
-            color: var(--muted);
+
+            background:
+                #f6ebe5;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            padding:
+                18px;
+
+            margin-bottom:
+                30px;
+
+            color:
+                var(--muted);
+
         }
 
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+
+        .notice strong {
+
+            color:
+                var(--primary-dark);
+
         }
 
-        .checkbox-item {
-            display: flex;
-            gap: 8px;
-            align-items: center;
 
-            font-size: 0.82rem;
-            color: var(--muted);
+        .form-grid {
 
-            text-transform: none;
-            letter-spacing: 0;
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                22px;
+
         }
 
-        .checkbox-item input {
-            width: auto;
+
+        .form-group {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                8px;
+
         }
 
-        .radio-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+
+        .form-group.full {
+
+            grid-column:
+                1 / -1;
+
         }
 
-        .radio-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--muted);
-            font-size: 0.85rem;
-            text-transform: none;
-            letter-spacing: 0;
-            font-weight: 400;
+
+        .form-group label {
+
+            font-weight:
+                700;
+
+            color:
+                var(--primary-dark);
+
         }
 
-        .radio-item input {
-            width: auto;
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width:
+                100%;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--white);
+
+            color:
+                var(--text);
+
+            border-radius:
+                10px;
+
+            padding:
+                13px 14px;
+
+            outline:
+                none;
+
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+
         }
+
+
+        .form-group textarea {
+
+            min-height:
+                100px;
+
+            resize:
+                vertical;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 3px rgba(141, 95, 95, .10);
+
+        }
+
+
+        .choice-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                10px;
+
+        }
+
+
+        .choice-item {
+
+            position:
+                relative;
+
+        }
+
+
+        .choice-item input {
+
+            position:
+                absolute;
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+        }
+
+
+        .choice-item span {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            min-height:
+                46px;
+
+            padding:
+                8px 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                10px;
+
+            background:
+                var(--white);
+
+            color:
+                var(--text);
+
+            cursor:
+                pointer;
+
+            transition:
+                all .2s ease;
+
+        }
+
+
+        .choice-item input:checked + span {
+
+            background:
+                var(--primary);
+
+            color:
+                var(--white);
+
+            border-color:
+                var(--primary);
+
+        }
+
 
         .plus-one-box {
-            display: none;
-            background: #faf7ff;
-            border: 1px solid rgba(170,150,201,0.45);
-            padding: 25px;
-            margin: 10px 0 20px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--white);
+
+            border-radius:
+                15px;
+
+            padding:
+                20px;
+
+            margin-top:
+                5px;
+
         }
 
-        .plus-one-box.visible {
-            display: block;
+
+        .plus-one-toggle {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            cursor:
+                pointer;
+
+            font-weight:
+                700;
+
+            color:
+                var(--primary-dark);
+
         }
 
-        .plus-one-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--teal-dark);
-            margin-bottom: 15px;
+
+        .plus-one-toggle input {
+
+            width:
+                19px;
+
+            height:
+                19px;
+
+            accent-color:
+                var(--primary);
+
         }
 
-        .form-note {
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin-top: 6px;
+
+        .plus-one-fields {
+
+            display:
+                none;
+
+            margin-top:
+                22px;
+
+            padding-top:
+                22px;
+
+            border-top:
+                1px solid var(--border);
+
         }
+
+
+        .plus-one-fields.active {
+
+            display:
+                grid;
+
+        }
+
+
+        .submit-area {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                stretch;
+
+            gap:
+                12px;
+
+        }
+
+
+        .submit-area .btn {
+
+            width:
+                100%;
+
+        }
+
 
         .form-message {
-            display: none;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
+
+            display:
+                none;
+
+            padding:
+                15px;
+
+            border-radius:
+                10px;
+
+            text-align:
+                center;
+
         }
+
+
+        .form-message.show {
+
+            display:
+                block;
+
+        }
+
 
         .form-message.success {
-            display: block;
-            background: #e8f6ed;
-            border-left: 3px solid var(--success);
-            color: var(--success);
+
+            background:
+                #e9f5ec;
+
+            color:
+                #2e6b3c;
+
+            border:
+                1px solid #c8e4cf;
+
         }
+
 
         .form-message.error {
-            display: block;
-            background: #fbeaea;
-            border-left: 3px solid var(--danger);
-            color: var(--danger);
-        }
 
-        .rsvp-result {
-            display: none;
-            background: var(--ivory);
-            border: 1px solid rgba(200,166,75,0.4);
-            padding: 20px;
-            margin-top: 20px;
-        }
+            background:
+                #faeaea;
 
-        .rsvp-result.visible {
-            display: block;
-        }
+            color:
+                #8b3434;
 
-        .rsvp-id-display {
-            font-family: monospace;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--teal-dark);
-            background: white;
-            padding: 10px 15px;
-            display: inline-block;
-            margin-top: 10px;
-            letter-spacing: 1px;
+            border:
+                1px solid #e8c5c5;
+
         }
 
 
@@ -835,29 +1160,72 @@
         ========================================================= */
 
         .gift-section {
-            background: var(--lavender-light);
+
+            background:
+                var(--cream-dark);
+
         }
+
 
         .gift-box {
-            max-width: 700px;
-            margin: 40px auto 0;
-            text-align: center;
+
+            max-width:
+                700px;
+
+            margin:
+                40px auto 0;
+
+            text-align:
+                center;
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                22px;
+
+            padding:
+                45px 30px;
+
+            box-shadow:
+                var(--shadow);
+
         }
+
 
         .gift-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+
+            font-size:
+                3rem;
+
+            margin-bottom:
+                15px;
+
         }
+
 
         .gift-box h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.6rem;
-            color: var(--teal-dark);
+
+            color:
+                var(--primary-dark);
+
+            font-size:
+                1.6rem;
+
+            margin-bottom:
+                15px;
+
         }
 
+
         .gift-box p {
-            color: var(--muted);
-            font-weight: 300;
+
+            color:
+                var(--muted);
+
         }
 
 
@@ -866,35 +1234,47 @@
         ========================================================= */
 
         .music-section {
-            background: var(--cream);
+
+            background:
+                var(--white);
+
         }
+
 
         .music-box {
-            max-width: 700px;
-            margin: 40px auto 0;
 
-            background: white;
-            padding: 40px;
+            max-width:
+                700px;
 
-            box-shadow: var(--shadow);
+            margin:
+                40px auto 0;
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                22px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+
         }
 
-        .music-notice {
-            background: var(--lavender-light);
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 0.82rem;
-            color: var(--muted);
-        }
 
-        .music-rsvp-status {
-            margin-bottom: 20px;
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
+        .music-box form {
 
-        .music-rsvp-status strong {
-            color: var(--teal-dark);
+            display:
+                grid;
+
+            gap:
+                20px;
+
         }
 
 
@@ -903,108 +1283,88 @@
         ========================================================= */
 
         .gallery {
-            background: white;
+
+            background:
+                var(--cream-dark);
+
         }
+
 
         .gallery-grid {
-            margin-top: 55px;
 
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                18px;
+
+            margin-top:
+                40px;
+
         }
 
+
         .gallery-item {
-            height: 320px;
+
+            min-height:
+                220px;
+
+            border-radius:
+                18px;
+
+            border:
+                1px solid var(--border);
 
             background:
                 linear-gradient(
                     135deg,
-                    var(--lavender-light),
-                    var(--cream)
+                    #f7e9e2,
+                    #fffaf7
                 );
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display:
+                flex;
 
-            overflow: hidden;
+            align-items:
+                center;
 
-            position: relative;
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+
         }
+
 
         .gallery-item.large {
-            grid-row: span 2;
-            height: 655px;
+
+            grid-column:
+                span 2;
+
+            min-height:
+                300px;
+
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.04);
-        }
 
         .gallery-placeholder {
-            font-family: 'Alex Brush', cursive;
-            font-size: 2rem;
-            color: rgba(13,77,75,0.35);
-        }
 
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 14px;
-            color: white;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            font-size: 0.8rem;
-        }
+            color:
+                var(--primary);
 
-        .gallery-loading {
-            grid-column: 1 / -1;
-            text-align: center;
-            color: var(--muted);
-            padding: 40px;
-        }
+            letter-spacing:
+                2px;
 
+            text-transform:
+                uppercase;
 
-        /* =========================================================
-           PROGRAM
-        ========================================================= */
+            font-size:
+                .8rem;
 
-        .program-section {
-            background: var(--ivory);
-        }
-
-        .program-box {
-            max-width: 700px;
-            margin: 40px auto 0;
-            background: white;
-            padding: 40px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .program-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .program-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            color: var(--teal-dark);
-        }
-
-        .program-description {
-            color: var(--muted);
-            margin: 10px 0 25px;
         }
 
 
@@ -1013,41 +1373,98 @@
         ========================================================= */
 
         .faq {
-            background: var(--cream);
+
+            background:
+                var(--white);
+
         }
+
 
         .faq-container {
-            max-width: 800px;
-            margin: 50px auto 0;
+
+            max-width:
+                850px;
+
+            margin:
+                40px auto 0;
+
         }
+
 
         .faq-item {
-            background: white;
-            margin-bottom: 10px;
+
+            border-bottom:
+                1px solid var(--border);
+
         }
+
 
         .faq-question {
-            padding: 20px;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display:
+                flex;
 
-            cursor: pointer;
+            justify-content:
+                space-between;
 
-            font-weight: 600;
-            color: var(--teal-dark);
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            padding:
+                20px 0;
+
+            font-weight:
+                700;
+
+            color:
+                var(--primary-dark);
+
+            cursor:
+                pointer;
+
         }
+
+
+        .faq-question span {
+
+            font-size:
+                1.5rem;
+
+            font-weight:
+                400;
+
+        }
+
 
         .faq-answer {
-            display: none;
-            padding: 0 20px 20px;
-            color: var(--muted);
-            font-size: 0.9rem;
+
+            max-height:
+                0;
+
+            overflow:
+                hidden;
+
+            color:
+                var(--muted);
+
+            transition:
+                max-height .3s ease,
+                padding .3s ease;
+
         }
 
+
         .faq-item.active .faq-answer {
-            display: block;
+
+            max-height:
+                300px;
+
+            padding:
+                0 0 20px;
+
         }
 
 
@@ -1056,45 +1473,85 @@
         ========================================================= */
 
         footer {
-            background: var(--teal-dark);
-            color: white;
 
-            text-align: center;
+            background:
+                var(--primary-dark);
 
-            padding: 70px 20px;
+            color:
+                var(--white);
+
+            text-align:
+                center;
+
+            padding:
+                55px 20px;
+
         }
+
 
         .footer-names {
-            font-family: 'Alex Brush', cursive;
-            font-size: 4rem;
-            color: var(--gold-light);
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                10px;
+
         }
 
-        footer p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
 
         .footer-heart {
-            margin: 20px 0;
-            color: var(--gold);
+
+            font-size:
+                1.5rem;
+
+            color:
+                var(--secondary);
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        footer p {
+
+            opacity:
+                .85;
+
+            margin-top:
+                5px;
+
         }
 
 
         /* =========================================================
-           REVEAL ANIMATION
+           REVEAL
         ========================================================= */
 
         .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+
+            opacity:
+                0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+
         }
 
+
         .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+
         }
 
 
@@ -1102,106 +1559,188 @@
            RESPONSIVE
         ========================================================= */
 
-        @media(max-width: 900px) {
-
-            .nav-links {
-                position: absolute;
-                top: 75px;
-                left: 0;
-
-                width: 100%;
-
-                background: var(--ivory);
-
-                display: none;
-                flex-direction: column;
-
-                padding: 25px;
-
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
+        @media (max-width: 800px) {
 
             .menu-toggle {
-                display: block;
+
+                display:
+                    block;
+
             }
 
-            .story-grid {
-                grid-template-columns: 1fr;
+
+            .nav-links {
+
+                position:
+                    absolute;
+
+                top:
+                    76px;
+
+                left:
+                    0;
+
+                right:
+                    0;
+
+                display:
+                    none;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                background:
+                    var(--cream);
+
+                border-bottom:
+                    1px solid var(--border);
+
+                padding:
+                    15px 20px;
+
+                gap:
+                    0;
+
             }
 
-            .story-image {
-                min-height: 400px;
+
+            .nav-links.active {
+
+                display:
+                    flex;
+
             }
 
-            .menu-grid {
-                grid-template-columns: 1fr 1fr;
+
+            .nav-links a {
+
+                display:
+                    block;
+
+                padding:
+                    12px;
+
             }
+
+
+            .details-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .form-group.full {
+
+                grid-column:
+                    auto;
+
+            }
+
+
+            .choice-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
 
             .gallery-grid {
-                grid-template-columns: 1fr 1fr;
+
+                grid-template-columns:
+                    1fr 1fr;
+
             }
+
+
+            .gallery-item.large {
+
+                grid-column:
+                    span 2;
+
+            }
+
         }
 
 
-        @media(max-width: 600px) {
+        @media (max-width: 560px) {
+
+            .container {
+
+                width:
+                    min(
+                        100% - 28px,
+                        1120px
+                    );
+
+            }
+
 
             section {
-                padding: 80px 0;
+
+                padding:
+                    70px 0;
+
             }
 
-            .hero-title {
-                font-size: 4.5rem;
-            }
-
-            .hero-date {
-                font-size: 1.2rem;
-                letter-spacing: 3px;
-            }
-
-            .event-grid,
-            .menu-grid,
-            .form-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-item.large {
-                grid-row: auto;
-                height: 320px;
-            }
-
-            .rsvp-box,
-            .music-box,
-            .program-box {
-                padding: 25px 20px;
-            }
-
-            .checkbox-grid {
-                grid-template-columns: 1fr;
-            }
 
             .countdown {
-                gap: 20px;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
             }
 
-            .time-box {
-                min-width: 65px;
+
+            .choice-grid {
+
+                grid-template-columns:
+                    1fr;
+
             }
 
-            .time-number {
-                font-size: 2.2rem;
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    1fr;
+
             }
 
-            .footer-names {
-                font-size: 3rem;
+
+            .gallery-item.large {
+
+                grid-column:
+                    auto;
+
             }
+
+
+            .music-box,
+            .rsvp-box {
+
+                padding:
+                    22px;
+
+            }
+
         }
 
     </style>
+
 </head>
 
 
@@ -1212,126 +1751,132 @@
      NAVIGATION
 ========================================================= -->
 
-<nav class="navbar">
+<header>
 
-    <div class="nav-container">
+    <div class="container">
 
-        <a href="#home" class="logo">
-            J<span>&</span>C
-        </a>
+        <nav class="navbar">
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
-        </button>
+            <a
+                href="#home"
+                class="logo">
 
-        <ul class="nav-links" id="navLinks">
+                James & Claudia
 
-            <li><a href="#home">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#events">The Day</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#faq">FAQ</a></li>
-
-            <li>
-                <a href="#rsvp" class="nav-rsvp">
-                    RSVP
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-</nav>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<header class="hero" id="home">
-
-    <div class="hero-decoration one"></div>
-    <div class="hero-decoration two"></div>
-
-    <div class="hero-content reveal">
-
-        <p class="hero-small">
-            Together with their families
-        </p>
-
-        <h1 class="hero-title">
-            James
-            <span class="amp">&amp;</span>
-            Claudia
-        </h1>
-
-        <p class="hero-subtitle">
-            invite you to celebrate their marriage
-        </p>
-
-        <div class="gold-line"></div>
-
-        <p class="hero-date">
-            20 · NOVEMBER · 2026
-        </p>
-
-        <p class="hero-location">
-            Accra, Ghana
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#rsvp" class="btn btn-primary">
-                RSVP
             </a>
 
-            <a href="#events" class="btn btn-outline">
-                The Day
-            </a>
 
-        </div>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation">
+
+                ☰
+
+            </button>
+
+
+            <ul
+                class="nav-links"
+                id="navLinks">
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#details">
+                        Details
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#rsvp">
+                        RSVP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#gallery">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#faq">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
 
     </div>
 
 </header>
 
 
+
 <!-- =========================================================
-     COUNTDOWN
+     HERO
 ========================================================= -->
 
-<section class="countdown-section">
+<section
+    class="hero"
+    id="home">
 
-    <div class="container center">
+    <div class="container">
 
-        <h2 class="countdown-title">
-            Until we say "I do"...
-        </h2>
+        <div class="hero-content reveal">
 
-        <div class="countdown">
+            <p class="hero-label">
+                Together with their families
+            </p>
 
-            <div class="time-box">
-                <div class="time-number" id="days">00</div>
-                <div class="time-label">Days</div>
-            </div>
 
-            <div class="time-box">
-                <div class="time-number" id="hours">00</div>
-                <div class="time-label">Hours</div>
-            </div>
+            <h1 class="hero-title">
 
-            <div class="time-box">
-                <div class="time-number" id="minutes">00</div>
-                <div class="time-label">Minutes</div>
-            </div>
+                James
 
-            <div class="time-box">
-                <div class="time-number" id="seconds">00</div>
-                <div class="time-label">Seconds</div>
-            </div>
+                <span>&</span>
+
+                Claudia
+
+            </h1>
+
+
+            <p class="hero-subtitle">
+
+                Invite you to celebrate
+                their wedding day
+
+            </p>
+
+
+            <p class="hero-date">
+
+                Saturday, 21 November 2026
+
+            </p>
+
+
+            <p class="hero-location">
+
+                Accra, Ghana
+
+            </p>
+
+
+            <a
+                href="#rsvp"
+                class="btn btn-primary">
+
+                RSVP Now
+
+            </a>
 
         </div>
 
@@ -1340,86 +1885,104 @@
 </section>
 
 
+
 <!-- =========================================================
-     STORY
+     COUNTDOWN
 ========================================================= -->
 
-<section class="story" id="story">
+<section
+    class="countdown-section">
 
     <div class="container">
 
         <div class="center reveal">
 
             <p class="section-label">
-                Our Story
+                Counting Down
             </p>
 
+
             <h2 class="section-title">
-                From friendship to forever
+                Until we say "I do"
             </h2>
 
+
             <p class="section-description">
-                Some love stories begin with a first date.
-                Ours began much earlier.
+
+                Saturday, 21 November 2026
+                at 12:00 noon
+
             </p>
 
         </div>
 
 
-        <div class="story-grid">
+        <div class="countdown reveal">
 
-            <div class="story-image reveal" id="storyImage">
+            <div class="countdown-box">
+
+                <span
+                    id="days"
+                    class="countdown-number">
+
+                    00
+
+                </span>
+
+                <span class="countdown-label">
+                    Days
+                </span>
+
             </div>
 
 
-            <div class="story-content reveal">
+            <div class="countdown-box">
 
-                <h3>
-                    A story written long before we knew it.
-                </h3>
+                <span
+                    id="hours"
+                    class="countdown-number">
 
-                <p>
-                    James and Claudia's story began during
-                    their childhood days as childhood friends.
-                </p>
+                    00
 
-                <p>
-                    Life eventually took them on different
-                    journeys, travelling apart on their
-                    individual paths of self-discovery,
-                    growth and becoming the people they were
-                    meant to be.
-                </p>
+                </span>
 
-                <p>
-                    Yet sometimes, the paths that appear to
-                    separate us are simply preparing us for
-                    the moment when they cross again.
-                </p>
+                <span class="countdown-label">
+                    Hours
+                </span>
 
-                <p>
-                    Years later, they reconnected.
-                </p>
+            </div>
 
-                <p>
-                    Two childhood friends. Two first-born
-                    children. Two families who already knew
-                    each other.
-                </p>
 
-                <p>
-                    And somehow, the friendship that began
-                    in childhood found its way into something
-                    deeper.
-                </p>
+            <div class="countdown-box">
 
-                <div class="story-highlight">
+                <span
+                    id="minutes"
+                    class="countdown-number">
 
-                    From childhood friends,
-                    to reunited hearts,
-                    to forever.
+                    00
 
-                </div>
+                </span>
+
+                <span class="countdown-label">
+                    Minutes
+                </span>
+
+            </div>
+
+
+            <div class="countdown-box">
+
+                <span
+                    id="seconds"
+                    class="countdown-number">
+
+                    00
+
+                </span>
+
+                <span class="countdown-label">
+                    Seconds
+                </span>
 
             </div>
 
@@ -1430,11 +1993,14 @@
 </section>
 
 
+
 <!-- =========================================================
-     EVENTS
+     DETAILS
 ========================================================= -->
 
-<section class="events" id="events">
+<section
+    class="details-section"
+    id="details">
 
     <div class="container">
 
@@ -1444,77 +2010,89 @@
                 The Celebration
             </p>
 
+
             <h2 class="section-title">
-                Two moments, one beautiful day
+                Join us on our special day
             </h2>
+
+
+            <p class="section-description">
+
+                We would be honoured to have you
+                celebrate this beautiful beginning
+                with us.
+
+            </p>
 
         </div>
 
 
-        <div class="event-grid">
+        <div class="details-grid">
 
-            <div class="event-card reveal">
 
-                <div class="event-icon">
+            <div class="detail-card reveal">
+
+                <div class="detail-icon">
                     💍
                 </div>
+
 
                 <h3>
                     Marriage Discourse
                 </h3>
 
-                <div class="event-time">
-                    2:00 PM
-                </div>
 
-                <p class="event-location">
-                    Gbawe CP Kingdom Hall
-                    of Jehovah's Witnesses
+                <p>
+
+                    <strong>
+                        Saturday, 21 November 2026
+                    </strong>
+
+                    <br><br>
+
+                    12:00 noon
+
+                    <br><br>
+
+                    Upper Gbawe Twi Kingdom Hall
+                    @ Mallam, Accra, Ghana
+
                 </p>
-
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Gbawe+CP+Kingdom+Hall+of+Jehovah%27s+Witnesses"
-                    target="_blank"
-                    rel="noopener"
-                    class="map-link">
-
-                    Get Directions →
-
-                </a>
 
             </div>
 
 
-            <div class="event-card reveal">
 
-                <div class="event-icon">
+            <div class="detail-card reveal">
+
+                <div class="detail-icon">
                     🥂
                 </div>
+
 
                 <h3>
                     Reception
                 </h3>
 
-                <div class="event-time">
-                    4:30 PM
-                </div>
 
-                <p class="event-location">
-                    McCarthy Hills,
-                    Accra, Ghana
+                <p>
+
+                    <strong>
+                        Saturday, 21 November 2026
+                    </strong>
+
+                    <br><br>
+
+                    3:00 PM
+
+                    <br><br>
+
+                    Deplas Royal Hotel
+
                 </p>
 
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=McCarthy+Hills+Accra+Ghana"
-                    target="_blank"
-                    rel="noopener"
-                    class="map-link">
-
-                    Get Directions →
-
-                </a>
-
             </div>
+
 
         </div>
 
@@ -1523,132 +2101,49 @@
 </section>
 
 
+
 <!-- =========================================================
-     MENU
+     STORY
 ========================================================= -->
 
-<section class="menu-section" id="menu">
+<section>
 
     <div class="container">
 
         <div class="center reveal">
 
             <p class="section-label">
-                Taste & Celebration
+                Our Story
             </p>
+
 
             <h2 class="section-title">
-                The Menu
+                A journey worth remembering
             </h2>
-
-            <p class="section-description">
-                Choose your preferred selections when
-                completing your RSVP.
-            </p>
 
         </div>
 
 
-        <div class="menu-grid">
+        <div class="story-box reveal">
 
-            <div class="menu-card reveal">
+            <p>
 
-                <h3>
-                    Local Drinks
-                </h3>
+                Two hearts, one beautiful journey,
+                and a lifetime ahead.
 
-                <ul>
-                    <li>Palm Wine</li>
-                    <li>Sobolo</li>
-                    <li>Asana</li>
-                </ul>
+                <br><br>
 
-            </div>
+                We are grateful for the love,
+                friendship and support that have
+                brought us to this special moment.
 
+                <br><br>
 
-            <div class="menu-card reveal">
+                We cannot wait to celebrate this
+                new chapter surrounded by the
+                people who mean so much to us.
 
-                <h3>
-                    Juices & Punch
-                </h3>
-
-                <ul>
-                    <li>Pineapple Juice</li>
-                    <li>Mojito Punch</li>
-                </ul>
-
-            </div>
-
-
-            <div class="menu-card reveal">
-
-                <h3>
-                    Snacks
-                </h3>
-
-                <ul>
-                    <li>Spring Rolls</li>
-                    <li>Achomo</li>
-                    <li>Nkati Cake</li>
-                    <li>Savory Chips</li>
-                    <li>Cookies</li>
-                    <li>Nkosua ne Meko</li>
-                    <li>Plantain Chips</li>
-                    <li>Atadwe Milk</li>
-                    <li>Rock Buns</li>
-                    <li>Bofrot</li>
-                </ul>
-
-            </div>
-
-
-            <div class="menu-card reveal">
-
-                <h3>
-                    Main Meal
-                </h3>
-
-                <ul>
-                    <li>Fried Rice</li>
-                    <li>Jollof Rice</li>
-                    <li>Waakye</li>
-                    <li>Banku</li>
-                    <li>Kenkey</li>
-                </ul>
-
-            </div>
-
-
-            <div class="menu-card reveal">
-
-                <h3>
-                    Protein
-                </h3>
-
-                <ul>
-                    <li>Chicken</li>
-                    <li>Fish</li>
-                    <li>Tilapia</li>
-                </ul>
-
-            </div>
-
-
-            <div class="menu-card reveal">
-
-                <h3>
-                    Drinks
-                </h3>
-
-                <ul>
-                    <li>Malt</li>
-                    <li>Guinness</li>
-                    <li>Beer</li>
-                    <li>Fanta</li>
-                    <li>Coke</li>
-                </ul>
-
-            </div>
+            </p>
 
         </div>
 
@@ -1657,11 +2152,14 @@
 </section>
 
 
+
 <!-- =========================================================
      RSVP
 ========================================================= -->
 
-<section class="rsvp-section" id="rsvp">
+<section
+    class="rsvp-section"
+    id="rsvp">
 
     <div class="container">
 
@@ -1671,12 +2169,17 @@
                 Kindly Respond
             </p>
 
+
             <h2 class="section-title">
                 Will you celebrate with us?
             </h2>
 
+
             <p class="section-description">
-                Please RSVP by 9 October 2026.
+
+                Please RSVP by
+                <strong>9 October 2026</strong>.
+
             </p>
 
         </div>
@@ -1684,22 +2187,24 @@
 
         <div class="rsvp-box reveal">
 
+
             <div class="notice">
 
-                <strong>A little note about our reception:</strong>
+                <strong>
+                    A little note about our reception:
+                </strong>
 
-                <br>
+                <br><br>
 
                 Due to limited seating capacity,
-                children below 12 years are not permitted
-                at the reception.
+                children below 12 years are not
+                permitted at the reception.
+
+                <br><br>
 
                 Thank you for your understanding.
 
             </div>
-
-
-            <div id="rsvpMessage" class="form-message"></div>
 
 
             <form id="rsvpForm">
@@ -1711,15 +2216,16 @@
 
                     <div class="form-group">
 
-                        <label for="guestName">
+                        <label for="rsvpName">
                             Full Name
                         </label>
 
                         <input
-                            id="guestName"
+                            id="rsvpName"
                             type="text"
                             name="name"
                             required
+                            autocomplete="name"
                             placeholder="Your full name">
 
                     </div>
@@ -1729,14 +2235,15 @@
 
                     <div class="form-group">
 
-                        <label for="guestPhone">
+                        <label for="rsvpPhone">
                             Phone Number
                         </label>
 
                         <input
-                            id="guestPhone"
+                            id="rsvpPhone"
                             type="tel"
                             name="phone"
+                            autocomplete="tel"
                             placeholder="Your phone number">
 
                     </div>
@@ -1746,12 +2253,12 @@
 
                     <div class="form-group">
 
-                        <label for="attendance">
+                        <label for="rsvpAttendance">
                             Attendance
                         </label>
 
                         <select
-                            id="attendance"
+                            id="rsvpAttendance"
                             name="attendance"
                             required>
 
@@ -1772,241 +2279,88 @@
                     </div>
 
 
-                    <!-- PLUS ONE -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Bringing a Plus One?
-                        </label>
-
-                        <div class="radio-grid">
-
-                            <label class="radio-item">
-
-                                <input
-                                    type="radio"
-                                    name="hasPlusOne"
-                                    value="no"
-                                    checked>
-
-                                No
-
-                            </label>
-
-
-                            <label class="radio-item">
-
-                                <input
-                                    type="radio"
-                                    name="hasPlusOne"
-                                    value="yes">
-
-                                Yes
-
-                            </label>
-
-                        </div>
-
-                        <div class="form-note">
-                            A Plus One receives a separate meal selection
-                            but remains linked to your RSVP.
-                        </div>
-
-                    </div>
-
-
-                    <!-- PLUS ONE DETAILS -->
-
-                    <div
-                        class="form-group full plus-one-box"
-                        id="plusOneBox">
-
-                        <div class="plus-one-title">
-                            Plus One Details
-                        </div>
-
-
-                        <div class="form-grid">
-
-
-                            <div class="form-group">
-
-                                <label for="plusOneName">
-                                    Plus One's Full Name
-                                </label>
-
-                                <input
-                                    id="plusOneName"
-                                    type="text"
-                                    name="plusOneName"
-                                    placeholder="Plus One's name">
-
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="plusOneMeal">
-                                    Plus One's Main Meal
-                                </label>
-
-                                <select
-                                    id="plusOneMeal"
-                                    name="plusOneMeal">
-
-                                    <option value="">
-                                        Select meal
-                                    </option>
-
-                                    <option value="Fried Rice">
-                                        Fried Rice
-                                    </option>
-
-                                    <option value="Jollof Rice">
-                                        Jollof Rice
-                                    </option>
-
-                                    <option value="Waakye">
-                                        Waakye
-                                    </option>
-
-                                    <option value="Banku">
-                                        Banku
-                                    </option>
-
-                                    <option value="Kenkey">
-                                        Kenkey
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="plusOneProtein">
-                                    Plus One's Protein
-                                </label>
-
-                                <select
-                                    id="plusOneProtein"
-                                    name="plusOneProtein">
-
-                                    <option value="">
-                                        Select protein
-                                    </option>
-
-                                    <option value="Chicken">
-                                        Chicken
-                                    </option>
-
-                                    <option value="Fish">
-                                        Fish
-                                    </option>
-
-                                    <option value="Tilapia">
-                                        Tilapia
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="plusOneDrink">
-                                    Plus One's Drink
-                                </label>
-
-                                <select
-                                    id="plusOneDrink"
-                                    name="plusOneDrink">
-
-                                    <option value="">
-                                        Select drink
-                                    </option>
-
-                                    <option value="Malt">
-                                        Malt
-                                    </option>
-
-                                    <option value="Guinness">
-                                        Guinness
-                                    </option>
-
-                                    <option value="Beer">
-                                        Beer
-                                    </option>
-
-                                    <option value="Fanta">
-                                        Fanta
-                                    </option>
-
-                                    <option value="Coke">
-                                        Coke
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
                     <!-- MAIN MEAL -->
 
-                    <div class="form-group full">
+                    <div class="form-group">
 
                         <label>
                             Preferred Main Meal
                         </label>
 
-                        <div class="checkbox-grid">
 
-                            <label class="checkbox-item">
+                        <div class="choice-grid">
+
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="meal"
-                                    value="Fried Rice">
-                                Fried Rice
+                                    value="Fried Rice"
+                                    required>
+
+                                <span>
+                                    Fried Rice
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="meal"
                                     value="Jollof Rice">
-                                Jollof Rice
+
+                                <span>
+                                    Jollof Rice
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="meal"
                                     value="Waakye">
-                                Waakye
+
+                                <span>
+                                    Waakye
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="meal"
                                     value="Banku">
-                                Banku
+
+                                <span>
+                                    Banku
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="meal"
                                     value="Kenkey">
-                                Kenkey
+
+                                <span>
+                                    Kenkey
+                                </span>
+
                             </label>
+
 
                         </div>
 
@@ -2015,37 +2369,58 @@
 
                     <!-- MAIN PROTEIN -->
 
-                    <div class="form-group full">
+                    <div class="form-group">
 
                         <label>
                             Protein
                         </label>
 
-                        <div class="checkbox-grid">
 
-                            <label class="checkbox-item">
+                        <div class="choice-grid">
+
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="protein"
-                                    value="Chicken">
-                                Chicken
+                                    value="Chicken"
+                                    required>
+
+                                <span>
+                                    Chicken
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="protein"
                                     value="Fish">
-                                Fish
+
+                                <span>
+                                    Fish
+                                </span>
+
                             </label>
 
-                            <label class="checkbox-item">
+
+                            <label class="choice-item">
+
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     name="protein"
                                     value="Tilapia">
-                                Tilapia
+
+                                <span>
+                                    Tilapia
+                                </span>
+
                             </label>
+
 
                         </div>
 
@@ -2056,12 +2431,12 @@
 
                     <div class="form-group">
 
-                        <label for="drink">
+                        <label for="rsvpDrink">
                             Preferred Drink
                         </label>
 
                         <select
-                            id="drink"
+                            id="rsvpDrink"
                             name="drink">
 
                             <option value="">
@@ -2093,19 +2468,258 @@
                     </div>
 
 
-                    <!-- NOTE -->
+                    <!-- PLUS ONE -->
 
-                    <div class="form-group">
+                    <div class="form-group full">
 
-                        <label for="note">
+                        <div class="plus-one-box">
+
+                            <label
+                                class="plus-one-toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="hasPlusOne"
+                                    name="hasPlusOne"
+                                    value="yes">
+
+                                <span>
+                                    I am bringing a Plus One
+                                </span>
+
+                            </label>
+
+
+                            <div
+                                class="plus-one-fields"
+                                id="plusOneFields">
+
+
+                                <!-- PLUS ONE NAME -->
+
+                                <div class="form-group">
+
+                                    <label for="plusOneName">
+                                        Plus One's Name
+                                    </label>
+
+                                    <input
+                                        id="plusOneName"
+                                        type="text"
+                                        name="plusOneName"
+                                        placeholder="Plus One's full name">
+
+                                </div>
+
+
+                                <!-- PLUS ONE MEAL -->
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Plus One's Meal
+                                    </label>
+
+
+                                    <div class="choice-grid">
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneMeal"
+                                                value="Fried Rice">
+
+                                            <span>
+                                                Fried Rice
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneMeal"
+                                                value="Jollof Rice">
+
+                                            <span>
+                                                Jollof Rice
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneMeal"
+                                                value="Waakye">
+
+                                            <span>
+                                                Waakye
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneMeal"
+                                                value="Banku">
+
+                                            <span>
+                                                Banku
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneMeal"
+                                                value="Kenkey">
+
+                                            <span>
+                                                Kenkey
+                                            </span>
+
+                                        </label>
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- PLUS ONE PROTEIN -->
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Plus One's Protein
+                                    </label>
+
+
+                                    <div class="choice-grid">
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneProtein"
+                                                value="Chicken">
+
+                                            <span>
+                                                Chicken
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneProtein"
+                                                value="Fish">
+
+                                            <span>
+                                                Fish
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="choice-item">
+
+                                            <input
+                                                type="radio"
+                                                name="plusOneProtein"
+                                                value="Tilapia">
+
+                                            <span>
+                                                Tilapia
+                                            </span>
+
+                                        </label>
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- PLUS ONE DRINK -->
+
+                                <div class="form-group">
+
+                                    <label for="plusOneDrink">
+                                        Plus One's Drink
+                                    </label>
+
+                                    <select
+                                        id="plusOneDrink"
+                                        name="plusOneDrink">
+
+                                        <option value="">
+                                            Select a drink
+                                        </option>
+
+                                        <option value="Malt">
+                                            Malt
+                                        </option>
+
+                                        <option value="Guinness">
+                                            Guinness
+                                        </option>
+
+                                        <option value="Beer">
+                                            Beer
+                                        </option>
+
+                                        <option value="Fanta">
+                                            Fanta
+                                        </option>
+
+                                        <option value="Coke">
+                                            Coke
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SPECIAL NOTE -->
+
+                    <div class="form-group full">
+
+                        <label for="rsvpNote">
                             Special Note
                         </label>
 
-                        <input
-                            id="note"
-                            type="text"
+                        <textarea
+                            id="rsvpNote"
                             name="note"
                             placeholder="Optional">
+
+                        </textarea>
 
                     </div>
 
@@ -2114,43 +2728,32 @@
 
                     <div class="form-group full">
 
-                        <button
-                            id="rsvpSubmitButton"
-                            type="submit"
-                            class="btn btn-primary">
+                        <div class="submit-area">
 
-                            Submit RSVP
+                            <button
+                                type="submit"
+                                id="rsvpSubmit"
+                                class="btn btn-primary">
 
-                        </button>
+                                Submit RSVP
+
+                            </button>
+
+
+                            <div
+                                id="rsvpMessage"
+                                class="form-message">
+
+                            </div>
+
+                        </div>
 
                     </div>
+
 
                 </div>
 
             </form>
-
-
-            <!-- RSVP RESULT -->
-
-            <div id="rsvpResult" class="rsvp-result">
-
-                <strong>
-                    Your RSVP ID
-                </strong>
-
-                <br>
-
-                Please keep this ID. You will need it
-                if you want to submit a song request.
-
-                <br>
-
-                <span
-                    id="rsvpIdDisplay"
-                    class="rsvp-id-display">
-                </span>
-
-            </div>
 
         </div>
 
@@ -2159,11 +2762,13 @@
 </section>
 
 
+
 <!-- =========================================================
      GIFT
 ========================================================= -->
 
-<section class="gift-section">
+<section
+    class="gift-section">
 
     <div class="container">
 
@@ -2172,6 +2777,7 @@
             <p class="section-label">
                 With Love
             </p>
+
 
             <h2 class="section-title">
                 Your presence is our gift
@@ -2186,14 +2792,16 @@
                 🎁
             </div>
 
+
             <h3>
                 Cash gifts are preferred
             </h3>
 
+
             <p>
 
-                Having you celebrate this special day
-                with us means more than we can say.
+                Having you celebrate this special
+                day with us means more than we can say.
 
                 <br><br>
 
@@ -2210,11 +2818,13 @@
 </section>
 
 
+
 <!-- =========================================================
      MUSIC
 ========================================================= -->
 
-<section class="music-section">
+<section
+    class="music-section">
 
     <div class="container">
 
@@ -2224,9 +2834,11 @@
                 Set the Mood
             </p>
 
+
             <h2 class="section-title">
                 Choose a song for us
             </h2>
+
 
             <p class="section-description">
 
@@ -2240,31 +2852,8 @@
 
         <div class="music-box reveal">
 
-            <div class="music-notice">
-
-                <strong>Important:</strong>
-
-                Please submit your RSVP first.
-                Your RSVP ID will be required before
-                you can submit a song request.
-
-            </div>
-
-
-            <div class="music-rsvp-status" id="musicRsvpStatus">
-
-                RSVP ID:
-                <strong id="musicRsvpId">
-                    Not available yet
-                </strong>
-
-            </div>
-
-
-            <div id="musicMessage" class="form-message"></div>
-
-
             <form id="musicForm">
+
 
                 <div class="form-group">
 
@@ -2275,6 +2864,7 @@
                     <input
                         id="musicName"
                         type="text"
+                        name="name"
                         placeholder="Your name"
                         required>
 
@@ -2290,6 +2880,7 @@
                     <input
                         id="songTitle"
                         type="text"
+                        name="songTitle"
                         placeholder="Song title"
                         required>
 
@@ -2305,19 +2896,28 @@
                     <input
                         id="artist"
                         type="text"
+                        name="artist"
                         placeholder="Artist">
 
                 </div>
 
 
                 <button
-                    id="musicSubmitButton"
                     type="submit"
+                    id="musicSubmit"
                     class="btn btn-primary">
 
                     Submit Song
 
                 </button>
+
+
+                <div
+                    id="musicMessage"
+                    class="form-message">
+
+                </div>
+
 
             </form>
 
@@ -2328,11 +2928,14 @@
 </section>
 
 
+
 <!-- =========================================================
      GALLERY
 ========================================================= -->
 
-<section class="gallery" id="gallery">
+<section
+    class="gallery"
+    id="gallery">
 
     <div class="container">
 
@@ -2342,9 +2945,11 @@
                 Our Memories
             </p>
 
+
             <h2 class="section-title">
                 A journey worth remembering
             </h2>
+
 
             <p class="section-description">
 
@@ -2356,13 +2961,58 @@
         </div>
 
 
-        <div
-            class="gallery-grid"
-            id="galleryGrid">
+        <div class="gallery-grid">
 
-            <div class="gallery-loading">
-                Loading our memories...
+
+            <div
+                class="gallery-item large reveal">
+
+                <span class="gallery-placeholder">
+                    Our Story
+                </span>
+
             </div>
+
+
+            <div
+                class="gallery-item reveal">
+
+                <span class="gallery-placeholder">
+                    James & Claudia
+                </span>
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal">
+
+                <span class="gallery-placeholder">
+                    Memories
+                </span>
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal">
+
+                <span class="gallery-placeholder">
+                    Together
+                </span>
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal">
+
+                <span class="gallery-placeholder">
+                    Forever
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -2370,82 +3020,15 @@
 
 </section>
 
-
-<!-- =========================================================
-     PROGRAM
-========================================================= -->
-
-<section class="program-section" id="program">
-
-    <div class="container">
-
-        <div class="center reveal">
-
-            <p class="section-label">
-                Wedding Details
-            </p>
-
-            <h2 class="section-title">
-                Wedding Program
-            </h2>
-
-            <p class="section-description">
-                View the latest wedding program and
-                celebration details.
-            </p>
-
-        </div>
-
-
-        <div
-            class="program-box reveal"
-            id="programBox">
-
-            <div class="program-icon">
-                📜
-            </div>
-
-            <h3
-                class="program-title"
-                id="programTitle">
-
-                Wedding Program
-
-            </h3>
-
-            <p
-                class="program-description"
-                id="programDescription">
-
-                The wedding program will appear here
-                once it has been published.
-
-            </p>
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-                class="btn btn-primary"
-                id="programButton"
-                style="display:none;">
-
-                View Wedding Program
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =========================================================
      FAQ
 ========================================================= -->
 
-<section class="faq" id="faq">
+<section
+    class="faq"
+    id="faq">
 
     <div class="container">
 
@@ -2454,6 +3037,7 @@
             <p class="section-label">
                 Good to Know
             </p>
+
 
             <h2 class="section-title">
                 Frequently Asked Questions
@@ -2475,14 +3059,16 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
                     The wedding celebration will take place
-                    on 20 November 2026.
+                    on <strong>Saturday, 21 November 2026.</strong>
 
                 </div>
 
             </div>
+
 
 
             <div class="faq-item reveal">
@@ -2495,15 +3081,18 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
                     The marriage discourse begins at
-                    2:00 PM at Gbawe CP Kingdom Hall
-                    of Jehovah's Witnesses.
+                    <strong>12:00 noon</strong> at
+                    <strong>Upper Gbawe Twi Kingdom Hall
+                    @ Mallam, Accra, Ghana.</strong>
 
                 </div>
 
             </div>
+
 
 
             <div class="faq-item reveal">
@@ -2516,14 +3105,17 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
-                    The reception begins at 4:30 PM
-                    at McCarthy Hills, Accra.
+                    The reception begins at
+                    <strong>3:00 PM</strong> at
+                    <strong>Deplas Royal Hotel.</strong>
 
                 </div>
 
             </div>
+
 
 
             <div class="faq-item reveal">
@@ -2536,6 +3128,7 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
                     Due to limited seating capacity,
@@ -2546,27 +3139,6 @@
 
             </div>
 
-
-            <div class="faq-item reveal">
-
-                <div class="faq-question">
-
-                    Can I bring a Plus One?
-
-                    <span>+</span>
-
-                </div>
-
-                <div class="faq-answer">
-
-                    If you have been invited with a Plus One,
-                    you can indicate this when completing
-                    your RSVP and provide your Plus One's
-                    name and meal preferences.
-
-                </div>
-
-            </div>
 
 
             <div class="faq-item reveal">
@@ -2579,14 +3151,16 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
                     Kindly submit your RSVP by
-                    9 October 2026.
+                    <strong>9 October 2026.</strong>
 
                 </div>
 
             </div>
+
 
 
             <div class="faq-item reveal">
@@ -2599,6 +3173,7 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
                     A cash gift is preferred and
@@ -2607,6 +3182,7 @@
                 </div>
 
             </div>
+
 
 
             <div class="faq-item reveal">
@@ -2619,21 +3195,24 @@
 
                 </div>
 
+
                 <div class="faq-answer">
 
-                    Absolutely. First submit your RSVP.
-                    Your RSVP ID will then allow you to
-                    submit your song request.
+                    Absolutely. Use the song request
+                    section on this website to submit
+                    your choice in advance.
 
                 </div>
 
             </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2646,19 +3225,23 @@
         James & Claudia
     </div>
 
+
     <div class="footer-heart">
         ✦
     </div>
 
+
     <p>
-        20 November 2026 · Accra, Ghana
+        Saturday, 21 November 2026 · Accra, Ghana
     </p>
+
 
     <p>
         With love, James & Claudia
     </p>
 
 </footer>
+
 
 
 <!-- =========================================================
@@ -2669,19 +3252,12 @@
 
 
 /* =========================================================
-   GOOGLE APPS SCRIPT API
-========================================================= */
-
-const API_URL =
-    "https://script.google.com/macros/s/AKfycbzkUYYRdyuWeJknnJtoKuWCnXaMpFy3eK848AFfgPp7r_iBK_p3oCX0F_2Ty0-UVylNYw/exec";
-
-
-/* =========================================================
    MOBILE NAVIGATION
 ========================================================= */
 
 const menuToggle =
     document.getElementById("menuToggle");
+
 
 const navLinks =
     document.getElementById("navLinks");
@@ -2689,35 +3265,53 @@ const navLinks =
 
 if (menuToggle && navLinks) {
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-        navLinks.classList.toggle("active");
+            navLinks.classList.toggle(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
     document
         .querySelectorAll(".nav-links a")
         .forEach(link => {
 
-            link.addEventListener("click", () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                navLinks.classList.remove("active");
+                    navLinks.classList.remove(
+                        "active"
+                    );
 
-            });
+                }
+            );
 
         });
 
 }
 
 
+
 /* =========================================================
    COUNTDOWN
 ========================================================= */
 
+/*
+ * Wedding:
+ * Saturday, 21 November 2026
+ * Marriage discourse:
+ * 12:00 noon
+ */
+
 const weddingDate =
     new Date(
-        "November 20, 2026 14:00:00"
+        "November 21, 2026 12:00:00"
     ).getTime();
 
 
@@ -2726,16 +3320,52 @@ function updateCountdown() {
     const now =
         new Date().getTime();
 
+
     const distance =
         weddingDate - now;
 
 
+    const daysElement =
+        document.getElementById("days");
+
+
+    const hoursElement =
+        document.getElementById("hours");
+
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    if (
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ) {
+
+        return;
+
+    }
+
+
     if (distance <= 0) {
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        daysElement.textContent =
+            "00";
+
+        hoursElement.textContent =
+            "00";
+
+        minutesElement.textContent =
+            "00";
+
+        secondsElement.textContent =
+            "00";
 
         return;
 
@@ -2751,53 +3381,72 @@ function updateCountdown() {
 
     const hours =
         Math.floor(
-            (distance %
-                (1000 * 60 * 60 * 24)) /
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
             (1000 * 60 * 60)
         );
 
 
     const minutes =
         Math.floor(
-            (distance %
-                (1000 * 60 * 60)) /
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
             (1000 * 60)
         );
 
 
     const seconds =
         Math.floor(
-            (distance %
-                (1000 * 60)) /
+            (
+                distance %
+                (1000 * 60)
+            ) /
             1000
         );
 
 
-    document.getElementById("days")
-        .textContent =
-        String(days).padStart(2, "0");
+    daysElement.textContent =
+        String(days).padStart(
+            2,
+            "0"
+        );
 
 
-    document.getElementById("hours")
-        .textContent =
-        String(hours).padStart(2, "0");
+    hoursElement.textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
-    document.getElementById("minutes")
-        .textContent =
-        String(minutes).padStart(2, "0");
+    minutesElement.textContent =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
 
 
-    document.getElementById("seconds")
-        .textContent =
-        String(seconds).padStart(2, "0");
+    secondsElement.textContent =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
 
 
 /* =========================================================
@@ -2805,27 +3454,38 @@ setInterval(updateCountdown, 1000);
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
 
 
-if ("IntersectionObserver" in window) {
+if (
+    "IntersectionObserver"
+    in window
+) {
 
     const observer =
         new IntersectionObserver(
 
             entries => {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-                    if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                        entry.target
-                            .classList
-                            .add("visible");
+                            entry.target
+                                .classList
+                                .add(
+                                    "visible"
+                                );
+
+                        }
 
                     }
-
-                });
+                );
 
             },
 
@@ -2836,21 +3496,30 @@ if ("IntersectionObserver" in window) {
         );
 
 
-    revealElements.forEach(element => {
+    revealElements.forEach(
+        element => {
 
-        observer.observe(element);
+            observer.observe(
+                element
+            );
 
-    });
+        }
+    );
 
 } else {
 
-    revealElements.forEach(element => {
+    revealElements.forEach(
+        element => {
 
-        element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
-    });
+        }
+    );
 
 }
+
 
 
 /* =========================================================
@@ -2861,434 +3530,638 @@ document
     .querySelectorAll(".faq-question")
     .forEach(question => {
 
-        question.addEventListener("click", () => {
+        question.addEventListener(
+            "click",
+            () => {
 
-            const item =
-                question.parentElement;
+                const item =
+                    question.parentElement;
 
-            item.classList.toggle("active");
 
-            const icon =
-                question.querySelector("span");
+                item.classList.toggle(
+                    "active"
+                );
 
-            icon.textContent =
-                item.classList.contains("active")
-                ? "−"
-                : "+";
 
-        });
+                const icon =
+                    question.querySelector(
+                        "span"
+                    );
+
+
+                if (icon) {
+
+                    icon.textContent =
+                        item.classList.contains(
+                            "active"
+                        )
+                        ? "−"
+                        : "+";
+
+                }
+
+            }
+        );
 
     });
+
 
 
 /* =========================================================
    PLUS ONE
 ========================================================= */
 
-const plusOneRadios =
-    document.querySelectorAll(
-        'input[name="hasPlusOne"]'
+const hasPlusOne =
+    document.getElementById(
+        "hasPlusOne"
     );
 
-const plusOneBox =
-    document.getElementById("plusOneBox");
+
+const plusOneFields =
+    document.getElementById(
+        "plusOneFields"
+    );
+
 
 const plusOneName =
-    document.getElementById("plusOneName");
+    document.getElementById(
+        "plusOneName"
+    );
 
 
-function updatePlusOneVisibility() {
-
-    const selected =
-        document.querySelector(
-            'input[name="hasPlusOne"]:checked'
-        );
+const plusOneMealInputs =
+    document.querySelectorAll(
+        'input[name="plusOneMeal"]'
+    );
 
 
-    const hasPlusOne =
-        selected &&
-        selected.value === "yes";
+const plusOneProteinInputs =
+    document.querySelectorAll(
+        'input[name="plusOneProtein"]'
+    );
 
 
-    if (hasPlusOne) {
+const plusOneDrink =
+    document.getElementById(
+        "plusOneDrink"
+    );
 
-        plusOneBox.classList.add("visible");
 
-        plusOneName.required = true;
+function setPlusOneRequired(
+    required
+) {
 
-    } else {
+    if (plusOneName) {
 
-        plusOneBox.classList.remove("visible");
+        plusOneName.required =
+            required;
 
-        plusOneName.required = false;
+    }
 
-        plusOneName.value = "";
 
-        document.getElementById(
-            "plusOneMeal"
-        ).value = "";
+    plusOneMealInputs.forEach(
+        input => {
 
-        document.getElementById(
-            "plusOneProtein"
-        ).value = "";
+            input.required =
+                required;
 
-        document.getElementById(
-            "plusOneDrink"
-        ).value = "";
+        }
+    );
+
+
+    plusOneProteinInputs.forEach(
+        input => {
+
+            input.required =
+                required;
+
+        }
+    );
+
+
+    if (plusOneDrink) {
+
+        plusOneDrink.required =
+            required;
 
     }
 
 }
 
 
-plusOneRadios.forEach(radio => {
+function updatePlusOneVisibility() {
 
-    radio.addEventListener(
+    const enabled =
+        hasPlusOne &&
+        hasPlusOne.checked;
+
+
+    if (!plusOneFields) {
+
+        return;
+
+    }
+
+
+    if (enabled) {
+
+        plusOneFields.classList.add(
+            "active"
+        );
+
+        setPlusOneRequired(
+            true
+        );
+
+    } else {
+
+        plusOneFields.classList.remove(
+            "active"
+        );
+
+        setPlusOneRequired(
+            false
+        );
+
+
+        if (plusOneName) {
+
+            plusOneName.value =
+                "";
+
+        }
+
+
+        plusOneMealInputs.forEach(
+            input => {
+
+                input.checked =
+                    false;
+
+            }
+        );
+
+
+        plusOneProteinInputs.forEach(
+            input => {
+
+                input.checked =
+                    false;
+
+            }
+        );
+
+
+        if (plusOneDrink) {
+
+            plusOneDrink.value =
+                "";
+
+        }
+
+    }
+
+}
+
+
+if (hasPlusOne) {
+
+    hasPlusOne.addEventListener(
         "change",
         updatePlusOneVisibility
     );
 
-});
+}
 
 
 updatePlusOneVisibility();
 
 
+
 /* =========================================================
-   FORM HELPERS
+   RSVP FORM
 ========================================================= */
 
-function showMessage(
-    element,
+const rsvpForm =
+    document.getElementById(
+        "rsvpForm"
+    );
+
+
+const rsvpSubmit =
+    document.getElementById(
+        "rsvpSubmit"
+    );
+
+
+const rsvpMessage =
+    document.getElementById(
+        "rsvpMessage"
+    );
+
+
+function showRSVPMessage(
     message,
     type
 ) {
 
-    element.textContent = message;
+    if (!rsvpMessage) {
 
-    element.className =
-        "form-message " + type;
+        return;
 
-}
-
-
-function clearMessage(element) {
-
-    element.textContent = "";
-
-    element.className =
-        "form-message";
-
-}
+    }
 
 
-/* =========================================================
-   RSVP DATA
-========================================================= */
+    rsvpMessage.textContent =
+        message;
 
-function getCheckedValues(name) {
 
-    return Array.from(
-        document.querySelectorAll(
-            'input[name="' + name + '"]:checked'
-        )
-    ).map(input => input.value);
+    rsvpMessage.className =
+        "form-message show " +
+        type;
 
 }
 
 
-/* =========================================================
-   RSVP SUBMISSION
-========================================================= */
+function getRadioValue(
+    name
+) {
 
-const rsvpForm =
-    document.getElementById("rsvpForm");
-
-const rsvpMessage =
-    document.getElementById("rsvpMessage");
-
-const rsvpResult =
-    document.getElementById("rsvpResult");
-
-const rsvpIdDisplay =
-    document.getElementById("rsvpIdDisplay");
-
-const rsvpSubmitButton =
-    document.getElementById("rsvpSubmitButton");
+    const selected =
+        document.querySelector(
+            'input[name="' +
+            name +
+            '"]:checked'
+        );
 
 
-rsvpForm.addEventListener(
-    "submit",
-    async function(e) {
+    return selected
+        ? selected.value
+        : "";
 
-        e.preventDefault();
-
-        clearMessage(rsvpMessage);
-
-        rsvpResult.classList.remove("visible");
+}
 
 
-        const formData =
-            new FormData(rsvpForm);
+if (rsvpForm) {
+
+    rsvpForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
 
 
-        const hasPlusOne =
-            formData.get("hasPlusOne") === "yes";
+            showRSVPMessage(
+                "",
+                ""
+            );
 
-
-        const mealSelections =
-            getCheckedValues("meal");
-
-
-        const proteinSelections =
-            getCheckedValues("protein");
-
-
-        const data = {
-
-            action: "rsvp",
-
-            name:
-                String(
-                    formData.get("name") || ""
-                ).trim(),
-
-            phone:
-                String(
-                    formData.get("phone") || ""
-                ).trim(),
-
-            attendance:
-                String(
-                    formData.get("attendance") || ""
-                ).trim(),
-
-            hasPlusOne:
-                hasPlusOne,
-
-            plusOneName:
-                hasPlusOne
-                    ? String(
-                        formData.get("plusOneName") || ""
-                      ).trim()
-                    : "",
-
-            plusOneMeal:
-                hasPlusOne
-                    ? String(
-                        formData.get("plusOneMeal") || ""
-                      ).trim()
-                    : "",
-
-            plusOneProtein:
-                hasPlusOne
-                    ? String(
-                        formData.get("plusOneProtein") || ""
-                      ).trim()
-                    : "",
-
-            plusOneDrink:
-                hasPlusOne
-                    ? String(
-                        formData.get("plusOneDrink") || ""
-                      ).trim()
-                    : "",
 
             /*
-             * The backend expects one value for each
-             * main guest selection.
-             *
-             * If multiple checkboxes are selected,
-             * they are joined together.
+             * Collect exact fields expected
+             * by submitRSVP(data).
              */
 
-            meal:
-                mealSelections.join(", "),
+            const data = {
 
-            protein:
-                proteinSelections.join(", "),
-
-            drink:
-                String(
-                    formData.get("drink") || ""
-                ).trim(),
-
-            note:
-                String(
-                    formData.get("note") || ""
-                ).trim()
-
-        };
+                name:
+                    String(
+                        rsvpForm.elements
+                            .name.value ||
+                        ""
+                    ).trim(),
 
 
-        if (!data.name) {
-
-            showMessage(
-                rsvpMessage,
-                "Please enter your full name.",
-                "error"
-            );
-
-            return;
-
-        }
+                phone:
+                    String(
+                        rsvpForm.elements
+                            .phone.value ||
+                        ""
+                    ).trim(),
 
 
-        if (!data.attendance) {
-
-            showMessage(
-                rsvpMessage,
-                "Please select your attendance response.",
-                "error"
-            );
-
-            return;
-
-        }
+                attendance:
+                    String(
+                        rsvpForm.elements
+                            .attendance.value ||
+                        ""
+                    ).trim(),
 
 
-        if (
-            data.attendance ===
-            "Sorry, I can't make it"
-        ) {
+                hasPlusOne:
+                    Boolean(
+                        hasPlusOne &&
+                        hasPlusOne.checked
+                    ),
+
+
+                plusOneName:
+                    String(
+                        (
+                            rsvpForm.elements
+                                .plusOneName
+                                ?.value ||
+                            ""
+                        )
+                    ).trim(),
+
+
+                meal:
+                    getRadioValue(
+                        "meal"
+                    ),
+
+
+                protein:
+                    getRadioValue(
+                        "protein"
+                    ),
+
+
+                drink:
+                    String(
+                        rsvpForm.elements
+                            .drink.value ||
+                        ""
+                    ).trim(),
+
+
+                plusOneMeal:
+                    getRadioValue(
+                        "plusOneMeal"
+                    ),
+
+
+                plusOneProtein:
+                    getRadioValue(
+                        "plusOneProtein"
+                    ),
+
+
+                plusOneDrink:
+                    String(
+                        rsvpForm.elements
+                            .plusOneDrink
+                            ?.value ||
+                        ""
+                    ).trim(),
+
+
+                note:
+                    String(
+                        rsvpForm.elements
+                            .note.value ||
+                        ""
+                    ).trim()
+
+            };
+
 
             /*
-             * The backend accepts the RSVP even when
-             * the guest cannot attend.
+             * Extra client-side validation.
              */
 
-        }
+            if (!data.name) {
 
-
-        if (
-            hasPlusOne &&
-            !data.plusOneName
-        ) {
-
-            showMessage(
-                rsvpMessage,
-                "Please enter your Plus One's name.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        rsvpSubmitButton.disabled = true;
-
-        rsvpSubmitButton.textContent =
-            "Submitting RSVP...";
-
-
-        try {
-
-            const response =
-                await fetch(
-                    API_URL,
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
-
-                        body:
-                            JSON.stringify(data)
-                    }
+                showRSVPMessage(
+                    "Please enter your full name.",
+                    "error"
                 );
 
-
-            const result =
-                await response.json();
-
-
-            if (!result.success) {
-
-                throw new Error(
-                    result.error ||
-                    "Unable to submit RSVP."
-                );
+                return;
 
             }
 
 
-            showMessage(
-                rsvpMessage,
-                result.message ||
-                "Your RSVP was received successfully.",
+            if (!data.attendance) {
+
+                showRSVPMessage(
+                    "Please select your attendance.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                data.attendance ===
+                "Yes, I'll be there"
+            ) {
+
+                if (!data.meal) {
+
+                    showRSVPMessage(
+                        "Please select your preferred meal.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!data.protein) {
+
+                    showRSVPMessage(
+                        "Please select your preferred protein.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+            if (data.hasPlusOne) {
+
+                if (!data.plusOneName) {
+
+                    showRSVPMessage(
+                        "Please enter your Plus One's name.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!data.plusOneMeal) {
+
+                    showRSVPMessage(
+                        "Please select your Plus One's meal.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!data.plusOneProtein) {
+
+                    showRSVPMessage(
+                        "Please select your Plus One's protein.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+            /*
+             * Disable button while sending.
+             */
+
+            if (rsvpSubmit) {
+
+                rsvpSubmit.disabled =
+                    true;
+
+                rsvpSubmit.textContent =
+                    "Submitting RSVP...";
+
+            }
+
+
+            showRSVPMessage(
+                "Submitting your RSVP...",
                 "success"
             );
 
 
             /*
-             * Save RSVP ID locally.
+             * IMPORTANT:
              *
-             * This allows the music form to use
-             * the RSVP ID after the page is refreshed.
+             * This is the real Apps Script
+             * backend call.
              */
 
-            if (result.rsvpId) {
+            google.script.run
 
-                localStorage.setItem(
-                    "weddingRsvpId",
-                    result.rsvpId
+                .withSuccessHandler(
+                    function(response) {
+
+                        if (
+                            response &&
+                            response.success === true
+                        ) {
+
+                            let successText =
+                                "Thank you! Your RSVP has been received.";
+
+
+                            if (
+                                response.rsvpId
+                            ) {
+
+                                successText +=
+                                    " Your RSVP ID is " +
+                                    response.rsvpId +
+                                    ".";
+
+                            }
+
+
+                            successText +=
+                                " James & Claudia are grateful to celebrate with you!";
+
+
+                            showRSVPMessage(
+                                successText,
+                                "success"
+                            );
+
+
+                            rsvpForm.reset();
+
+
+                            updatePlusOneVisibility();
+
+
+                        } else {
+
+                            showRSVPMessage(
+
+                                response &&
+                                response.error
+
+                                    ? response.error
+
+                                    : "We could not process your RSVP. Please try again.",
+
+                                "error"
+
+                            );
+
+                        }
+
+
+                        if (rsvpSubmit) {
+
+                            rsvpSubmit.disabled =
+                                false;
+
+                            rsvpSubmit.textContent =
+                                "Submit RSVP";
+
+                        }
+
+                    }
+                )
+
+                .withFailureHandler(
+                    function(error) {
+
+                        console.error(
+                            "RSVP error:",
+                            error
+                        );
+
+
+                        showRSVPMessage(
+
+                            error &&
+                            error.message
+
+                                ? error.message
+
+                                : "Something went wrong while submitting your RSVP. Please try again.",
+
+                            "error"
+
+                        );
+
+
+                        if (rsvpSubmit) {
+
+                            rsvpSubmit.disabled =
+                                false;
+
+                            rsvpSubmit.textContent =
+                                "Submit RSVP";
+
+                        }
+
+                    }
+                )
+
+                .submitRSVP(
+                    data
                 );
-
-
-                localStorage.setItem(
-                    "weddingGuestName",
-                    data.name
-                );
-
-
-                rsvpIdDisplay.textContent =
-                    result.rsvpId;
-
-
-                rsvpResult.classList.add(
-                    "visible"
-                );
-
-
-                updateMusicStatus();
-
-            }
-
-
-            rsvpForm.reset();
-
-            updatePlusOneVisibility();
-
-
-        } catch (error) {
-
-            console.error(
-                "RSVP Error:",
-                error
-            );
-
-
-            showMessage(
-                rsvpMessage,
-                "We could not submit your RSVP. " +
-                error.message,
-                "error"
-            );
-
-        } finally {
-
-            rsvpSubmitButton.disabled = false;
-
-            rsvpSubmitButton.textContent =
-                "Submit RSVP";
 
         }
+    );
 
-    }
-);
+}
+
 
 
 /* =========================================================
@@ -3296,594 +4169,265 @@ rsvpForm.addEventListener(
 ========================================================= */
 
 const musicForm =
-    document.getElementById("musicForm");
+    document.getElementById(
+        "musicForm"
+    );
+
+
+const musicSubmit =
+    document.getElementById(
+        "musicSubmit"
+    );
+
 
 const musicMessage =
-    document.getElementById("musicMessage");
-
-const musicSubmitButton =
     document.getElementById(
-        "musicSubmitButton"
-    );
-
-const musicRsvpId =
-    document.getElementById(
-        "musicRsvpId"
+        "musicMessage"
     );
 
 
-function getStoredRsvpId() {
+function showMusicMessage(
+    message,
+    type
+) {
 
-    return localStorage.getItem(
-        "weddingRsvpId"
-    ) || "";
+    if (!musicMessage) {
 
-}
-
-
-function updateMusicStatus() {
-
-    const storedId =
-        getStoredRsvpId();
-
-
-    if (storedId) {
-
-        musicRsvpId.textContent =
-            storedId;
-
-        musicSubmitButton.disabled =
-            false;
-
-    } else {
-
-        musicRsvpId.textContent =
-            "Not available yet";
-
-        musicSubmitButton.disabled =
-            false;
+        return;
 
     }
 
+
+    musicMessage.textContent =
+        message;
+
+
+    musicMessage.className =
+        "form-message show " +
+        type;
+
 }
 
 
-updateMusicStatus();
+if (musicForm) {
 
+    musicForm.addEventListener(
+        "submit",
+        function(event) {
 
-musicForm.addEventListener(
-    "submit",
-    async function(e) {
+            event.preventDefault();
 
-        e.preventDefault();
-
-        clearMessage(musicMessage);
-
-
-        const rsvpId =
-            getStoredRsvpId();
-
-
-        if (!rsvpId) {
-
-            showMessage(
-                musicMessage,
-                "Please submit your RSVP first. " +
-                "Your RSVP ID is required for song requests.",
-                "error"
-            );
-
-            document
-                .getElementById("rsvp")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            return;
-
-        }
-
-
-        const name =
-            document
-                .getElementById("musicName")
-                .value
-                .trim();
-
-
-        const songTitle =
-            document
-                .getElementById("songTitle")
-                .value
-                .trim();
-
-
-        const artist =
-            document
-                .getElementById("artist")
-                .value
-                .trim();
-
-
-        if (!name) {
-
-            showMessage(
-                musicMessage,
-                "Please enter your name.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (!songTitle) {
-
-            showMessage(
-                musicMessage,
-                "Please enter the song title.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        musicSubmitButton.disabled = true;
-
-        musicSubmitButton.textContent =
-            "Submitting...";
-
-
-        try {
 
             const data = {
 
-                action: "music",
+                name:
+                    String(
+                        musicForm.elements
+                            .name.value ||
+                        ""
+                    ).trim(),
 
-                rsvpId: rsvpId,
 
-                songTitle: songTitle,
+                songTitle:
+                    String(
+                        musicForm.elements
+                            .songTitle.value ||
+                        ""
+                    ).trim(),
 
-                artist: artist
+
+                artist:
+                    String(
+                        musicForm.elements
+                            .artist.value ||
+                        ""
+                    ).trim()
 
             };
 
 
-            const response =
-                await fetch(
-                    API_URL,
-                    {
-                        method: "POST",
+            if (!data.name) {
 
-                        headers: {
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
-
-                        body:
-                            JSON.stringify(data)
-                    }
+                showMusicMessage(
+                    "Please enter your name.",
+                    "error"
                 );
 
-
-            const result =
-                await response.json();
-
-
-            if (!result.success) {
-
-                throw new Error(
-                    result.error ||
-                    "Unable to submit song request."
-                );
+                return;
 
             }
 
 
-            showMessage(
-                musicMessage,
-                result.message ||
-                "Song request submitted successfully.",
+            if (!data.songTitle) {
+
+                showMusicMessage(
+                    "Please enter the song title.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (musicSubmit) {
+
+                musicSubmit.disabled =
+                    true;
+
+                musicSubmit.textContent =
+                    "Submitting...";
+
+            }
+
+
+            showMusicMessage(
+                "Submitting your song request...",
                 "success"
             );
 
 
-            musicForm.reset();
+            /*
+             * The backend submitMusic()
+             * currently requires an RSVP ID.
+             *
+             * Therefore we first ask the guest
+             * for their RSVP ID through a small
+             * prompt.
+             */
 
-            updateMusicStatus();
-
-
-        } catch (error) {
-
-            console.error(
-                "Music Request Error:",
-                error
-            );
-
-
-            showMessage(
-                musicMessage,
-                "We could not submit your song request. " +
-                error.message,
-                "error"
-            );
-
-        } finally {
-
-            musicSubmitButton.disabled = false;
-
-            musicSubmitButton.textContent =
-                "Submit Song";
-
-        }
-
-    }
-);
+            const rsvpId =
+                window.prompt(
+                    "Please enter your RSVP ID so we can link this song request to your RSVP."
+                );
 
 
-/* =========================================================
-   LOAD GALLERY
-========================================================= */
+            if (!rsvpId) {
 
-async function loadGallery() {
-
-    const galleryGrid =
-        document.getElementById(
-            "galleryGrid"
-        );
+                showMusicMessage(
+                    "Song request cancelled. Your RSVP ID is required.",
+                    "error"
+                );
 
 
-    try {
+                if (musicSubmit) {
 
-        const response =
-            await fetch(
-                API_URL +
-                "?action=gallery"
-            );
+                    musicSubmit.disabled =
+                        false;
 
-
-        const result =
-            await response.json();
-
-
-        if (
-            !result.success ||
-            !Array.isArray(result.photos)
-        ) {
-
-            throw new Error(
-                "Gallery data could not be loaded."
-            );
-
-        }
-
-
-        const photos =
-            result.photos;
-
-
-        galleryGrid.innerHTML = "";
-
-
-        if (photos.length === 0) {
-
-            galleryGrid.innerHTML = `
-
-                <div class="gallery-loading">
-
-                    Our memories will appear here
-                    as photos are added.
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        photos.forEach(
-            (photo, index) => {
-
-                const item =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                item.className =
-                    "gallery-item reveal";
-
-
-                if (index === 0) {
-
-                    item.classList.add(
-                        "large"
-                    );
+                    musicSubmit.textContent =
+                        "Submit Song";
 
                 }
 
 
-                const image =
-                    document.createElement(
-                        "img"
-                    );
+                return;
+
+            }
 
 
-                image.src =
-                    photo.url;
+            data.rsvpId =
+                String(
+                    rsvpId
+                ).trim();
 
 
-                image.alt =
-                    photo.caption ||
-                    "James & Claudia wedding memory";
+            google.script.run
+
+                .withSuccessHandler(
+                    function(response) {
+
+                        if (
+                            response &&
+                            response.success === true
+                        ) {
+
+                            showMusicMessage(
+                                "Thank you! Your song request has been received.",
+                                "success"
+                            );
 
 
-                image.loading =
-                    index === 0
-                    ? "eager"
-                    : "lazy";
+                            musicForm.reset();
+
+                        } else {
+
+                            showMusicMessage(
+
+                                response &&
+                                response.error
+
+                                    ? response.error
+
+                                    : "We could not submit your song request.",
+
+                                "error"
+
+                            );
+
+                        }
 
 
-                item.appendChild(
-                    image
-                );
+                        if (musicSubmit) {
 
+                            musicSubmit.disabled =
+                                false;
 
-                if (photo.caption) {
+                            musicSubmit.textContent =
+                                "Submit Song";
 
-                    const caption =
-                        document.createElement(
-                            "div"
+                        }
+
+                    }
+                )
+
+                .withFailureHandler(
+                    function(error) {
+
+                        console.error(
+                            "Music request error:",
+                            error
                         );
 
 
-                    caption.className =
-                        "gallery-caption";
+                        showMusicMessage(
 
+                            error &&
+                            error.message
 
-                    caption.textContent =
-                        photo.caption;
+                                ? error.message
 
+                                : "Something went wrong while submitting your song request.",
 
-                    item.appendChild(
-                        caption
-                    );
+                            "error"
 
-                }
-
-
-                galleryGrid.appendChild(
-                    item
-                );
-
-
-                /*
-                 * Add reveal animation.
-                 */
-
-                setTimeout(
-                    () => {
-
-                        item.classList.add(
-                            "visible"
                         );
 
-                    },
-                    50
+
+                        if (musicSubmit) {
+
+                            musicSubmit.disabled =
+                                false;
+
+                            musicSubmit.textContent =
+                                "Submit Song";
+
+                        }
+
+                    }
+                )
+
+                .submitMusic(
+                    data
                 );
 
-            }
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Gallery Error:",
-            error
-        );
-
-
-        galleryGrid.innerHTML = `
-
-            <div class="gallery-loading">
-
-                Our gallery is currently
-                unavailable. Please try again later.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD STORY PHOTO
-========================================================= */
-
-async function loadStoryPhoto() {
-
-    const storyImage =
-        document.getElementById(
-            "storyImage"
-        );
-
-
-    try {
-
-        const response =
-            await fetch(
-                API_URL +
-                "?action=story"
-            );
-
-
-        const result =
-            await response.json();
-
-
-        if (
-            result.success &&
-            result.photo &&
-            result.photo.url
-        ) {
-
-            storyImage.style.backgroundImage =
-                `url("${result.photo.url}")`;
-
-            storyImage.classList.add(
-                "has-photo"
-            );
-
         }
-
-    } catch (error) {
-
-        console.error(
-            "Story Photo Error:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD WEDDING PROGRAM
-========================================================= */
-
-async function loadProgram() {
-
-    const programTitle =
-        document.getElementById(
-            "programTitle"
-        );
-
-    const programDescription =
-        document.getElementById(
-            "programDescription"
-        );
-
-    const programButton =
-        document.getElementById(
-            "programButton"
-        );
-
-
-    try {
-
-        const response =
-            await fetch(
-                API_URL +
-                "?action=program"
-            );
-
-
-        const result =
-            await response.json();
-
-
-        if (
-            result.success &&
-            result.program
-        ) {
-
-            const program =
-                result.program;
-
-
-            programTitle.textContent =
-                program.title ||
-                "Wedding Program";
-
-
-            programDescription.textContent =
-                program.fileName ||
-                "Wedding Program";
-
-
-            if (program.url) {
-
-                programButton.href =
-                    program.url;
-
-                programButton.style.display =
-                    "inline-flex";
-
-            }
-
-        } else {
-
-            programDescription.textContent =
-                "The wedding program will appear here " +
-                "once it has been published.";
-
-        }
-
-
-    } catch (error) {
-
-        console.error(
-            "Program Error:",
-            error
-        );
-
-
-        programDescription.textContent =
-            "The wedding program is currently unavailable.";
-
-    }
-
-}
-
-
-/* =========================================================
-   INITIALIZE API CONTENT
-========================================================= */
-
-loadGallery();
-
-loadStoryPhoto();
-
-loadProgram();
-
-
-/* =========================================================
-   RESTORE RSVP RESULT AFTER REFRESH
-========================================================= */
-
-(function restoreRsvp() {
-
-    const storedId =
-        getStoredRsvpId();
-
-
-    if (storedId) {
-
-        rsvpIdDisplay.textContent =
-            storedId;
-
-        rsvpResult.classList.add(
-            "visible"
-        );
-
-        updateMusicStatus();
-
-    }
-
-})();
+    );
 
 
 </script>
 
+
 </body>
+
 </html>
