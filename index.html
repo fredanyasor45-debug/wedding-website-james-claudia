@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>James & Claudia | 20 November 2026</title>
+    <title>James & Claudia | 21 November 2026</title>
 
     <meta name="description"
-          content="Join James & Claudia as they celebrate their marriage on 20 November 2026 in Accra, Ghana.">
+          content="Join James & Claudia as they celebrate their marriage on 21 November 2026 in Accra, Ghana.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,6 @@
         ========================================================= */
 
         :root {
-
             --ivory: #fbf8f2;
             --cream: #f4eee3;
 
@@ -44,6 +43,9 @@
             --muted: #706879;
 
             --white: #ffffff;
+
+            --danger: #b33a3a;
+            --success: #287a50;
 
             --shadow:
                 0 20px 60px rgba(32, 39, 48, 0.10);
@@ -345,6 +347,8 @@
             cursor: pointer;
 
             transition: var(--transition);
+
+            border: none;
         }
 
         .btn-primary {
@@ -360,11 +364,18 @@
         .btn-outline {
             border: 1px solid var(--gold);
             color: var(--teal-dark);
+            background: transparent;
         }
 
         .btn-outline:hover {
             background: var(--gold);
             color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
 
@@ -452,12 +463,21 @@
             overflow: hidden;
         }
 
+        .story-image.has-photo {
+            background-size: cover;
+            background-position: center;
+        }
+
         .story-image::after {
             content: "James & Claudia";
 
             font-family: 'Alex Brush', cursive;
             font-size: 3rem;
             color: rgba(13,77,75,0.35);
+        }
+
+        .story-image.has-photo::after {
+            display: none;
         }
 
         .story-content h3 {
@@ -626,7 +646,7 @@
         }
 
         .rsvp-box {
-            max-width: 850px;
+            max-width: 900px;
             margin: 50px auto 0;
 
             background: white;
@@ -718,6 +738,97 @@
             width: auto;
         }
 
+        .radio-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+
+        .radio-item input {
+            width: auto;
+        }
+
+        .plus-one-box {
+            display: none;
+            background: #faf7ff;
+            border: 1px solid rgba(170,150,201,0.45);
+            padding: 25px;
+            margin: 10px 0 20px;
+        }
+
+        .plus-one-box.visible {
+            display: block;
+        }
+
+        .plus-one-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--teal-dark);
+            margin-bottom: 15px;
+        }
+
+        .form-note {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .form-message {
+            display: none;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .form-message.success {
+            display: block;
+            background: #e8f6ed;
+            border-left: 3px solid var(--success);
+            color: var(--success);
+        }
+
+        .form-message.error {
+            display: block;
+            background: #fbeaea;
+            border-left: 3px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .rsvp-result {
+            display: none;
+            background: var(--ivory);
+            border: 1px solid rgba(200,166,75,0.4);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .rsvp-result.visible {
+            display: block;
+        }
+
+        .rsvp-id-display {
+            font-family: monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            background: white;
+            padding: 10px 15px;
+            display: inline-block;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
 
         /* =========================================================
            GIFT
@@ -768,6 +879,24 @@
             box-shadow: var(--shadow);
         }
 
+        .music-notice {
+            background: var(--lavender-light);
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .music-rsvp-status {
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .music-rsvp-status strong {
+            color: var(--teal-dark);
+        }
+
 
         /* =========================================================
            GALLERY
@@ -809,10 +938,73 @@
             height: 655px;
         }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
         .gallery-placeholder {
             font-family: 'Alex Brush', cursive;
             font-size: 2rem;
             color: rgba(13,77,75,0.35);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 14px;
+            color: white;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            font-size: 0.8rem;
+        }
+
+        .gallery-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--muted);
+            padding: 40px;
+        }
+
+
+        /* =========================================================
+           PROGRAM
+        ========================================================= */
+
+        .program-section {
+            background: var(--ivory);
+        }
+
+        .program-box {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background: white;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .program-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            color: var(--teal-dark);
+        }
+
+        .program-description {
+            color: var(--muted);
+            margin: 10px 0 25px;
         }
 
 
@@ -983,7 +1175,8 @@
             }
 
             .rsvp-box,
-            .music-box {
+            .music-box,
+            .program-box {
                 padding: 25px 20px;
             }
 
@@ -1038,6 +1231,7 @@
             <li><a href="#events">The Day</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#program">Program</a></li>
             <li><a href="#faq">FAQ</a></li>
 
             <li>
@@ -1051,7 +1245,6 @@
     </div>
 
 </nav>
-
 
 
 <!-- =========================================================
@@ -1070,11 +1263,9 @@
         </p>
 
         <h1 class="hero-title">
-
             James
             <span class="amp">&amp;</span>
             Claudia
-
         </h1>
 
         <p class="hero-subtitle">
@@ -1106,7 +1297,6 @@
     </div>
 
 </header>
-
 
 
 <!-- =========================================================
@@ -1150,7 +1340,6 @@
 </section>
 
 
-
 <!-- =========================================================
      STORY
 ========================================================= -->
@@ -1179,13 +1368,7 @@
 
         <div class="story-grid">
 
-            <div class="story-image reveal">
-
-                <!--
-                    Replace this section with a real
-                    photograph of James & Claudia later.
-                -->
-
+            <div class="story-image reveal" id="storyImage">
             </div>
 
 
@@ -1247,7 +1430,6 @@
 </section>
 
 
-
 <!-- =========================================================
      EVENTS
 ========================================================= -->
@@ -1271,9 +1453,6 @@
 
         <div class="event-grid">
 
-
-            <!-- CEREMONY -->
-
             <div class="event-card reveal">
 
                 <div class="event-icon">
@@ -1289,15 +1468,14 @@
                 </div>
 
                 <p class="event-location">
-
                     Gbawe CP Kingdom Hall
                     of Jehovah's Witnesses
-
                 </p>
 
                 <a
                     href="https://www.google.com/maps/search/?api=1&query=Gbawe+CP+Kingdom+Hall+of+Jehovah%27s+Witnesses"
                     target="_blank"
+                    rel="noopener"
                     class="map-link">
 
                     Get Directions →
@@ -1306,8 +1484,6 @@
 
             </div>
 
-
-            <!-- RECEPTION -->
 
             <div class="event-card reveal">
 
@@ -1324,15 +1500,14 @@
                 </div>
 
                 <p class="event-location">
-
                     McCarthy Hills,
                     Accra, Ghana
-
                 </p>
 
                 <a
                     href="https://www.google.com/maps/search/?api=1&query=McCarthy+Hills+Accra+Ghana"
                     target="_blank"
+                    rel="noopener"
                     class="map-link">
 
                     Get Directions →
@@ -1346,7 +1521,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1376,7 +1550,6 @@
 
 
         <div class="menu-grid">
-
 
             <div class="menu-card reveal">
 
@@ -1484,7 +1657,6 @@
 </section>
 
 
-
 <!-- =========================================================
      RSVP
 ========================================================= -->
@@ -1527,18 +1699,24 @@
             </div>
 
 
+            <div id="rsvpMessage" class="form-message"></div>
+
+
             <form id="rsvpForm">
 
                 <div class="form-grid">
 
 
+                    <!-- MAIN GUEST NAME -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="guestName">
                             Full Name
                         </label>
 
                         <input
+                            id="guestName"
                             type="text"
                             name="name"
                             required
@@ -1547,13 +1725,16 @@
                     </div>
 
 
+                    <!-- PHONE -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="guestPhone">
                             Phone Number
                         </label>
 
                         <input
+                            id="guestPhone"
                             type="tel"
                             name="phone"
                             placeholder="Your phone number">
@@ -1561,13 +1742,16 @@
                     </div>
 
 
+                    <!-- ATTENDANCE -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="attendance">
                             Attendance
                         </label>
 
                         <select
+                            id="attendance"
                             name="attendance"
                             required>
 
@@ -1575,11 +1759,11 @@
                                 Please select
                             </option>
 
-                            <option>
+                            <option value="Yes, I'll be there">
                                 Yes, I'll be there
                             </option>
 
-                            <option>
+                            <option value="Sorry, I can't make it">
                                 Sorry, I can't make it
                             </option>
 
@@ -1588,24 +1772,193 @@
                     </div>
 
 
+                    <!-- PLUS ONE -->
+
                     <div class="form-group">
 
                         <label>
-                            Number of Guests
+                            Bringing a Plus One?
                         </label>
 
-                        <select name="guests">
+                        <div class="radio-grid">
 
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <label class="radio-item">
 
-                        </select>
+                                <input
+                                    type="radio"
+                                    name="hasPlusOne"
+                                    value="no"
+                                    checked>
+
+                                No
+
+                            </label>
+
+
+                            <label class="radio-item">
+
+                                <input
+                                    type="radio"
+                                    name="hasPlusOne"
+                                    value="yes">
+
+                                Yes
+
+                            </label>
+
+                        </div>
+
+                        <div class="form-note">
+                            A Plus One receives a separate meal selection
+                            but remains linked to your RSVP.
+                        </div>
 
                     </div>
 
+
+                    <!-- PLUS ONE DETAILS -->
+
+                    <div
+                        class="form-group full plus-one-box"
+                        id="plusOneBox">
+
+                        <div class="plus-one-title">
+                            Plus One Details
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="plusOneName">
+                                    Plus One's Full Name
+                                </label>
+
+                                <input
+                                    id="plusOneName"
+                                    type="text"
+                                    name="plusOneName"
+                                    placeholder="Plus One's name">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="plusOneMeal">
+                                    Plus One's Main Meal
+                                </label>
+
+                                <select
+                                    id="plusOneMeal"
+                                    name="plusOneMeal">
+
+                                    <option value="">
+                                        Select meal
+                                    </option>
+
+                                    <option value="Fried Rice">
+                                        Fried Rice
+                                    </option>
+
+                                    <option value="Jollof Rice">
+                                        Jollof Rice
+                                    </option>
+
+                                    <option value="Waakye">
+                                        Waakye
+                                    </option>
+
+                                    <option value="Banku">
+                                        Banku
+                                    </option>
+
+                                    <option value="Kenkey">
+                                        Kenkey
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="plusOneProtein">
+                                    Plus One's Protein
+                                </label>
+
+                                <select
+                                    id="plusOneProtein"
+                                    name="plusOneProtein">
+
+                                    <option value="">
+                                        Select protein
+                                    </option>
+
+                                    <option value="Chicken">
+                                        Chicken
+                                    </option>
+
+                                    <option value="Fish">
+                                        Fish
+                                    </option>
+
+                                    <option value="Tilapia">
+                                        Tilapia
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="plusOneDrink">
+                                    Plus One's Drink
+                                </label>
+
+                                <select
+                                    id="plusOneDrink"
+                                    name="plusOneDrink">
+
+                                    <option value="">
+                                        Select drink
+                                    </option>
+
+                                    <option value="Malt">
+                                        Malt
+                                    </option>
+
+                                    <option value="Guinness">
+                                        Guinness
+                                    </option>
+
+                                    <option value="Beer">
+                                        Beer
+                                    </option>
+
+                                    <option value="Fanta">
+                                        Fanta
+                                    </option>
+
+                                    <option value="Coke">
+                                        Coke
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MAIN MEAL -->
 
                     <div class="form-group full">
 
@@ -1616,27 +1969,42 @@
                         <div class="checkbox-grid">
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="meal" value="Fried Rice">
+                                <input
+                                    type="checkbox"
+                                    name="meal"
+                                    value="Fried Rice">
                                 Fried Rice
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="meal" value="Jollof Rice">
+                                <input
+                                    type="checkbox"
+                                    name="meal"
+                                    value="Jollof Rice">
                                 Jollof Rice
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="meal" value="Waakye">
+                                <input
+                                    type="checkbox"
+                                    name="meal"
+                                    value="Waakye">
                                 Waakye
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="meal" value="Banku">
+                                <input
+                                    type="checkbox"
+                                    name="meal"
+                                    value="Banku">
                                 Banku
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="meal" value="Kenkey">
+                                <input
+                                    type="checkbox"
+                                    name="meal"
+                                    value="Kenkey">
                                 Kenkey
                             </label>
 
@@ -1644,6 +2012,8 @@
 
                     </div>
 
+
+                    <!-- MAIN PROTEIN -->
 
                     <div class="form-group full">
 
@@ -1654,17 +2024,26 @@
                         <div class="checkbox-grid">
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="protein" value="Chicken">
+                                <input
+                                    type="checkbox"
+                                    name="protein"
+                                    value="Chicken">
                                 Chicken
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="protein" value="Fish">
+                                <input
+                                    type="checkbox"
+                                    name="protein"
+                                    value="Fish">
                                 Fish
                             </label>
 
                             <label class="checkbox-item">
-                                <input type="checkbox" name="protein" value="Tilapia">
+                                <input
+                                    type="checkbox"
+                                    name="protein"
+                                    value="Tilapia">
                                 Tilapia
                             </label>
 
@@ -1673,36 +2052,57 @@
                     </div>
 
 
+                    <!-- MAIN DRINK -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="drink">
                             Preferred Drink
                         </label>
 
-                        <select name="drink">
+                        <select
+                            id="drink"
+                            name="drink">
 
                             <option value="">
                                 Select a drink
                             </option>
 
-                            <option>Malt</option>
-                            <option>Guinness</option>
-                            <option>Beer</option>
-                            <option>Fanta</option>
-                            <option>Coke</option>
+                            <option value="Malt">
+                                Malt
+                            </option>
+
+                            <option value="Guinness">
+                                Guinness
+                            </option>
+
+                            <option value="Beer">
+                                Beer
+                            </option>
+
+                            <option value="Fanta">
+                                Fanta
+                            </option>
+
+                            <option value="Coke">
+                                Coke
+                            </option>
 
                         </select>
 
                     </div>
 
 
+                    <!-- NOTE -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="note">
                             Special Note
                         </label>
 
                         <input
+                            id="note"
                             type="text"
                             name="note"
                             placeholder="Optional">
@@ -1710,9 +2110,12 @@
                     </div>
 
 
+                    <!-- SUBMIT -->
+
                     <div class="form-group full">
 
                         <button
+                            id="rsvpSubmitButton"
                             type="submit"
                             class="btn btn-primary">
 
@@ -1726,12 +2129,34 @@
 
             </form>
 
+
+            <!-- RSVP RESULT -->
+
+            <div id="rsvpResult" class="rsvp-result">
+
+                <strong>
+                    Your RSVP ID
+                </strong>
+
+                <br>
+
+                Please keep this ID. You will need it
+                if you want to submit a song request.
+
+                <br>
+
+                <span
+                    id="rsvpIdDisplay"
+                    class="rsvp-id-display">
+                </span>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1785,7 +2210,6 @@
 </section>
 
 
-
 <!-- =========================================================
      MUSIC
 ========================================================= -->
@@ -1816,15 +2240,40 @@
 
         <div class="music-box reveal">
 
+            <div class="music-notice">
+
+                <strong>Important:</strong>
+
+                Please submit your RSVP first.
+                Your RSVP ID will be required before
+                you can submit a song request.
+
+            </div>
+
+
+            <div class="music-rsvp-status" id="musicRsvpStatus">
+
+                RSVP ID:
+                <strong id="musicRsvpId">
+                    Not available yet
+                </strong>
+
+            </div>
+
+
+            <div id="musicMessage" class="form-message"></div>
+
+
             <form id="musicForm">
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="musicName">
                         Your Name
                     </label>
 
                     <input
+                        id="musicName"
                         type="text"
                         placeholder="Your name"
                         required>
@@ -1834,11 +2283,12 @@
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="songTitle">
                         Song Title
                     </label>
 
                     <input
+                        id="songTitle"
                         type="text"
                         placeholder="Song title"
                         required>
@@ -1848,11 +2298,12 @@
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="artist">
                         Artist
                     </label>
 
                     <input
+                        id="artist"
                         type="text"
                         placeholder="Artist">
 
@@ -1860,6 +2311,7 @@
 
 
                 <button
+                    id="musicSubmitButton"
                     type="submit"
                     class="btn btn-primary">
 
@@ -1874,7 +2326,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1905,36 +2356,12 @@
         </div>
 
 
-        <div class="gallery-grid">
+        <div
+            class="gallery-grid"
+            id="galleryGrid">
 
-            <div class="gallery-item large reveal">
-                <span class="gallery-placeholder">
-                    Our Story
-                </span>
-            </div>
-
-            <div class="gallery-item reveal">
-                <span class="gallery-placeholder">
-                    James & Claudia
-                </span>
-            </div>
-
-            <div class="gallery-item reveal">
-                <span class="gallery-placeholder">
-                    Memories
-                </span>
-            </div>
-
-            <div class="gallery-item reveal">
-                <span class="gallery-placeholder">
-                    Together
-                </span>
-            </div>
-
-            <div class="gallery-item reveal">
-                <span class="gallery-placeholder">
-                    Forever
-                </span>
+            <div class="gallery-loading">
+                Loading our memories...
             </div>
 
         </div>
@@ -1943,6 +2370,75 @@
 
 </section>
 
+
+<!-- =========================================================
+     PROGRAM
+========================================================= -->
+
+<section class="program-section" id="program">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <p class="section-label">
+                Wedding Details
+            </p>
+
+            <h2 class="section-title">
+                Wedding Program
+            </h2>
+
+            <p class="section-description">
+                View the latest wedding program and
+                celebration details.
+            </p>
+
+        </div>
+
+
+        <div
+            class="program-box reveal"
+            id="programBox">
+
+            <div class="program-icon">
+                📜
+            </div>
+
+            <h3
+                class="program-title"
+                id="programTitle">
+
+                Wedding Program
+
+            </h3>
+
+            <p
+                class="program-description"
+                id="programDescription">
+
+                The wedding program will appear here
+                once it has been published.
+
+            </p>
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                id="programButton"
+                style="display:none;">
+
+                View Wedding Program
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -2055,6 +2551,28 @@
 
                 <div class="faq-question">
 
+                    Can I bring a Plus One?
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="faq-answer">
+
+                    If you have been invited with a Plus One,
+                    you can indicate this when completing
+                    your RSVP and provide your Plus One's
+                    name and meal preferences.
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item reveal">
+
+                <div class="faq-question">
+
                     When should I RSVP?
 
                     <span>+</span>
@@ -2103,9 +2621,9 @@
 
                 <div class="faq-answer">
 
-                    Absolutely. Use the song request
-                    section on this website to submit
-                    your choice in advance.
+                    Absolutely. First submit your RSVP.
+                    Your RSVP ID will then allow you to
+                    submit your song request.
 
                 </div>
 
@@ -2116,7 +2634,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -2144,12 +2661,19 @@
 </footer>
 
 
-
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
 
 <script>
+
+
+/* =========================================================
+   GOOGLE APPS SCRIPT API
+========================================================= */
+
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbzkUYYRdyuWeJknnJtoKuWCnXaMpFy3eK848AFfgPp7r_iBK_p3oCX0F_2Ty0-UVylNYw/exec";
 
 
 /* =========================================================
@@ -2163,24 +2687,28 @@ const navLinks =
     document.getElementById("navLinks");
 
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
 
-    navLinks.classList.toggle("active");
+    menuToggle.addEventListener("click", () => {
 
-});
-
-
-document.querySelectorAll(".nav-links a")
-.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
+        navLinks.classList.toggle("active");
 
     });
 
-});
 
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+}
 
 
 /* =========================================================
@@ -2188,7 +2716,9 @@ document.querySelectorAll(".nav-links a")
 ========================================================= */
 
 const weddingDate =
-    new Date("November 20, 2026 14:00:00").getTime();
+    new Date(
+        "November 20, 2026 14:00:00"
+    ).getTime();
 
 
 function updateCountdown() {
@@ -2270,7 +2800,6 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 
-
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
@@ -2279,107 +2808,1079 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-const observer =
-    new IntersectionObserver(
+if ("IntersectionObserver" in window) {
 
-        entries => {
+    const observer =
+        new IntersectionObserver(
 
-            entries.forEach(entry => {
+            entries => {
 
-                if (entry.isIntersecting) {
+                entries.forEach(entry => {
 
-                    entry.target
-                        .classList
-                        .add("visible");
+                    if (entry.isIntersecting) {
 
-                }
+                        entry.target
+                            .classList
+                            .add("visible");
 
-            });
+                    }
 
-        },
+                });
 
-        {
-            threshold: 0.12
-        }
+            },
 
-    );
+            {
+                threshold: 0.12
+            }
+
+        );
 
 
-revealElements.forEach(element => {
+    revealElements.forEach(element => {
 
-    observer.observe(element);
+        observer.observe(element);
 
-});
+    });
 
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+}
 
 
 /* =========================================================
    FAQ
 ========================================================= */
 
-document.querySelectorAll(".faq-question")
-.forEach(question => {
+document
+    .querySelectorAll(".faq-question")
+    .forEach(question => {
 
-    question.addEventListener("click", () => {
+        question.addEventListener("click", () => {
 
-        const item =
-            question.parentElement;
+            const item =
+                question.parentElement;
 
-        item.classList.toggle("active");
+            item.classList.toggle("active");
 
-        const icon =
-            question.querySelector("span");
+            const icon =
+                question.querySelector("span");
 
-        icon.textContent =
-            item.classList.contains("active")
-            ? "−"
-            : "+";
+            icon.textContent =
+                item.classList.contains("active")
+                ? "−"
+                : "+";
+
+        });
 
     });
+
+
+/* =========================================================
+   PLUS ONE
+========================================================= */
+
+const plusOneRadios =
+    document.querySelectorAll(
+        'input[name="hasPlusOne"]'
+    );
+
+const plusOneBox =
+    document.getElementById("plusOneBox");
+
+const plusOneName =
+    document.getElementById("plusOneName");
+
+
+function updatePlusOneVisibility() {
+
+    const selected =
+        document.querySelector(
+            'input[name="hasPlusOne"]:checked'
+        );
+
+
+    const hasPlusOne =
+        selected &&
+        selected.value === "yes";
+
+
+    if (hasPlusOne) {
+
+        plusOneBox.classList.add("visible");
+
+        plusOneName.required = true;
+
+    } else {
+
+        plusOneBox.classList.remove("visible");
+
+        plusOneName.required = false;
+
+        plusOneName.value = "";
+
+        document.getElementById(
+            "plusOneMeal"
+        ).value = "";
+
+        document.getElementById(
+            "plusOneProtein"
+        ).value = "";
+
+        document.getElementById(
+            "plusOneDrink"
+        ).value = "";
+
+    }
+
+}
+
+
+plusOneRadios.forEach(radio => {
+
+    radio.addEventListener(
+        "change",
+        updatePlusOneVisibility
+    );
 
 });
 
 
+updatePlusOneVisibility();
+
 
 /* =========================================================
-   RSVP
+   FORM HELPERS
 ========================================================= */
 
-document
-    .getElementById("rsvpForm")
-    .addEventListener("submit", function(e) {
+function showMessage(
+    element,
+    message,
+    type
+) {
+
+    element.textContent = message;
+
+    element.className =
+        "form-message " + type;
+
+}
+
+
+function clearMessage(element) {
+
+    element.textContent = "";
+
+    element.className =
+        "form-message";
+
+}
+
+
+/* =========================================================
+   RSVP DATA
+========================================================= */
+
+function getCheckedValues(name) {
+
+    return Array.from(
+        document.querySelectorAll(
+            'input[name="' + name + '"]:checked'
+        )
+    ).map(input => input.value);
+
+}
+
+
+/* =========================================================
+   RSVP SUBMISSION
+========================================================= */
+
+const rsvpForm =
+    document.getElementById("rsvpForm");
+
+const rsvpMessage =
+    document.getElementById("rsvpMessage");
+
+const rsvpResult =
+    document.getElementById("rsvpResult");
+
+const rsvpIdDisplay =
+    document.getElementById("rsvpIdDisplay");
+
+const rsvpSubmitButton =
+    document.getElementById("rsvpSubmitButton");
+
+
+rsvpForm.addEventListener(
+    "submit",
+    async function(e) {
 
         e.preventDefault();
 
-        alert(
-            "Thank you! Your RSVP has been received. " +
-            "James & Claudia are grateful to celebrate with you!"
-        );
+        clearMessage(rsvpMessage);
 
-        this.reset();
+        rsvpResult.classList.remove("visible");
 
-    });
 
+        const formData =
+            new FormData(rsvpForm);
+
+
+        const hasPlusOne =
+            formData.get("hasPlusOne") === "yes";
+
+
+        const mealSelections =
+            getCheckedValues("meal");
+
+
+        const proteinSelections =
+            getCheckedValues("protein");
+
+
+        const data = {
+
+            action: "rsvp",
+
+            name:
+                String(
+                    formData.get("name") || ""
+                ).trim(),
+
+            phone:
+                String(
+                    formData.get("phone") || ""
+                ).trim(),
+
+            attendance:
+                String(
+                    formData.get("attendance") || ""
+                ).trim(),
+
+            hasPlusOne:
+                hasPlusOne,
+
+            plusOneName:
+                hasPlusOne
+                    ? String(
+                        formData.get("plusOneName") || ""
+                      ).trim()
+                    : "",
+
+            plusOneMeal:
+                hasPlusOne
+                    ? String(
+                        formData.get("plusOneMeal") || ""
+                      ).trim()
+                    : "",
+
+            plusOneProtein:
+                hasPlusOne
+                    ? String(
+                        formData.get("plusOneProtein") || ""
+                      ).trim()
+                    : "",
+
+            plusOneDrink:
+                hasPlusOne
+                    ? String(
+                        formData.get("plusOneDrink") || ""
+                      ).trim()
+                    : "",
+
+            /*
+             * The backend expects one value for each
+             * main guest selection.
+             *
+             * If multiple checkboxes are selected,
+             * they are joined together.
+             */
+
+            meal:
+                mealSelections.join(", "),
+
+            protein:
+                proteinSelections.join(", "),
+
+            drink:
+                String(
+                    formData.get("drink") || ""
+                ).trim(),
+
+            note:
+                String(
+                    formData.get("note") || ""
+                ).trim()
+
+        };
+
+
+        if (!data.name) {
+
+            showMessage(
+                rsvpMessage,
+                "Please enter your full name.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!data.attendance) {
+
+            showMessage(
+                rsvpMessage,
+                "Please select your attendance response.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (
+            data.attendance ===
+            "Sorry, I can't make it"
+        ) {
+
+            /*
+             * The backend accepts the RSVP even when
+             * the guest cannot attend.
+             */
+
+        }
+
+
+        if (
+            hasPlusOne &&
+            !data.plusOneName
+        ) {
+
+            showMessage(
+                rsvpMessage,
+                "Please enter your Plus One's name.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        rsvpSubmitButton.disabled = true;
+
+        rsvpSubmitButton.textContent =
+            "Submitting RSVP...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(data)
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+
+                throw new Error(
+                    result.error ||
+                    "Unable to submit RSVP."
+                );
+
+            }
+
+
+            showMessage(
+                rsvpMessage,
+                result.message ||
+                "Your RSVP was received successfully.",
+                "success"
+            );
+
+
+            /*
+             * Save RSVP ID locally.
+             *
+             * This allows the music form to use
+             * the RSVP ID after the page is refreshed.
+             */
+
+            if (result.rsvpId) {
+
+                localStorage.setItem(
+                    "weddingRsvpId",
+                    result.rsvpId
+                );
+
+
+                localStorage.setItem(
+                    "weddingGuestName",
+                    data.name
+                );
+
+
+                rsvpIdDisplay.textContent =
+                    result.rsvpId;
+
+
+                rsvpResult.classList.add(
+                    "visible"
+                );
+
+
+                updateMusicStatus();
+
+            }
+
+
+            rsvpForm.reset();
+
+            updatePlusOneVisibility();
+
+
+        } catch (error) {
+
+            console.error(
+                "RSVP Error:",
+                error
+            );
+
+
+            showMessage(
+                rsvpMessage,
+                "We could not submit your RSVP. " +
+                error.message,
+                "error"
+            );
+
+        } finally {
+
+            rsvpSubmitButton.disabled = false;
+
+            rsvpSubmitButton.textContent =
+                "Submit RSVP";
+
+        }
+
+    }
+);
 
 
 /* =========================================================
    MUSIC REQUEST
 ========================================================= */
 
-document
-    .getElementById("musicForm")
-    .addEventListener("submit", function(e) {
+const musicForm =
+    document.getElementById("musicForm");
+
+const musicMessage =
+    document.getElementById("musicMessage");
+
+const musicSubmitButton =
+    document.getElementById(
+        "musicSubmitButton"
+    );
+
+const musicRsvpId =
+    document.getElementById(
+        "musicRsvpId"
+    );
+
+
+function getStoredRsvpId() {
+
+    return localStorage.getItem(
+        "weddingRsvpId"
+    ) || "";
+
+}
+
+
+function updateMusicStatus() {
+
+    const storedId =
+        getStoredRsvpId();
+
+
+    if (storedId) {
+
+        musicRsvpId.textContent =
+            storedId;
+
+        musicSubmitButton.disabled =
+            false;
+
+    } else {
+
+        musicRsvpId.textContent =
+            "Not available yet";
+
+        musicSubmitButton.disabled =
+            false;
+
+    }
+
+}
+
+
+updateMusicStatus();
+
+
+musicForm.addEventListener(
+    "submit",
+    async function(e) {
 
         e.preventDefault();
 
-        alert(
-            "Thank you for your song request! " +
-            "We can't wait to hear it at the celebration."
+        clearMessage(musicMessage);
+
+
+        const rsvpId =
+            getStoredRsvpId();
+
+
+        if (!rsvpId) {
+
+            showMessage(
+                musicMessage,
+                "Please submit your RSVP first. " +
+                "Your RSVP ID is required for song requests.",
+                "error"
+            );
+
+            document
+                .getElementById("rsvp")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            return;
+
+        }
+
+
+        const name =
+            document
+                .getElementById("musicName")
+                .value
+                .trim();
+
+
+        const songTitle =
+            document
+                .getElementById("songTitle")
+                .value
+                .trim();
+
+
+        const artist =
+            document
+                .getElementById("artist")
+                .value
+                .trim();
+
+
+        if (!name) {
+
+            showMessage(
+                musicMessage,
+                "Please enter your name.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!songTitle) {
+
+            showMessage(
+                musicMessage,
+                "Please enter the song title.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        musicSubmitButton.disabled = true;
+
+        musicSubmitButton.textContent =
+            "Submitting...";
+
+
+        try {
+
+            const data = {
+
+                action: "music",
+
+                rsvpId: rsvpId,
+
+                songTitle: songTitle,
+
+                artist: artist
+
+            };
+
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(data)
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+
+                throw new Error(
+                    result.error ||
+                    "Unable to submit song request."
+                );
+
+            }
+
+
+            showMessage(
+                musicMessage,
+                result.message ||
+                "Song request submitted successfully.",
+                "success"
+            );
+
+
+            musicForm.reset();
+
+            updateMusicStatus();
+
+
+        } catch (error) {
+
+            console.error(
+                "Music Request Error:",
+                error
+            );
+
+
+            showMessage(
+                musicMessage,
+                "We could not submit your song request. " +
+                error.message,
+                "error"
+            );
+
+        } finally {
+
+            musicSubmitButton.disabled = false;
+
+            musicSubmitButton.textContent =
+                "Submit Song";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOAD GALLERY
+========================================================= */
+
+async function loadGallery() {
+
+    const galleryGrid =
+        document.getElementById(
+            "galleryGrid"
         );
 
-        this.reset();
 
-    });
+    try {
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=gallery"
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            !result.success ||
+            !Array.isArray(result.photos)
+        ) {
+
+            throw new Error(
+                "Gallery data could not be loaded."
+            );
+
+        }
+
+
+        const photos =
+            result.photos;
+
+
+        galleryGrid.innerHTML = "";
+
+
+        if (photos.length === 0) {
+
+            galleryGrid.innerHTML = `
+
+                <div class="gallery-loading">
+
+                    Our memories will appear here
+                    as photos are added.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        photos.forEach(
+            (photo, index) => {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "gallery-item reveal";
+
+
+                if (index === 0) {
+
+                    item.classList.add(
+                        "large"
+                    );
+
+                }
+
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    photo.url;
+
+
+                image.alt =
+                    photo.caption ||
+                    "James & Claudia wedding memory";
+
+
+                image.loading =
+                    index === 0
+                    ? "eager"
+                    : "lazy";
+
+
+                item.appendChild(
+                    image
+                );
+
+
+                if (photo.caption) {
+
+                    const caption =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    caption.className =
+                        "gallery-caption";
+
+
+                    caption.textContent =
+                        photo.caption;
+
+
+                    item.appendChild(
+                        caption
+                    );
+
+                }
+
+
+                galleryGrid.appendChild(
+                    item
+                );
+
+
+                /*
+                 * Add reveal animation.
+                 */
+
+                setTimeout(
+                    () => {
+
+                        item.classList.add(
+                            "visible"
+                        );
+
+                    },
+                    50
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Gallery Error:",
+            error
+        );
+
+
+        galleryGrid.innerHTML = `
+
+            <div class="gallery-loading">
+
+                Our gallery is currently
+                unavailable. Please try again later.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD STORY PHOTO
+========================================================= */
+
+async function loadStoryPhoto() {
+
+    const storyImage =
+        document.getElementById(
+            "storyImage"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=story"
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            result.success &&
+            result.photo &&
+            result.photo.url
+        ) {
+
+            storyImage.style.backgroundImage =
+                `url("${result.photo.url}")`;
+
+            storyImage.classList.add(
+                "has-photo"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Story Photo Error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD WEDDING PROGRAM
+========================================================= */
+
+async function loadProgram() {
+
+    const programTitle =
+        document.getElementById(
+            "programTitle"
+        );
+
+    const programDescription =
+        document.getElementById(
+            "programDescription"
+        );
+
+    const programButton =
+        document.getElementById(
+            "programButton"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=program"
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            result.success &&
+            result.program
+        ) {
+
+            const program =
+                result.program;
+
+
+            programTitle.textContent =
+                program.title ||
+                "Wedding Program";
+
+
+            programDescription.textContent =
+                program.fileName ||
+                "Wedding Program";
+
+
+            if (program.url) {
+
+                programButton.href =
+                    program.url;
+
+                programButton.style.display =
+                    "inline-flex";
+
+            }
+
+        } else {
+
+            programDescription.textContent =
+                "The wedding program will appear here " +
+                "once it has been published.";
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Program Error:",
+            error
+        );
+
+
+        programDescription.textContent =
+            "The wedding program is currently unavailable.";
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE API CONTENT
+========================================================= */
+
+loadGallery();
+
+loadStoryPhoto();
+
+loadProgram();
+
+
+/* =========================================================
+   RESTORE RSVP RESULT AFTER REFRESH
+========================================================= */
+
+(function restoreRsvp() {
+
+    const storedId =
+        getStoredRsvpId();
+
+
+    if (storedId) {
+
+        rsvpIdDisplay.textContent =
+            storedId;
+
+        rsvpResult.classList.add(
+            "visible"
+        );
+
+        updateMusicStatus();
+
+    }
+
+})();
 
 
 </script>
