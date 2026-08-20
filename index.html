@@ -137,37 +137,36 @@
            HERO
         ========================================================= */
         .hero {
+            position: relative;
             min-height: calc(100vh - 76px);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
             overflow: hidden;
             padding: 90px 0;
-            background: linear-gradient(135deg, #FAF7F2 0%, #F3EEE5 50%, #FAF7F2 100%);
         }
 
-        .hero::before {
-            content: "";
+        .hero-background {
             position: absolute;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            background: rgba(14, 79, 79, .08);
-            top: -160px;
-            left: -140px;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #FAF7F2;
         }
 
-        .hero::after {
+        .hero-background::before {
             content: "";
             position: absolute;
-            width: 360px;
-            height: 360px;
-            border-radius: 50%;
-            background: rgba(14, 79, 79, .05);
-            bottom: -160px;
-            right: -120px;
+            inset: 0;
+            background: rgba(250, 247, 242, 0.75);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(250, 247, 242, 0.85) 0%, rgba(243, 238, 229, 0.75) 100%);
         }
 
         .hero-content {
@@ -623,6 +622,13 @@
             overflow: hidden;
         }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 220px;
+        }
+
         .gallery-item.large {
             grid-column: span 2;
             min-height: 300px;
@@ -633,6 +639,22 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-size: .8rem;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--ink-soft);
+            padding: 40px;
+        }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--ink-soft);
+            padding: 40px;
         }
 
         /* =========================================================
@@ -834,6 +856,9 @@
          HERO
     ========================================================= -->
     <section class="hero" id="home">
+        <div class="hero-background" id="heroBackground">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="container">
             <div class="hero-content reveal">
                 <p class="hero-label">Together with their families</p>
@@ -968,11 +993,11 @@
                         <!-- ATTENDANCE -->
                         <div class="form-group">
                             <label for="rsvpAttendance">Attendance</label>
-                           <select id="rsvpAttendance" name="attendance" required>
-    <option value="">Please select</option>
-    <option value="Joyfully Accepted">🎉 Joyfully Accepted</option>
-    <option value="Joyfully Decline">😔 Joyfully Decline</option>
-</select>
+                            <select id="rsvpAttendance" name="attendance" required>
+                                <option value="">Please select</option>
+                                <option value="Joyfully Accepted">🎉 Joyfully Accepted</option>
+                                <option value="Joyfully Decline">😔 Joyfully Decline</option>
+                            </select>
                         </div>
                         <!-- MAIN MEAL -->
                         <div class="form-group">
@@ -1182,22 +1207,8 @@
                 <h2 class="section-title">A journey worth remembering</h2>
                 <p class="section-description">Our gallery will grow as we create new memories together.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item large reveal">
-                    <span class="gallery-placeholder">Our Story</span>
-                </div>
-                <div class="gallery-item reveal">
-                    <span class="gallery-placeholder">James & Claudia</span>
-                </div>
-                <div class="gallery-item reveal">
-                    <span class="gallery-placeholder">Memories</span>
-                </div>
-                <div class="gallery-item reveal">
-                    <span class="gallery-placeholder">Together</span>
-                </div>
-                <div class="gallery-item reveal">
-                    <span class="gallery-placeholder">Forever</span>
-                </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-loading">Loading photos...</div>
             </div>
         </div>
     </section>
@@ -1262,8 +1273,8 @@
         // CONFIGURATION
         // =========================================================
 
-        // Your Google Apps Script Web App URL
-        const API_URL = 'https://script.google.com/macros/s/AKfycbwrXlByy17EsU3bhD179-AjZ8TZdoYt5qAl5mBA0FHQ7hYxXjNB8gBE4mx1hpjGWjx5-g/exec';
+        // Your Google Apps Script Web App URL - UPDATED
+        const API_URL = 'https://script.google.com/macros/s/AKfycbymrrQ_h37wQHc4Tr995lFdppEjZk6gZ_9M3iZ6zypaCldtzNs5NfEcX_gTVUt3gYC0Xg/exec';
 
         // =========================================================
         // MOBILE NAVIGATION
@@ -1417,6 +1428,111 @@
             msg.className = "form-message show " + type;
         }
 
+        function escapeHtml(value) {
+            return String(value == null ? "" : value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function escapeAttribute(value) {
+            return String(value == null ? "" : value)
+                .replace(/&/g, "&amp;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // =========================================================
+        // LOAD HERO IMAGE
+        // =========================================================
+        async function loadHeroImage() {
+            try {
+                const response = await fetch(API_URL + '?action=getHero');
+                const data = await response.json();
+
+                if (data && data.exists && data.url) {
+                    const heroBg = document.getElementById('heroBackground');
+                    if (heroBg) {
+                        heroBg.style.backgroundImage = 'url("' + data.url + '")';
+                    }
+                }
+            } catch (error) {
+                console.log('Hero image not available:', error);
+            }
+        }
+
+        // =========================================================
+        // LOAD GALLERY PHOTOS
+        // =========================================================
+        async function loadGalleryPhotos() {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+
+            try {
+                const response = await fetch(API_URL + '?action=getGallery');
+                const data = await response.json();
+
+                grid.innerHTML = '';
+
+                if (data && data.length > 0) {
+                    data.forEach(function(photo) {
+                        const item = document.createElement('div');
+                        item.className = 'gallery-item reveal';
+
+                        const imgUrl = photo.url || photo.fileIdURL || photo.URL || '';
+                        const imgName = photo.name || photo.fileName || 'Photo';
+
+                        if (imgUrl) {
+                            item.innerHTML = `
+                                <img
+                                    src="${escapeAttribute(imgUrl)}"
+                                    alt="${escapeAttribute(imgName)}"
+                                    loading="lazy"
+                                    onerror="this.parentElement.innerHTML='<div class=\\'gallery-placeholder\\'>${escapeHtml(imgName)}</div>'"
+                                >
+                            `;
+                        } else {
+                            item.innerHTML = `
+                                <div class="gallery-placeholder">${escapeHtml(imgName)}</div>
+                            `;
+                        }
+
+                        grid.appendChild(item);
+                    });
+
+                    // Re-run reveal animation
+                    if ("IntersectionObserver" in window) {
+                        const observer = new IntersectionObserver(entries => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
+                        }, { threshold: 0.12 });
+
+                        document.querySelectorAll('.gallery-item').forEach(el => {
+                            observer.observe(el);
+                        });
+                    }
+                } else {
+                    grid.innerHTML = `
+                        <div class="empty">
+                            No photos uploaded yet.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Gallery load error:', error);
+                grid.innerHTML = `
+                    <div class="empty">
+                        Could not load gallery photos.
+                    </div>
+                `;
+            }
+        }
+
         // =========================================================
         // RSVP FORM - SEND TO APPS SCRIPT VIA fetch()
         // =========================================================
@@ -1428,7 +1544,6 @@
                 event.preventDefault();
                 showRSVPMessage("", "");
 
-                // Collect form data
                 const data = {
                     name: String(document.getElementById("rsvpName").value || "").trim(),
                     phone: String(document.getElementById("rsvpPhone").value || "").trim(),
@@ -1444,7 +1559,6 @@
                     note: String(document.getElementById("rsvpNote").value || "").trim()
                 };
 
-                // Validation
                 if (!data.name) {
                     showRSVPMessage("Please enter your full name.", "error");
                     return;
@@ -1453,7 +1567,7 @@
                     showRSVPMessage("Please select your attendance.", "error");
                     return;
                 }
-                if (data.attendance === "Yes, I'll be there") {
+                if (data.attendance === "Joyfully Accepted") {
                     if (!data.meal) {
                         showRSVPMessage("Please select your preferred meal.", "error");
                         return;
@@ -1478,7 +1592,6 @@
                     }
                 }
 
-                // Disable button
                 if (rsvpSubmit) {
                     rsvpSubmit.disabled = true;
                     rsvpSubmit.textContent = "Submitting RSVP...";
@@ -1487,7 +1600,6 @@
                 showRSVPMessage("Submitting your RSVP...", "success");
 
                 try {
-                    // Send to Apps Script via fetch()
                     const response = await fetch(API_URL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -1500,8 +1612,6 @@
                         })
                     });
 
-                    // With no-cors, we can't read the response body
-                    // But we assume success if no error
                     showRSVPMessage(
                         "Thank you! Your RSVP has been received. James & Claudia are grateful to celebrate with you!",
                         "success"
@@ -1517,7 +1627,6 @@
                     );
                 }
 
-                // Re-enable button
                 if (rsvpSubmit) {
                     rsvpSubmit.disabled = false;
                     rsvpSubmit.textContent = "Submit RSVP";
@@ -1551,7 +1660,6 @@
                     return;
                 }
 
-                // Ask for RSVP ID
                 const rsvpId = window.prompt(
                     "Please enter your RSVP ID so we can link this song request to your RSVP."
                 );
@@ -1600,6 +1708,14 @@
                 }
             });
         }
+
+        // =========================================================
+        // LOAD HERO & GALLERY ON PAGE LOAD
+        // =========================================================
+        window.addEventListener('load', function() {
+            loadHeroImage();
+            loadGalleryPhotos();
+        });
     </script>
 
 </body>
