@@ -1001,8 +1001,9 @@
                                 <option value="Joyfully Decline">😔 Joyfully Decline</option>
                             </select>
                         </div>
-                        <!-- MAIN MEAL -->
-                        <div class="form-group">
+                        
+                        <!-- FIELDS ONLY FOR ATTENDING GUESTS -->
+                        <div class="form-group attendee-only">
                             <label>Preferred Main Meal</label>
                             <div class="choice-grid">
                                 <label class="choice-item">
@@ -1027,8 +1028,8 @@
                                 </label>
                             </div>
                         </div>
-                        <!-- MAIN PROTEIN -->
-                        <div class="form-group">
+
+                        <div class="form-group attendee-only">
                             <label>Protein</label>
                             <div class="choice-grid">
                                 <label class="choice-item">
@@ -1045,8 +1046,8 @@
                                 </label>
                             </div>
                         </div>
-                        <!-- MAIN DRINK -->
-                        <div class="form-group">
+
+                        <div class="form-group attendee-only">
                             <label for="rsvpDrink">Preferred Drink</label>
                             <select id="rsvpDrink" name="drink">
                                 <option value="">Select a drink</option>
@@ -1057,20 +1058,19 @@
                                 <option value="Coke">Coke</option>
                             </select>
                         </div>
-                        <!-- PLUS ONE -->
-                        <div class="form-group full">
+
+                        <!-- PLUS ONE (Attendees Only) -->
+                        <div class="form-group full attendee-only">
                             <div class="plus-one-box">
                                 <label class="plus-one-toggle">
                                     <input type="checkbox" id="hasPlusOne" name="hasPlusOne" value="yes">
                                     <span>I am bringing a Plus One</span>
                                 </label>
                                 <div class="plus-one-fields" id="plusOneFields">
-                                    <!-- PLUS ONE NAME -->
                                     <div class="form-group">
                                         <label for="plusOneName">Plus One's Name</label>
                                         <input id="plusOneName" type="text" name="plusOneName" placeholder="Plus One's full name">
                                     </div>
-                                    <!-- PLUS ONE MEAL -->
                                     <div class="form-group">
                                         <label>Plus One's Meal</label>
                                         <div class="choice-grid">
@@ -1096,7 +1096,6 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <!-- PLUS ONE PROTEIN -->
                                     <div class="form-group">
                                         <label>Plus One's Protein</label>
                                         <div class="choice-grid">
@@ -1114,7 +1113,6 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <!-- PLUS ONE DRINK -->
                                     <div class="form-group">
                                         <label for="plusOneDrink">Plus One's Drink</label>
                                         <select id="plusOneDrink" name="plusOneDrink">
@@ -1129,11 +1127,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- SPECIAL NOTE -->
+
+                        <!-- SPECIAL NOTE (Always available) -->
                         <div class="form-group full">
                             <label for="rsvpNote">Special Note</label>
                             <textarea id="rsvpNote" name="note" placeholder="Optional"></textarea>
                         </div>
+
                         <!-- SUBMIT -->
                         <div class="form-group full">
                             <div class="submit-area">
@@ -1370,7 +1370,7 @@
         });
 
         // =========================================================
-        // PLUS ONE
+        // PLUS ONE & ATTENDANCE LOGIC (NEW)
         // =========================================================
         const hasPlusOne = document.getElementById("hasPlusOne");
         const plusOneFields = document.getElementById("plusOneFields");
@@ -1378,6 +1378,7 @@
         const plusOneMealInputs = document.querySelectorAll('input[name="plusOneMeal"]');
         const plusOneProteinInputs = document.querySelectorAll('input[name="plusOneProtein"]');
         const plusOneDrink = document.getElementById("plusOneDrink");
+        const rsvpAttendance = document.getElementById("rsvpAttendance");
 
         function setPlusOneRequired(required) {
             if (plusOneName) plusOneName.required = required;
@@ -1403,9 +1404,39 @@
             }
         }
 
+        // Function to hide/show fields based on Attendance selection
+        function toggleAttendanceFields() {
+            const isDeclining = rsvpAttendance.value === "Joyfully Decline";
+            const attendeeFields = document.querySelectorAll(".attendee-only");
+            const mainMealInputs = document.querySelectorAll('input[name="meal"]');
+            const proteinInputs = document.querySelectorAll('input[name="protein"]');
+            const rsvpDrink = document.getElementById("rsvpDrink");
+
+            attendeeFields.forEach(field => {
+                field.style.display = isDeclining ? "none" : "";
+            });
+
+            // Remove required attributes if declining
+            mainMealInputs.forEach(input => input.required = !isDeclining);
+            proteinInputs.forEach(input => input.required = !isDeclining);
+            if (rsvpDrink) rsvpDrink.required = !isDeclining;
+
+            // If declining, hide Plus One and clear it
+            if (isDeclining) {
+                if (hasPlusOne) hasPlusOne.checked = false;
+                updatePlusOneVisibility();
+            }
+        }
+
+        if (rsvpAttendance) {
+            rsvpAttendance.addEventListener("change", toggleAttendanceFields);
+        }
         if (hasPlusOne) {
             hasPlusOne.addEventListener("change", updatePlusOneVisibility);
         }
+
+        // Initialize on page load
+        toggleAttendanceFields();
         updatePlusOneVisibility();
 
         // =========================================================
@@ -1575,6 +1606,7 @@
                     showRSVPMessage("Please select your attendance.", "error");
                     return;
                 }
+                
                 if (data.attendance === "Joyfully Accepted") {
                     if (!data.meal) {
                         showRSVPMessage("Please select your preferred meal.", "error");
@@ -1584,19 +1616,20 @@
                         showRSVPMessage("Please select your preferred protein.", "error");
                         return;
                     }
-                }
-                if (data.hasPlusOne) {
-                    if (!data.plusOneName) {
-                        showRSVPMessage("Please enter your Plus One's name.", "error");
-                        return;
-                    }
-                    if (!data.plusOneMeal) {
-                        showRSVPMessage("Please select your Plus One's meal.", "error");
-                        return;
-                    }
-                    if (!data.plusOneProtein) {
-                        showRSVPMessage("Please select your Plus One's protein.", "error");
-                        return;
+                    
+                    if (data.hasPlusOne) {
+                        if (!data.plusOneName) {
+                            showRSVPMessage("Please enter your Plus One's name.", "error");
+                            return;
+                        }
+                        if (!data.plusOneMeal) {
+                            showRSVPMessage("Please select your Plus One's meal.", "error");
+                            return;
+                        }
+                        if (!data.plusOneProtein) {
+                            showRSVPMessage("Please select your Plus One's protein.", "error");
+                            return;
+                        }
                     }
                 }
 
@@ -1625,6 +1658,7 @@
                         "success"
                     );
                     rsvpForm.reset();
+                    toggleAttendanceFields();
                     updatePlusOneVisibility();
 
                 } catch (error) {
