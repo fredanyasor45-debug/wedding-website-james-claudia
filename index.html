@@ -153,21 +153,19 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #0E4F4F; /* Teal fallback if image fails */
+            background-color: #0E4F4F;
         }
 
         .hero-background::before {
             content: "";
             position: absolute;
             inset: 0;
-            /* Slight darkening of the image */
-            background: rgba(0, 0, 0, 0.25); 
+            background: rgba(0, 0, 0, 0.25);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            /* Dark gradient for text readability at top and bottom */
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.6) 100%);
         }
 
@@ -180,7 +178,7 @@
         .hero-label {
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: #E4C464; /* Changed to Gold */
+            color: #E4C464;
             font-size: .78rem;
             margin-bottom: 18px;
         }
@@ -188,31 +186,31 @@
         .hero-title {
             font-size: clamp(3rem, 9vw, 7rem);
             line-height: 1;
-            color: #FFFFFF; /* Changed to White */
+            color: #FFFFFF;
             margin-bottom: 20px;
         }
 
         .hero-title span {
             display: inline-block;
-            color: #E4C464; /* Changed to Gold */
+            color: #E4C464;
             margin: 0 10px;
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.25rem);
-            color: #E8E0D8; /* Changed to Light Ivory */
+            color: #E8E0D8;
             margin-bottom: 30px;
         }
 
         .hero-date {
             font-size: clamp(1.3rem, 3vw, 2rem);
-            color: #FFFFFF; /* Changed to White */
+            color: #FFFFFF;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .hero-location {
-            color: #E8E0D8; /* Changed to Light Ivory */
+            color: #E8E0D8;
             margin-bottom: 30px;
         }
 
@@ -578,28 +576,6 @@
         }
 
         /* =========================================================
-           MUSIC
-        ========================================================= */
-        .music-section {
-            background: var(--white);
-        }
-
-        .music-box {
-            max-width: 700px;
-            margin: 40px auto 0;
-            background: var(--ivory);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 35px;
-            box-shadow: var(--shadow);
-        }
-
-        .music-box form {
-            display: grid;
-            gap: 20px;
-        }
-
-        /* =========================================================
            GALLERY
         ========================================================= */
         .gallery {
@@ -824,7 +800,6 @@
                 grid-column: auto;
             }
 
-            .music-box,
             .rsvp-box {
                 padding: 22px;
             }
@@ -1128,6 +1103,16 @@
                             </div>
                         </div>
 
+                        <!-- SONG REQUEST (NEW - Always available) -->
+                        <div class="form-group full">
+                            <label>🎵 Request a Song</label>
+                            <p style="font-size:0.8rem;color:var(--ink-soft);margin-bottom:8px;">Help us create the soundtrack to our celebration!</p>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+                                <input id="rsvpSongTitle" type="text" name="songTitle" placeholder="Song title">
+                                <input id="rsvpArtist" type="text" name="artist" placeholder="Artist">
+                            </div>
+                        </div>
+
                         <!-- SPECIAL NOTE (Always available) -->
                         <div class="form-group full">
                             <label for="rsvpNote">Special Note</label>
@@ -1164,37 +1149,6 @@
                     <br><br>
                     Should you wish to bless us with a gift, a cash gift would be sincerely appreciated as we begin this new chapter together.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         MUSIC
-    ========================================================= -->
-    <section class="music-section">
-        <div class="container">
-            <div class="center reveal">
-                <p class="section-label">Set the Mood</p>
-                <h2 class="section-title">Choose a song for us</h2>
-                <p class="section-description">Help us create the soundtrack to our celebration.</p>
-            </div>
-            <div class="music-box reveal">
-                <form id="musicForm">
-                    <div class="form-group">
-                        <label for="musicName">Your Name</label>
-                        <input id="musicName" type="text" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="songTitle">Song Title</label>
-                        <input id="songTitle" type="text" name="songTitle" placeholder="Song title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="artist">Artist</label>
-                        <input id="artist" type="text" name="artist" placeholder="Artist">
-                    </div>
-                    <button type="submit" id="musicSubmit" class="btn btn-primary">Submit Song</button>
-                    <div id="musicMessage" class="form-message"></div>
-                </form>
             </div>
         </div>
     </section>
@@ -1251,7 +1205,7 @@
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">Can I request a song? <span>+</span></div>
-                    <div class="faq-answer">Absolutely. Use the song request section on this website to submit your choice in advance.</div>
+                    <div class="faq-answer">Absolutely! You can request a song in the RSVP form above.</div>
                 </div>
             </div>
         </div>
@@ -1450,13 +1404,6 @@
             msg.className = "form-message show " + type;
         }
 
-        function showMusicMessage(message, type) {
-            const msg = document.getElementById("musicMessage");
-            if (!msg) return;
-            msg.textContent = message;
-            msg.className = "form-message show " + type;
-        }
-
         function escapeHtml(value) {
             return String(value == null ? "" : value)
                 .replace(/&/g, "&amp;")
@@ -1489,7 +1436,7 @@
                 } else {
                     const heroBg = document.getElementById('heroBackground');
                     if (heroBg) {
-                        heroBg.style.backgroundImage = 'url("YOUR_DIRECT_IMAGE_LINK_HERE.jpg")'; 
+                        heroBg.style.backgroundImage = 'url("YOUR_DIRECT_IMAGE_LINK_HERE.jpg")';
                     }
                 }
             } catch (error) {
@@ -1567,7 +1514,7 @@
         }
 
         // =========================================================
-        // RSVP FORM
+        // RSVP FORM - WITH SONG REQUEST
         // =========================================================
         const rsvpForm = document.getElementById("rsvpForm");
         const rsvpSubmit = document.getElementById("rsvpSubmit");
@@ -1589,6 +1536,8 @@
                     plusOneMeal: getRadioValue("plusOneMeal"),
                     plusOneProtein: getRadioValue("plusOneProtein"),
                     plusOneDrink: String(document.getElementById("plusOneDrink").value || "").trim(),
+                    songTitle: String(document.getElementById("rsvpSongTitle").value || "").trim(),
+                    artist: String(document.getElementById("rsvpArtist").value || "").trim(),
                     note: String(document.getElementById("rsvpNote").value || "").trim()
                 };
 
@@ -1600,7 +1549,7 @@
                     showRSVPMessage("Please select your attendance.", "error");
                     return;
                 }
-                
+
                 if (data.attendance === "Joyfully Accepted") {
                     if (!data.meal) {
                         showRSVPMessage("Please select your preferred meal.", "error");
@@ -1610,7 +1559,7 @@
                         showRSVPMessage("Please select your preferred protein.", "error");
                         return;
                     }
-                    
+
                     if (data.hasPlusOne) {
                         if (!data.plusOneName) {
                             showRSVPMessage("Please enter your Plus One's name.", "error");
@@ -1648,7 +1597,7 @@
                     });
 
                     showRSVPMessage(
-                        "Thank you! Your RSVP has been received. James & Claudia are grateful to celebrate with you!",
+                        "Thank you! Your RSVP has been received. James & Claudia are grateful to celebrate with you! 🎵",
                         "success"
                     );
                     rsvpForm.reset();
@@ -1669,72 +1618,6 @@
                 }
             });
         }
-
-        // =========================================================
-        // MUSIC FORM - NO RSVP ID REQUIRED (FIXED)
-        // =========================================================
-       // =========================================================
-// MUSIC FORM SUBMISSION
-// =========================================================
-const musicForm = document.getElementById("musicForm");
-const musicSubmit = document.getElementById("musicSubmit");
-
-if (musicForm) {
-  musicForm.addEventListener("submit", async function(event) {
-    event.preventDefault();
-    showMusicMessage("", "");
-
-    const data = {
-      name: document.getElementById("musicName").value.trim(),
-      songTitle: document.getElementById("songTitle").value.trim(),
-      artist: document.getElementById("artist").value.trim()
-    };
-
-    if (!data.name) {
-      showMusicMessage("Please enter your name.", "error");
-      return;
-    }
-    if (!data.songTitle) {
-      showMusicMessage("Please enter the song title.", "error");
-      return;
-    }
-
-    if (musicSubmit) {
-      musicSubmit.disabled = true;
-      musicSubmit.textContent = "Submitting...";
-    }
-
-    showMusicMessage("Submitting your song request...", "success");
-
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          action: 'music',
-          ...data
-        })
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        showMusicMessage(result.message || "Thank you! 🎵 Your song request has been received.", "success");
-        musicForm.reset();
-      } else {
-        showMusicMessage(result.error || "Failed to submit song request.", "error");
-      }
-    } catch (error) {
-      console.error("Music Request Error:", error);
-      showMusicMessage("Error: " + error.toString(), "error");
-    } finally {
-      if (musicSubmit) {
-        musicSubmit.disabled = false;
-        musicSubmit.textContent = "Submit Song";
-      }
-    }
-  });
-}
-
 
         // =========================================================
         // LOAD HERO & GALLERY ON PAGE LOAD
