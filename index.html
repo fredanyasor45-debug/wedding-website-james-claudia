@@ -1275,7 +1275,7 @@
         // CONFIGURATION
         // =========================================================
 
-        // Your Google Apps Script Web App URL - UPDATED
+        // Your Google Apps Script Web App URL
         const API_URL = 'https://script.google.com/macros/s/AKfycbymrrQ_h37wQHc4Tr995lFdppEjZk6gZ_9M3iZ6zypaCldtzNs5NfEcX_gTVUt3gYC0Xg/exec';
 
         // =========================================================
@@ -1370,7 +1370,7 @@
         });
 
         // =========================================================
-        // PLUS ONE & ATTENDANCE LOGIC (NEW)
+        // PLUS ONE & ATTENDANCE LOGIC
         // =========================================================
         const hasPlusOne = document.getElementById("hasPlusOne");
         const plusOneFields = document.getElementById("plusOneFields");
@@ -1404,7 +1404,6 @@
             }
         }
 
-        // Function to hide/show fields based on Attendance selection
         function toggleAttendanceFields() {
             const isDeclining = rsvpAttendance.value === "Joyfully Decline";
             const attendeeFields = document.querySelectorAll(".attendee-only");
@@ -1416,12 +1415,10 @@
                 field.style.display = isDeclining ? "none" : "";
             });
 
-            // Remove required attributes if declining
             mainMealInputs.forEach(input => input.required = !isDeclining);
             proteinInputs.forEach(input => input.required = !isDeclining);
             if (rsvpDrink) rsvpDrink.required = !isDeclining;
 
-            // If declining, hide Plus One and clear it
             if (isDeclining) {
                 if (hasPlusOne) hasPlusOne.checked = false;
                 updatePlusOneVisibility();
@@ -1435,7 +1432,6 @@
             hasPlusOne.addEventListener("change", updatePlusOneVisibility);
         }
 
-        // Initialize on page load
         toggleAttendanceFields();
         updatePlusOneVisibility();
 
@@ -1491,7 +1487,6 @@
                         heroBg.style.backgroundImage = 'url("' + data.url + '")';
                     }
                 } else {
-                    // ⚠️ PASTE YOUR DIRECT IMAGE URL BELOW (REPLACE THE TEXT INSIDE THE QUOTES)
                     const heroBg = document.getElementById('heroBackground');
                     if (heroBg) {
                         heroBg.style.backgroundImage = 'url("YOUR_DIRECT_IMAGE_LINK_HERE.jpg")'; 
@@ -1541,7 +1536,6 @@
                         grid.appendChild(item);
                     });
 
-                    // Re-run reveal animation
                     if ("IntersectionObserver" in window) {
                         const observer = new IntersectionObserver(entries => {
                             entries.forEach(entry => {
@@ -1573,7 +1567,7 @@
         }
 
         // =========================================================
-        // RSVP FORM - SEND TO APPS SCRIPT VIA fetch()
+        // RSVP FORM
         // =========================================================
         const rsvpForm = document.getElementById("rsvpForm");
         const rsvpSubmit = document.getElementById("rsvpSubmit");
@@ -1641,7 +1635,7 @@
                 showRSVPMessage("Submitting your RSVP...", "success");
 
                 try {
-                    const response = await fetch(API_URL, {
+                    await fetch(API_URL, {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: {
@@ -1677,7 +1671,7 @@
         }
 
         // =========================================================
-        // MUSIC FORM - SEND TO APPS SCRIPT VIA fetch()
+        // MUSIC FORM - NO RSVP ID REQUIRED (FIXED)
         // =========================================================
         const musicForm = document.getElementById("musicForm");
         const musicSubmit = document.getElementById("musicSubmit");
@@ -1702,16 +1696,7 @@
                     return;
                 }
 
-                const rsvpId = window.prompt(
-                    "Please enter your RSVP ID so we can link this song request to your RSVP."
-                );
-
-                if (!rsvpId) {
-                    showMusicMessage("Song request cancelled. Your RSVP ID is required.", "error");
-                    return;
-                }
-
-                data.rsvpId = String(rsvpId).trim();
+                // No RSVP ID required - removed the prompt!
 
                 if (musicSubmit) {
                     musicSubmit.disabled = true;
@@ -1721,7 +1706,7 @@
                 showMusicMessage("Submitting your song request...", "success");
 
                 try {
-                    const response = await fetch(API_URL, {
+                    await fetch(API_URL, {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: {
@@ -1729,17 +1714,22 @@
                         },
                         body: new URLSearchParams({
                             action: 'music',
-                            ...data
+                            name: data.name,
+                            songTitle: data.songTitle,
+                            artist: data.artist
                         })
                     });
 
-                    showMusicMessage("Thank you! Your song request has been received.", "success");
+                    showMusicMessage(
+                        "Thank you! 🎵 Your song request has been received. We'll do our best to play it!",
+                        "success"
+                    );
                     musicForm.reset();
 
                 } catch (error) {
                     console.error("Music Request Error:", error);
                     showMusicMessage(
-                        "Something went wrong while submitting your song request.",
+                        "Something went wrong while submitting your song request. Please try again.",
                         "error"
                     );
                 }
