@@ -1673,73 +1673,68 @@
         // =========================================================
         // MUSIC FORM - NO RSVP ID REQUIRED (FIXED)
         // =========================================================
-        const musicForm = document.getElementById("musicForm");
-        const musicSubmit = document.getElementById("musicSubmit");
+       // =========================================================
+// MUSIC FORM SUBMISSION
+// =========================================================
+const musicForm = document.getElementById("musicForm");
+const musicSubmit = document.getElementById("musicSubmit");
 
-        if (musicForm) {
-            musicForm.addEventListener("submit", async function(event) {
-                event.preventDefault();
-                showMusicMessage("", "");
+if (musicForm) {
+  musicForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    showMusicMessage("", "");
 
-                const data = {
-                    name: String(document.getElementById("musicName").value || "").trim(),
-                    songTitle: String(document.getElementById("songTitle").value || "").trim(),
-                    artist: String(document.getElementById("artist").value || "").trim()
-                };
+    const data = {
+      name: document.getElementById("musicName").value.trim(),
+      songTitle: document.getElementById("songTitle").value.trim(),
+      artist: document.getElementById("artist").value.trim()
+    };
 
-                if (!data.name) {
-                    showMusicMessage("Please enter your name.", "error");
-                    return;
-                }
-                if (!data.songTitle) {
-                    showMusicMessage("Please enter the song title.", "error");
-                    return;
-                }
+    if (!data.name) {
+      showMusicMessage("Please enter your name.", "error");
+      return;
+    }
+    if (!data.songTitle) {
+      showMusicMessage("Please enter the song title.", "error");
+      return;
+    }
 
-                // No RSVP ID required - removed the prompt!
+    if (musicSubmit) {
+      musicSubmit.disabled = true;
+      musicSubmit.textContent = "Submitting...";
+    }
 
-                if (musicSubmit) {
-                    musicSubmit.disabled = true;
-                    musicSubmit.textContent = "Submitting...";
-                }
+    showMusicMessage("Submitting your song request...", "success");
 
-                showMusicMessage("Submitting your song request...", "success");
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          action: 'music',
+          ...data
+        })
+      });
 
-                try {
-                    await fetch(API_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams({
-                            action: 'music',
-                            name: data.name,
-                            songTitle: data.songTitle,
-                            artist: data.artist
-                        })
-                    });
+      const result = await response.json();
+      if (result.success) {
+        showMusicMessage(result.message || "Thank you! 🎵 Your song request has been received.", "success");
+        musicForm.reset();
+      } else {
+        showMusicMessage(result.error || "Failed to submit song request.", "error");
+      }
+    } catch (error) {
+      console.error("Music Request Error:", error);
+      showMusicMessage("Error: " + error.toString(), "error");
+    } finally {
+      if (musicSubmit) {
+        musicSubmit.disabled = false;
+        musicSubmit.textContent = "Submit Song";
+      }
+    }
+  });
+}
 
-                    showMusicMessage(
-                        "Thank you! 🎵 Your song request has been received. We'll do our best to play it!",
-                        "success"
-                    );
-                    musicForm.reset();
-
-                } catch (error) {
-                    console.error("Music Request Error:", error);
-                    showMusicMessage(
-                        "Something went wrong while submitting your song request. Please try again.",
-                        "error"
-                    );
-                }
-
-                if (musicSubmit) {
-                    musicSubmit.disabled = false;
-                    musicSubmit.textContent = "Submit Song";
-                }
-            });
-        }
 
         // =========================================================
         // LOAD HERO & GALLERY ON PAGE LOAD
