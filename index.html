@@ -344,6 +344,27 @@
             box-shadow: var(--shadow);
         }
 
+        .detail-card.celebration-card {
+            background: #0E4F4F;
+            border-color: #0E4F4F;
+        }
+
+        .detail-card.celebration-card h3 {
+            color: #E4C464;
+        }
+
+        .detail-card.celebration-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .detail-card.celebration-card .location-link {
+            color: #E4C464;
+        }
+
+        .detail-card.celebration-card .location-link:hover {
+            color: #FFFFFF;
+        }
+
         .detail-icon {
             font-size: 2rem;
             margin-bottom: 15px;
@@ -378,7 +399,7 @@
 
         .couple-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-top: 45px;
         }
@@ -400,16 +421,40 @@
 
         .couple-image-wrapper {
             width: 100%;
-            aspect-ratio: 3 / 4;
             overflow: hidden;
             background: var(--ivory);
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #f0ebe3;
+            min-height: 250px;
+            position: relative;
         }
 
-        .couple-card .couple-image {
+        .couple-image-wrapper.square {
+            aspect-ratio: 3 / 4;
+        }
+
+        .couple-image-wrapper.round {
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--teal), var(--gold-light));
+            box-shadow: 0 4px 20px rgba(14, 79, 79, 0.2);
+        }
+
+        .couple-image-wrapper.round .couple-image {
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .couple-image-wrapper.square .couple-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -436,6 +481,25 @@
             font-weight: 400;
             color: var(--ink-soft);
             font-size: 0.85rem;
+        }
+
+        .couple-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f0ebe3, #e8e0d8);
+            border-radius: 50%;
+        }
+
+        .couple-image-wrapper.square .couple-placeholder {
+            border-radius: 0;
         }
 
         /* =========================================================
@@ -657,8 +721,8 @@
             padding: 8px 12px;
             border: 1px solid var(--border);
             border-radius: 10px;
-            background: var(--white);
-            color: var(--ink);
+            background: #29243E;
+            color: #FFFFFF;
             cursor: pointer;
             transition: all .2s ease;
         }
@@ -1106,7 +1170,7 @@
             <div class="center reveal">
                 <p class="section-label">Counting Down</p>
                 <h2 class="section-title">Until we say "I do"</h2>
-                <p class="section-description">Saturday, 21 November 2026 at 2:00 noon</p>
+                <p class="section-description">Saturday, 21 November 2026 at 2:00 PM</p>
             </div>
             <div class="countdown reveal">
                 <div class="countdown-box">
@@ -1130,6 +1194,77 @@
     </section>
 
     <!-- =========================================================
+         MEET THE COUPLE
+    ========================================================= -->
+    <section class="couple-section" id="couple">
+        <div class="container">
+            <div class="center reveal">
+                <p class="section-label">You Are Joyfully Invited</p>
+                <h2 class="section-title">Two families, joined by faith and love, invite you to witness James &amp; Claudia's marriage discourse and to celebrate with them at their reception.</h2>
+                <p class="section-description">Counting down to the big day…</p>
+            </div>
+            <div class="couple-grid">
+                <!-- BRIDE -->
+                <div class="couple-card reveal">
+                    <div class="couple-image-wrapper round">
+                        <img 
+                            src="https://i.postimg.cc/j2Sb5fNC/Claudia.jpg" 
+                            alt="The Bride - Claudia" 
+                            class="couple-image"
+                            loading="lazy"
+                            onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\'>👰 Claudia</div>'"
+                        >
+                    </div>
+                    <div class="couple-label">👰 The Bride <span>— Claudia</span></div>
+                </div>
+                <!-- GROOM -->
+                <div class="couple-card reveal">
+                    <div class="couple-image-wrapper round">
+                        <img 
+                            src="https://i.postimg.cc/5tL7wrg5/James.jpg" 
+                            alt="The Groom - James" 
+                            class="couple-image"
+                            loading="lazy"
+                            onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\'>🤵 James</div>'"
+                        >
+                    </div>
+                    <div class="couple-label">🤵 The Groom <span>— James</span></div>
+                </div>
+                <!-- COUPLE -->
+                <div class="couple-card reveal">
+                    <div class="couple-image-wrapper square">
+                        <img 
+                            src="https://i.postimg.cc/MK7qZzgt/Claudia-(2).jpg" 
+                            alt="James & Claudia Together" 
+                            class="couple-image"
+                            loading="lazy"
+                            onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'border-radius:0;\\'>💕 James & Claudia</div>'"
+                        >
+                    </div>
+                    <div class="couple-label">💕 The Couple <span>— James & Claudia</span></div>
+                </div>
+                <!-- EXTRA PHOTO -->
+                <div class="couple-card reveal">
+                    <div class="couple-image-wrapper square">
+                        <img 
+                            src="https://i.postimg.cc/m2ZyTWZX/IMG-8206.jpg" 
+                            alt="James & Claudia" 
+                            class="couple-image"
+                            loading="lazy"
+                            onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'border-radius:0;\\'>📸 James & Claudia</div>'"
+                        >
+                    </div>
+                    <div class="couple-label">💑 James & Claudia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
          DETAILS
     ========================================================= -->
     <section class="details-section" id="details">
@@ -1140,88 +1275,31 @@
                 <p class="section-description">We would be honoured to have you celebrate this beautiful beginning with us.</p>
             </div>
             <div class="details-grid">
-                <div class="detail-card reveal">
+                <div class="detail-card celebration-card reveal">
                     <div class="detail-icon">💍</div>
                     <h3>Marriage Discourse</h3>
-                    <p>
-                        <strong>Saturday, 21 November 2026</strong>
-                        <br><br>
-                        2:00 noon
-                        <br><br>
-                        <a href="https://maps.app.goo.gl/NtEF4snodEaDKUgr6" target="_blank" rel="noopener noreferrer" class="location-link">
-                            The Venetian Events Centre & Rentals, New Gbawe CP, Accra
-                        </a>
-                    </p>
-                </div>
-                <div class="detail-card reveal">
-                    <div class="detail-icon">🥂</div>
-                    <h3>Reception</h3>
                     <p>
                         <strong>Saturday, 21 November 2026</strong>
                         <br><br>
                         2:00 PM
                         <br><br>
                         <a href="https://maps.app.goo.gl/NtEF4snodEaDKUgr6" target="_blank" rel="noopener noreferrer" class="location-link">
-                            The Venetian Events Centre & Rentals, New Gbawe CP, Accra
+                            The Venetian Events Center, New Gbawe CP, Accra
                         </a>
                     </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         MEET THE COUPLE
-    ========================================================= -->
-    <section class="couple-section" id="couple">
-        <div class="container">
-            <div class="center reveal">
-                <p class="section-label">Meet the Couple</p>
-                <h2 class="section-title">The Bride, The Groom & The Couple</h2>
-                <p class="section-description">Get to know the beautiful people at the heart of this celebration.</p>
-            </div>
-            <div class="couple-grid">
-                <!-- BRIDE -->
-                <div class="couple-card reveal">
-                    <div class="couple-image-wrapper">
-                        <img 
-                            src="https://i.postimg.cc/j2Sb5fNC/Claudia.jpg" 
-                            alt="The Bride - Claudia" 
-                            class="couple-image"
-                            loading="lazy"
-                            onload="this.classList.add('loaded')"
-                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>👰 The Bride</div>'"
-                        >
-                    </div>
-                    <div class="couple-label">👰 The Bride <span>— Claudia</span></div>
-                </div>
-                <!-- GROOM -->
-                <div class="couple-card reveal">
-                    <div class="couple-image-wrapper">
-                        <img 
-                            src="https://i.postimg.cc/5tL7wrg5/James.jpg" 
-                            alt="The Groom - James" 
-                            class="couple-image"
-                            loading="lazy"
-                            onload="this.classList.add('loaded')"
-                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>🤵 The Groom</div>'"
-                        >
-                    </div>
-                    <div class="couple-label">🤵 The Groom <span>— James</span></div>
-                </div>
-                <!-- COUPLE -->
-                <div class="couple-card reveal">
-                    <div class="couple-image-wrapper">
-                        <img 
-                            src="https://i.postimg.cc/MK7qZzgt/Claudia-(2).jpg" 
-                            alt="James & Claudia Together" 
-                            class="couple-image"
-                            loading="lazy"
-                            onload="this.classList.add('loaded')"
-                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>💕 The Couple</div>'"
-                        >
-                    </div>
-                    <div class="couple-label">💕 The Couple <span>— James & Claudia</span></div>
+                <div class="detail-card celebration-card reveal">
+                    <div class="detail-icon">🥂</div>
+                    <h3>Reception</h3>
+                    <p>
+                        <strong>Saturday, 21 November 2026</strong>
+                        <br><br>
+                        4:00 PM
+                        <br><br>
+                        <a href="https://maps.app.goo.gl/NtEF4snodEaDKUgr6" target="_blank" rel="noopener noreferrer" class="location-link">
+                            The Venetian Events Center, New Gbawe CP, Accra
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -1234,15 +1312,11 @@
         <div class="container">
             <div class="center reveal">
                 <p class="section-label">Our Story</p>
-                <h2 class="section-title">A journey worth remembering</h2>
+                <h2 class="section-title">How it began</h2>
             </div>
             <div class="story-box reveal">
                 <p>
-                    Two hearts, one beautiful journey, and a lifetime ahead.
-                    <br><br>
-                    We are grateful for the love, friendship and support that have brought us to this special moment.
-                    <br><br>
-                    We cannot wait to celebrate this new chapter surrounded by the people who mean so much to us.
+                    James and Claudia's story began long before either of them thought to call it a love story — as childhood friends, growing up as the first-born children of two families who already knew and loved one another. Life carried them apart for a season, each on their own journey of growth and self-discovery. But some bonds are patient. Years later, their paths crossed again, and what had once been friendship quietly became something more. Now, the two families who knew each other long before James and Claudia did are coming together once more — this time, to celebrate a marriage.
                 </p>
             </div>
         </div>
@@ -1268,17 +1342,14 @@
                 </div>
                 <form id="rsvpForm">
                     <div class="form-grid">
-                        <!-- MAIN GUEST NAME -->
                         <div class="form-group">
                             <label for="rsvpName">Full Name</label>
                             <input id="rsvpName" type="text" name="name" required autocomplete="name" placeholder="Your full name">
                         </div>
-                        <!-- PHONE -->
                         <div class="form-group">
                             <label for="rsvpPhone">Phone Number</label>
                             <input id="rsvpPhone" type="tel" name="phone" autocomplete="tel" placeholder="Your phone number">
                         </div>
-                        <!-- ATTENDANCE -->
                         <div class="form-group">
                             <label for="rsvpAttendance">Attendance</label>
                             <select id="rsvpAttendance" name="attendance" required>
@@ -1288,7 +1359,6 @@
                             </select>
                         </div>
                         
-                        <!-- FIELDS ONLY FOR ATTENDING GUESTS -->
                         <div class="form-group attendee-only">
                             <label>Preferred Main Meal</label>
                             <div class="choice-grid">
@@ -1333,11 +1403,9 @@
                             </div>
                         </div>
 
-                        <!-- DRINK SELECTION -->
                         <div class="form-group attendee-only">
                             <label>Preferred Drinks <span style="font-weight:normal;color:var(--ink-soft);">(Pick up to 2 total)</span></label>
                             <div class="choice-grid drink-grid">
-                                <!-- Category: Local Drinks -->
                                 <div class="category-label">🍃 Local Drinks</div>
                                 <label class="choice-item">
                                     <input type="checkbox" name="drink" value="Palm Wine" class="drink-check">
@@ -1352,7 +1420,6 @@
                                     <span>Asana</span>
                                 </label>
 
-                                <!-- Category: Fruit Juice -->
                                 <div class="category-label">🧃 Fruit Juice</div>
                                 <label class="choice-item">
                                     <input type="checkbox" name="drink" value="Pineapple Juice" class="drink-check">
@@ -1367,7 +1434,6 @@
                                     <span>Punch</span>
                                 </label>
 
-                                <!-- Category: Soft Drinks & Beer -->
                                 <div class="category-label">🥤 Soft Drinks & Beer</div>
                                 <label class="choice-item">
                                     <input type="checkbox" name="drink" value="Malt" class="drink-check">
@@ -1393,7 +1459,6 @@
                             <span class="selection-hint" id="drinkHint">0 of 2 selected</span>
                         </div>
 
-                        <!-- SNACK SELECTION -->
                         <div class="form-group attendee-only">
                             <label>Snack Selection <span style="font-weight:normal;color:var(--ink-soft);">(Pick up to 2)</span></label>
                             <div class="choice-grid snack-grid">
@@ -1441,7 +1506,6 @@
                             <span class="selection-hint" id="snackHint">0 of 2 selected</span>
                         </div>
 
-                        <!-- PLUS ONE (Attendees Only) -->
                         <div class="form-group full attendee-only">
                             <div class="plus-one-box">
                                 <label class="plus-one-toggle">
@@ -1495,11 +1559,9 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <!-- PLUS ONE DRINKS -->
                                     <div class="form-group">
                                         <label>Plus One's Drinks <span style="font-weight:normal;color:var(--ink-soft);">(Pick up to 2 total)</span></label>
                                         <div class="choice-grid drink-grid">
-                                            <!-- Category: Local Drinks -->
                                             <div class="category-label">🍃 Local Drinks</div>
                                             <label class="choice-item">
                                                 <input type="checkbox" name="plusOneDrink" value="Palm Wine" class="plusone-drink-check">
@@ -1514,7 +1576,6 @@
                                                 <span>Asana</span>
                                             </label>
 
-                                            <!-- Category: Fruit Juice -->
                                             <div class="category-label">🧃 Fruit Juice</div>
                                             <label class="choice-item">
                                                 <input type="checkbox" name="plusOneDrink" value="Pineapple Juice" class="plusone-drink-check">
@@ -1529,7 +1590,6 @@
                                                 <span>Punch</span>
                                             </label>
 
-                                            <!-- Category: Soft Drinks & Beer -->
                                             <div class="category-label">🥤 Soft Drinks & Beer</div>
                                             <label class="choice-item">
                                                 <input type="checkbox" name="plusOneDrink" value="Malt" class="plusone-drink-check">
@@ -1554,7 +1614,6 @@
                                         </div>
                                         <span class="selection-hint" id="plusOneDrinkHint">0 of 2 selected</span>
                                     </div>
-                                    <!-- PLUS ONE SNACKS -->
                                     <div class="form-group">
                                         <label>Plus One's Snacks <span style="font-weight:normal;color:var(--ink-soft);">(Pick up to 2)</span></label>
                                         <div class="choice-grid snack-grid">
@@ -1605,13 +1664,11 @@
                             </div>
                         </div>
 
-                        <!-- SPECIAL NOTE -->
                         <div class="form-group full">
                             <label for="rsvpNote">Special Note</label>
                             <textarea id="rsvpNote" name="note" placeholder="Optional message for the couple"></textarea>
                         </div>
 
-                        <!-- SUBMIT -->
                         <div class="form-group full">
                             <div class="submit-area">
                                 <button type="submit" id="rsvpSubmit" class="btn btn-primary">Submit RSVP</button>
@@ -1712,11 +1769,11 @@
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">What time is the marriage discourse? <span>+</span></div>
-                    <div class="faq-answer">The marriage discourse begins at <strong>2:00 noon</strong> at <strong>The Venetian Events Centre & Rentals, New Gbawe CP, Accra.</strong></div>
+                    <div class="faq-answer">The marriage discourse begins at <strong>2:00 PM</strong> at <strong>The Venetian Events Center, New Gbawe CP, Accra.</strong></div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">What time is the reception? <span>+</span></div>
-                    <div class="faq-answer">The reception begins at <strong>2:00 PM</strong> at <strong>The Venetian Events Centre & Rentals, New Gbawe CP, Accra.</strong></div>
+                    <div class="faq-answer">The reception begins at <strong>4:00 PM</strong> at <strong>The Venetian Events Center, New Gbawe CP, Accra.</strong></div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">Are children allowed? <span>+</span></div>
@@ -1756,141 +1813,7 @@
         // CONFIGURATION
         // =========================================================
 
-        // Your Google Apps Script Web App URL
         const API_URL = 'https://script.google.com/macros/s/AKfycbymrrQ_h37wQHc4Tr995lFdppEjZk6gZ_9M3iZ6zypaCldtzNs5NfEcX_gTVUt3gYC0Xg/exec';
-
-        // =========================================================
-        // PRELOAD IMAGES FOR SMOOTH LOADING
-        // =========================================================
-        function preloadImage(src) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(img);
-                img.onerror = () => reject(new Error('Failed to load: ' + src));
-                img.src = src;
-            });
-        }
-
-        async function preloadAllImages() {
-            const imageUrls = [
-                'https://i.postimg.cc/j2Sb5fNC/Claudia.jpg',
-                'https://i.postimg.cc/5tL7wrg5/James.jpg',
-                'https://i.postimg.cc/MK7qZzgt/Claudia-(2).jpg',
-                'https://i.postimg.cc/ZRDf8v2b/Hero-im.jpg'
-            ];
-            
-            try {
-                await Promise.all(imageUrls.map(url => preloadImage(url)));
-                console.log('All images preloaded successfully');
-            } catch (error) {
-                console.log('Some images failed to preload:', error);
-            }
-        }
-
-        // =========================================================
-        // HERO IMAGE LOADING
-        // =========================================================
-        async function loadHeroImage() {
-            const heroBg = document.getElementById('heroBackground');
-            if (!heroBg) return;
-
-            // Hero image is already set inline, just need to add loaded class
-            heroBg.classList.add('loaded');
-            
-            // Still try to load from API as fallback
-            try {
-                const response = await fetch(API_URL + '?action=getHero');
-                const data = await response.json();
-
-                if (data && data.exists && data.url) {
-                    const img = new Image();
-                    img.onload = function() {
-                        heroBg.style.backgroundImage = 'url("' + data.url + '")';
-                        heroBg.classList.add('loaded');
-                    };
-                    img.onerror = function() {
-                        // Keep the inline image
-                    };
-                    img.src = data.url;
-                }
-            } catch (error) {
-                console.log('Hero image API not available, using inline image');
-            }
-        }
-
-        // =========================================================
-        // GALLERY IMAGES LOADING
-        // =========================================================
-        async function loadGalleryPhotos() {
-            const grid = document.getElementById('galleryGrid');
-            if (!grid) return;
-
-            try {
-                const response = await fetch(API_URL + '?action=getGallery');
-                const data = await response.json();
-
-                grid.innerHTML = '';
-
-                if (data && data.length > 0) {
-                    const fragment = document.createDocumentFragment();
-                    let imagePromises = [];
-
-                    data.forEach(function(photo) {
-                        const item = document.createElement('div');
-                        item.className = 'gallery-item reveal';
-
-                        const imgUrl = photo.url || photo.fileIdURL || photo.URL || '';
-                        const imgName = photo.name || photo.fileName || 'Photo';
-
-                        if (imgUrl) {
-                            const img = document.createElement('img');
-                            img.src = imgUrl;
-                            img.alt = imgName;
-                            img.loading = 'lazy';
-                            
-                            img.onload = function() {
-                                this.classList.add('loaded');
-                            };
-                            img.onerror = function() {
-                                this.parentElement.innerHTML = '<div class="gallery-placeholder">' + escapeHtml(imgName) + '</div>';
-                            };
-                            
-                            item.appendChild(img);
-                            
-                            const preloadPromise = preloadImage(imgUrl).catch(() => {});
-                            imagePromises.push(preloadPromise);
-                        } else {
-                            item.innerHTML = '<div class="gallery-placeholder">' + escapeHtml(imgName) + '</div>';
-                        }
-
-                        fragment.appendChild(item);
-                    });
-
-                    grid.appendChild(fragment);
-
-                    await Promise.all(imagePromises);
-
-                    if ("IntersectionObserver" in window) {
-                        const observer = new IntersectionObserver(entries => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    entry.target.classList.add('visible');
-                                }
-                            });
-                        }, { threshold: 0.12 });
-
-                        document.querySelectorAll('.gallery-item').forEach(el => {
-                            observer.observe(el);
-                        });
-                    }
-                } else {
-                    grid.innerHTML = '<div class="empty">No photos uploaded yet.</div>';
-                }
-            } catch (error) {
-                console.error('Gallery load error:', error);
-                grid.innerHTML = '<div class="empty">Could not load gallery photos.</div>';
-            }
-        }
 
         // =========================================================
         // MOBILE NAVIGATION
@@ -1984,7 +1907,7 @@
         });
 
         // =========================================================
-        // MULTI-SELECT LOGIC (Drinks & Snacks - Max 2)
+        // MULTI-SELECT LOGIC
         // =========================================================
         const MAX_SELECTIONS = 2;
 
@@ -2124,13 +2047,6 @@
                 .replace(/'/g, "&#039;");
         }
 
-        function escapeAttribute(value) {
-            return String(value == null ? "" : value)
-                .replace(/&/g, "&amp;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
         // =========================================================
         // RSVP FORM
         // =========================================================
@@ -2265,13 +2181,102 @@
         }
 
         // =========================================================
+        // HERO IMAGE - Try multiple strategies
+        // =========================================================
+        function loadHeroImage() {
+            const heroBg = document.getElementById('heroBackground');
+            if (!heroBg) return;
+
+            // Try loading the image with a cache-busting timestamp
+            const imageUrl = 'https://i.postimg.cc/ZRDf8v2b/Hero-im.jpg';
+            
+            const img = new Image();
+            img.onload = function() {
+                heroBg.style.backgroundImage = 'url("' + imageUrl + '")';
+                heroBg.classList.add('loaded');
+            };
+            img.onerror = function() {
+                // If image fails, show a solid color with gradient
+                heroBg.style.background = 'linear-gradient(135deg, #0E4F4F, #1a6b6b)';
+                heroBg.classList.add('loaded');
+            };
+            img.src = imageUrl + '?t=' + Date.now();
+        }
+
+        // =========================================================
+        // GALLERY IMAGES LOADING
+        // =========================================================
+        async function loadGalleryPhotos() {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+
+            try {
+                const response = await fetch(API_URL + '?action=getGallery');
+                const data = await response.json();
+
+                grid.innerHTML = '';
+
+                if (data && data.length > 0) {
+                    const fragment = document.createDocumentFragment();
+
+                    data.forEach(function(photo) {
+                        const item = document.createElement('div');
+                        item.className = 'gallery-item reveal';
+
+                        const imgUrl = photo.url || photo.fileIdURL || photo.URL || '';
+                        const imgName = photo.name || photo.fileName || 'Photo';
+
+                        if (imgUrl) {
+                            const img = document.createElement('img');
+                            img.src = imgUrl;
+                            img.alt = imgName;
+                            img.loading = 'lazy';
+                            
+                            img.onload = function() {
+                                this.classList.add('loaded');
+                            };
+                            img.onerror = function() {
+                                this.parentElement.innerHTML = '<div class="gallery-placeholder">' + escapeHtml(imgName) + '</div>';
+                            };
+                            
+                            item.appendChild(img);
+                        } else {
+                            item.innerHTML = '<div class="gallery-placeholder">' + escapeHtml(imgName) + '</div>';
+                        }
+
+                        fragment.appendChild(item);
+                    });
+
+                    grid.appendChild(fragment);
+
+                    if ("IntersectionObserver" in window) {
+                        const observer = new IntersectionObserver(entries => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
+                        }, { threshold: 0.12 });
+
+                        document.querySelectorAll('.gallery-item').forEach(el => {
+                            observer.observe(el);
+                        });
+                    }
+                } else {
+                    grid.innerHTML = '<div class="empty">No photos uploaded yet.</div>';
+                }
+            } catch (error) {
+                console.error('Gallery load error:', error);
+                grid.innerHTML = '<div class="empty">Could not load gallery photos.</div>';
+            }
+        }
+
+        // =========================================================
         // LOAD EVERYTHING ON PAGE LOAD
         // =========================================================
         window.addEventListener('load', function() {
-            preloadAllImages().then(() => {
-                loadHeroImage();
-                loadGalleryPhotos();
-            });
+            loadHeroImage();
+            loadGalleryPhotos();
         });
     </script>
 
