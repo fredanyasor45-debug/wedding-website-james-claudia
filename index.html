@@ -180,7 +180,6 @@
             z-index: 1;
         }
 
-        /* J&C Monogram - Top Right Corner */
         .hero-monogram {
             position: absolute;
             top: 30px;
@@ -1083,10 +1082,9 @@
          HERO
     ========================================================= -->
     <section class="hero" id="home">
-        <div class="hero-background" id="heroBackground">
+        <div class="hero-background" id="heroBackground" style="background-image: url('https://i.postimg.cc/ZRDf8v2b/Hero-im.jpg');">
             <div class="hero-overlay"></div>
         </div>
-        <!-- J&C Monogram - Top Right Corner -->
         <div class="hero-monogram" aria-label="James & Claudia monogram">J &amp; C</div>
         <div class="container">
             <div class="hero-content reveal">
@@ -1151,7 +1149,7 @@
                         2:00 noon
                         <br><br>
                         <a href="https://maps.app.goo.gl/NtEF4snodEaDKUgr6" target="_blank" rel="noopener noreferrer" class="location-link">
-                            The Venetian Events Centre, New Gbawe CP, Accra
+                            The Venetian Events Centre & Rentals, New Gbawe CP, Accra
                         </a>
                     </p>
                 </div>
@@ -1161,10 +1159,10 @@
                     <p>
                         <strong>Saturday, 21 November 2026</strong>
                         <br><br>
-                        4:00 PM
+                        2:00 PM
                         <br><br>
                         <a href="https://maps.app.goo.gl/NtEF4snodEaDKUgr6" target="_blank" rel="noopener noreferrer" class="location-link">
-                            The Venetian Events Centre, New Gbawe CP, Accra
+                            The Venetian Events Centre & Rentals, New Gbawe CP, Accra
                         </a>
                     </p>
                 </div>
@@ -1187,11 +1185,12 @@
                 <div class="couple-card reveal">
                     <div class="couple-image-wrapper">
                         <img 
-                            src="https://i.imgur.com/NvIi6hO.jpeg" 
+                            src="https://i.postimg.cc/j2Sb5fNC/Claudia.jpg" 
                             alt="The Bride - Claudia" 
                             class="couple-image"
                             loading="lazy"
                             onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>👰 The Bride</div>'"
                         >
                     </div>
                     <div class="couple-label">👰 The Bride <span>— Claudia</span></div>
@@ -1200,11 +1199,12 @@
                 <div class="couple-card reveal">
                     <div class="couple-image-wrapper">
                         <img 
-                            src="https://i.imgur.com/wVpa1qI.jpeg" 
+                            src="https://i.postimg.cc/5tL7wrg5/James.jpg" 
                             alt="The Groom - James" 
                             class="couple-image"
                             loading="lazy"
                             onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>🤵 The Groom</div>'"
                         >
                     </div>
                     <div class="couple-label">🤵 The Groom <span>— James</span></div>
@@ -1213,11 +1213,12 @@
                 <div class="couple-card reveal">
                     <div class="couple-image-wrapper">
                         <img 
-                            src="https://i.imgur.com/zYiUz1K.jpeg" 
+                            src="https://i.postimg.cc/MK7qZzgt/Claudia-(2).jpg" 
                             alt="James & Claudia Together" 
                             class="couple-image"
                             loading="lazy"
                             onload="this.classList.add('loaded')"
+                            onerror="this.parentElement.innerHTML='<div class=\\'couple-placeholder\\' style=\\'min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;\\'>💕 The Couple</div>'"
                         >
                     </div>
                     <div class="couple-label">💕 The Couple <span>— James & Claudia</span></div>
@@ -1606,8 +1607,8 @@
 
                         <!-- SPECIAL NOTE -->
                         <div class="form-group full">
-                            <label for="rsvpNote">Special Note & Song request</label>
-                            <textarea id="rsvpNote" name="note" placeholder="Optional (Message, SongTitle & Artist )"></textarea>
+                            <label for="rsvpNote">Special Note</label>
+                            <textarea id="rsvpNote" name="note" placeholder="Optional message for the couple"></textarea>
                         </div>
 
                         <!-- SUBMIT -->
@@ -1624,7 +1625,7 @@
     </section>
 
     <!-- =========================================================
-         WEAR OUR COLOURS (MOVED HERE - BETWEEN RSVP AND GIFT)
+         WEAR OUR COLOURS
     ========================================================= -->
     <section class="colours-section">
         <div class="container">
@@ -1711,11 +1712,11 @@
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">What time is the marriage discourse? <span>+</span></div>
-                    <div class="faq-answer">The marriage discourse begins at <strong>2:00 noon</strong> at <strong>The Venetian Events Centre, New Gbawe CP, Accra.</strong></div>
+                    <div class="faq-answer">The marriage discourse begins at <strong>2:00 noon</strong> at <strong>The Venetian Events Centre & Rentals, New Gbawe CP, Accra.</strong></div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">What time is the reception? <span>+</span></div>
-                    <div class="faq-answer">The reception begins at <strong>2:00 PM</strong> at <strong>The Venetian Events Centre, New Gbawe CP, Accra.</strong></div>
+                    <div class="faq-answer">The reception begins at <strong>2:00 PM</strong> at <strong>The Venetian Events Centre & Rentals, New Gbawe CP, Accra.</strong></div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">Are children allowed? <span>+</span></div>
@@ -1772,9 +1773,10 @@
 
         async function preloadAllImages() {
             const imageUrls = [
-                'https://i.imgur.com/NvIi6hO.jpeg',
-                'https://i.imgur.com/wVpa1qI.jpeg',
-                'https://i.imgur.com/zYiUz1K.jpeg'
+                'https://i.postimg.cc/j2Sb5fNC/Claudia.jpg',
+                'https://i.postimg.cc/5tL7wrg5/James.jpg',
+                'https://i.postimg.cc/MK7qZzgt/Claudia-(2).jpg',
+                'https://i.postimg.cc/ZRDf8v2b/Hero-im.jpg'
             ];
             
             try {
@@ -1792,32 +1794,27 @@
             const heroBg = document.getElementById('heroBackground');
             if (!heroBg) return;
 
+            // Hero image is already set inline, just need to add loaded class
+            heroBg.classList.add('loaded');
+            
+            // Still try to load from API as fallback
             try {
                 const response = await fetch(API_URL + '?action=getHero');
                 const data = await response.json();
 
-                let imageUrl = '';
                 if (data && data.exists && data.url) {
-                    imageUrl = data.url;
-                } else {
-                    imageUrl = 'YOUR_DIRECT_IMAGE_LINK_HERE.jpg';
-                }
-
-                if (imageUrl) {
                     const img = new Image();
                     img.onload = function() {
-                        heroBg.style.backgroundImage = 'url("' + imageUrl + '")';
+                        heroBg.style.backgroundImage = 'url("' + data.url + '")';
                         heroBg.classList.add('loaded');
                     };
                     img.onerror = function() {
-                        heroBg.style.backgroundColor = '#0E4F4F';
-                        heroBg.classList.add('loaded');
+                        // Keep the inline image
                     };
-                    img.src = imageUrl;
+                    img.src = data.url;
                 }
             } catch (error) {
-                console.log('Hero image not available:', error);
-                heroBg.classList.add('loaded');
+                console.log('Hero image API not available, using inline image');
             }
         }
 
