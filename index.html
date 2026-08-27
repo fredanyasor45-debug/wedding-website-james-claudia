@@ -981,6 +981,14 @@
         .footer-names {
             font-size: 2rem;
             margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .footer-date {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-top: 5px;
         }
 
         .footer-heart {
@@ -1006,6 +1014,21 @@
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* =========================================================
+           COUPLE SECTION TITLE - REDUCED FONT SIZE
+        ========================================================= */
+        .couple-section .section-title.smaller {
+            font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+            line-height: 1.5;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .couple-section .section-label {
+            margin-bottom: 5px;
         }
 
         /* =========================================================
@@ -1116,6 +1139,10 @@
             .rsvp-box {
                 padding: 22px;
             }
+
+            .couple-section .section-title.smaller {
+                font-size: clamp(1.1rem, 4vw, 1.6rem);
+            }
         }
     </style>
 </head>
@@ -1194,13 +1221,14 @@
     </section>
 
     <!-- =========================================================
-         MEET THE COUPLE
+         MEET THE COUPLE - WITH REDUCED FONT SIZE
     ========================================================= -->
     <section class="couple-section" id="couple">
         <div class="container">
             <div class="center reveal">
                 <p class="section-label">You Are Joyfully Invited</p>
-                <h2 class="section-title">Two families, joined by faith and love, invite you to witness James &amp; Claudia's marriage discourse and to celebrate with them at their reception.</h2>
+                <!-- Reduced font size with smaller class -->
+                <h2 class="section-title smaller">Two families, joined by faith and love, invite you to witness James &amp; Claudia's marriage discourse and to celebrate with them at their reception.</h2>
                 <p class="section-description">Counting down to the big day…</p>
             </div>
             <div class="couple-grid">
@@ -1666,7 +1694,7 @@
 
                         <div class="form-group full">
                             <label for="rsvpNote">Special Note</label>
-                            <textarea id="rsvpNote" name="note" placeholder="Optional message for the couple"></textarea>
+                            <textarea id="rsvpNote" name="note" placeholder="Optional (Message, Song Title &amp; Artist)"></textarea>
                         </div>
 
                         <div class="form-group full">
@@ -1796,13 +1824,12 @@
     </section>
 
     <!-- =========================================================
-         FOOTER
+         FOOTER - UPDATED
     ========================================================= -->
     <footer>
-        <div class="footer-names">James & Claudia</div>
         <div class="footer-heart">✦</div>
-        <p>Saturday, 21 November 2026 · Accra, Ghana</p>
-        <p>With love, James & Claudia</p>
+        <div class="footer-names">With Love</div>
+        <div class="footer-date">JAMES &amp; CLAUDIA 21 - 11 - 2026</div>
     </footer>
 
     <!-- =========================================================
